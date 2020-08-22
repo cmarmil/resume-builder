@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { PDFViewer, pdf, BlobProvider } from "@react-pdf/renderer";
+import { Document, Page, pdfjs } from "react-pdf";
+import PDFOutput from "./components/pdfOutput.js";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      blob: null
+    };
+    this.getBlob = this.getBlob.bind(this);
+  }
+
+  async getBlob() {
+    let blob = pdf(<PDFOutput></PDFOutput>).toBlob();
+    return blob;
+  }
+
+  async componentDidMount() {
+    //react-pdf needs this to work
+    pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+    let blob = await this.getBlob();
+    this.setState({
+      blob: blob
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.blob ? (
+          <Document file={this.state.blob}>
+            <Page pageNumber={1} />
+          </Document>
+        ) : null}
+      </div>
+    );
+  }
 }
 
 export default App;
