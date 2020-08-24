@@ -1,8 +1,11 @@
 import React from "react";
-import { PDFViewer, pdf, BlobProvider } from "@react-pdf/renderer";
+import { pdf } from "@react-pdf/renderer";
 import { Document, Page, pdfjs } from "react-pdf";
 import PDFOutput from "./components/pdfOutput.js";
+import { view } from "@risingstack/react-easy-state";
+import appState from "./appState.js";
 import "./App.css";
+import { PDFViewer } from "@react-pdf/renderer";
 
 class App extends React.Component {
   constructor(props) {
@@ -40,4 +43,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default view(App);
