@@ -1,5 +1,6 @@
 import React from "react";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import { Page, Text, View, Document, StyleSheet} from "@react-pdf/renderer";
+import { Svg, Path, Circle, Line} from "@react-pdf/primitives";
 import { view } from "@risingstack/react-easy-state";
 import appState from "../appState.js";
 
@@ -58,7 +59,7 @@ function PDFOutput() {
             <Text style={styles.jobTitle}>Web Developer</Text>
           </View>
           <View style={styles.contactInfo}>
-            <Text>caileymillerdev@gmail.com</Text>
+           <Text>caileymillerdev@gmail.com</Text>
             <Text>(864)-553-5912</Text>
           </View>
         </View>
