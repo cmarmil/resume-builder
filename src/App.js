@@ -1,51 +1,35 @@
 import React from "react";
-import { pdf } from "@react-pdf/renderer";
-import { Document, Page, pdfjs } from "react-pdf";
-import { BlobProvider } from "@react-pdf/renderer";
-import PDFOutput from "./components/pdfOutput.js";
+import { pdfjs } from "react-pdf";
+import PDFDisplay from "./components/pdfDisplay.js";
 import { view } from "@risingstack/react-easy-state";
+import DownloadButton from './components/downloadButton.js';
 import appState from "./appState.js";
+import registerFont from './components/fontRegister';
 import "./App.css";
-import { PDFViewer } from "@react-pdf/renderer";
+
+import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import fontRegister from "./components/fontRegister";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      blob: null
-    };
-    this.getBlob = this.getBlob.bind(this);
-  }
-
-  async getBlob() {
-    let blob = pdf(<PDFOutput></PDFOutput>).toBlob();
-    return blob;
   }
 
   async componentDidMount() {
+    registerFont();
     //react-pdf needs this to work
     pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-    /* let blob = await this.getBlob();
-    this.setState({
-      blob: blob
-    }); */
   }
 
   render() {
     return (
-      <div className="App">
-        <BlobProvider document={<PDFOutput></PDFOutput>}>
-          {({ blob }) =>
-            blob ? (
-              <Document file={blob}>
-                <Page pageNumber={1} />
-              </Document>
-            ) : (
-              <span>Loading PDF....</span>
-            )
-          }
-        </BlobProvider>
-      </div>
+      <ThemeProvider>
+        <CSSReset />
+        <div className="App">
+          <PDFDisplay></PDFDisplay>
+          <DownloadButton></DownloadButton>
+        </div>
+      </ThemeProvider>
     );
   }
 }
