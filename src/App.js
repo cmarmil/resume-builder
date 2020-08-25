@@ -34,11 +34,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/*  {this.state.blob ? (
-          <Document file={this.state.blob}>
-            <Page pageNumber={1} />
-          </Document>
-        ) : null} */}
         <BlobProvider document={<PDFOutput></PDFOutput>}>
           {({ blob }) =>
             blob ? (
