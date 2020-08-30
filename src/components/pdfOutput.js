@@ -9,6 +9,7 @@ import {
 } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
 import appState from "../appState.js";
+import UnorderedListItem from "./unorderListItem.js";
 import PhoneIcon from "../icons/phoneIcon.js";
 import MailIcon from "../icons/mailIcon.js";
 import WebpageIcon from "../icons/webpageIcon.js";
@@ -28,7 +29,8 @@ const styles = StyleSheet.create({
     padding: 25
   },
   section: {
-    marginBottom: 5
+    paddingBottom: 10,
+    paddingTop: 10
   },
   nameInfo: {
     flexDirection: "column",
@@ -47,12 +49,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10
   },
-  profileSection: {
-    marginBottom: 10
-  },
-  skillsSection: {
-    marginBottom: 10
-  },
   sectionHeader: {
     fontSize: 20,
     textDecoration: "underline",
@@ -60,19 +56,20 @@ const styles = StyleSheet.create({
   },
   svgFlex: {
     flexDirection: "row",
-    textAlign: "left"
+    textAlign: "left",
+    paddingBottom: 5
   },
   icon: {
-    marginRight: 5
-  },
-  bulletedText: {
-    marginBottom: 5,
-    textIndent: -5,
-    paddingLeft: 5
+    marginRight: 7
   },
   companyDates: {
-    marginLeft: 5,
-    width: "50%"
+    textAlign: "right",
+    width: "50%",
+    fontStyle: "italic"
+  },
+  companyName: {
+    width: "50%",
+    fontStyle: "italic"
   },
   companyInfo: {
     flexDirection: "row",
@@ -85,6 +82,9 @@ const styles = StyleSheet.create({
   },
   jobTitle: {
     fontStyle: "bold"
+  },
+  skillCategory: {
+      paddingBottom: 5
   }
 });
 
@@ -119,7 +119,7 @@ function PDFOutput() {
             </View>
           </View>
 
-          <View style={styles.profileSection}>
+          <View style={styles.section}>
             <Text style={styles.sectionHeader}>Summary</Text>
             <Text>
               Creative Web Developer with proven experience developing and
@@ -127,36 +127,42 @@ function PDFOutput() {
               challenge, and am open to using new technologies and languages.
             </Text>
           </View>
-          <View style={styles.skillsSection}>
+          <View style={styles.section}>
             <Text style={styles.sectionHeader}>Skills</Text>
-            <Text>
-              HTML5, CSS3, SASS, Javascript, Node.js, jQuery, React, AJAX/AJAJ,
-              RESTful APIs, MVC, WCAG, Ruby, Git, SVN, Charles Web Proxy,
-              Webpack, Jira, Agile, Kanban.
-            </Text>
+              <Text style={styles.skillCategory}>Languages and Architecture: HTML5, CSS3, SASS, Javascript, Node.js, jQuery, React, AJAX/AJAJ, RESTful APIs, MVC, WCAG and Accessibility, Ruby.</Text>
+              <Text style={styles.skillCategory}>Tools and Process: Git, SVN, Charles Web Proxy, Webpack, Jira, Agile, Kanban.</Text>
           </View>
-          <View style={styles.workExperience}>
+          <View style={styles.section}>
             <Text style={styles.sectionHeader}>Work Experience</Text>
+
+            <Text style={styles.jobTitle}>Front End Web Developer</Text>
+
             <View style={styles.companyInfo}>
-              <Text style={styles.jobTitle}>Front End Web Developer</Text>
-              <Text style={styles.slash}>/</Text>
               <Text style={styles.companyName}>BlueToad Inc.</Text>
+              <Text style={styles.companyDates}>August 2019 - July 2020</Text>
             </View>
-            <Text style={styles.bulletedText}>
-              &#8226;Developed new features from mockups and working with
-              designers to find ideal solutions to technical design problems.
-            </Text>
-            <Text style={styles.bulletedText}>
-              &#8226;Refactored existing code into modern reusable components
-              using React. Engineered WCAG compliant features to ensure a fully
+
+            <UnorderedListItem>
+              Developed new features from mockups and working with designers to
+              find ideal solutions to technical design problems.
+            </UnorderedListItem>
+            <UnorderedListItem>
+              Refactored existing code into modern reusable components using
+              React. Engineered WCAG compliant features to ensure a fully
               accessible experience for all users.
-            </Text>
-            <Text style={styles.bulletedText}>
-              &#8226;Conducted cross browser testing and debugging to provide a
+            </UnorderedListItem>
+            <UnorderedListItem>
+              Conducted cross browser testing and debugging to provide a
               harmonious user experience across browsers, operating systems, and
               devices.
-            </Text>
+            </UnorderedListItem>
           </View>
+          <Text style={styles.sectionHeader}>Other Experience</Text>
+          <UnorderedListItem>
+            Illustrator and Graphic Designer
+          </UnorderedListItem>
+          <UnorderedListItem>Customer Service (various)</UnorderedListItem>
+          <View></View>
         </View>
       </Page>
     </Document>
