@@ -11,13 +11,8 @@ const styles = StyleSheet.create({
     },
     listItemText: {
       flexDirection: 'row',
-      
       lineHeight: 1.45,
     },
-    bullet: {
-      
-
-    }
   });
 
   const UnorderedListItem = ({ children }) => {

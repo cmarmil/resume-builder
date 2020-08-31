@@ -11,6 +11,7 @@ export const DownloadButton = () => (
         const asPdf = pdf({}); //important, throws without an argument
         asPdf.updateContainer(doc);
         const blob = await asPdf.toBlob();
+        console.log(blob)
         saveAs(blob, 'resume.pdf');
       }}
     >Download PDF</Button>
