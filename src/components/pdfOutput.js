@@ -23,10 +23,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#80CBC4"
   },
   headerPadding: {
-    padding: 20
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 20,
+    paddingBottom: 10
   },
   mainSections: {
-    padding: 25
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: 25,
+    paddingTop: 10
   },
   section: {
     paddingBottom: 10,
@@ -41,7 +47,7 @@ const styles = StyleSheet.create({
   contactInfo: {
     flexDirection: "column",
     textAlign: "left",
-    marginBottom: 6,
+    marginBottom: 3,
     fontStyle: "bold"
   },
   profession: {
@@ -97,7 +103,7 @@ const styles = StyleSheet.create({
 function PDFOutput() {
   return (
     <Document>
-      <Page size="A4" debug style={styles.page} wrap={false}>
+      <Page size="A4" style={styles.page} wrap={false}>
         <View style={styles.headerSection}>
           <View style={styles.headerPadding}>
             <View style={styles.nameInfo}>

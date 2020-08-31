@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.1.2",
     "emotion-theming": "^10.0.27",
     "file-saver": "^2.0.2",
+    "pdf-lib": "^1.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-pdf": "^4.2.0",
