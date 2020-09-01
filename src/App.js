@@ -2,13 +2,12 @@ import React from "react";
 import { pdfjs } from "react-pdf";
 import PDFDisplay from "./components/pdfDisplay.js";
 import { view } from "@risingstack/react-easy-state";
-import DownloadButton from './components/downloadButton.js';
+import DownloadButton from "./components/downloadButton.js";
+import DataForm from "./components/dataForm.js";
 import appState from "./appState.js";
-import registerFont from './components/fontRegister';
+import registerFonts from "./components/fontRegister";
 import "./App.css";
-
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
-import fontRegister from "./components/fontRegister";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    registerFont();
+    registerFonts();
     //react-pdf needs this to work
     pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   }
@@ -26,8 +25,14 @@ class App extends React.Component {
       <ThemeProvider>
         <CSSReset />
         <div className="App">
-          <PDFDisplay></PDFDisplay>
-          <DownloadButton></DownloadButton>
+          <div className="editor">
+            <div className="editorContainer editorContainerForm">
+              <DataForm></DataForm>
+            </div>
+            <div className="editorContainer editorContainerPdf">
+              <PDFDisplay></PDFDisplay>
+            </div>
+          </div>
         </div>
       </ThemeProvider>
     );

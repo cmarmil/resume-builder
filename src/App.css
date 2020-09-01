@@ -5,11 +5,60 @@
 .react-pdf__Page__canvas {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   display: inline-block !important;
-}
-html, body, #root {
-  height: 100vh;
+  margin: 20px;
 }
 
-body {
+html, body{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+html{
+  height: 100%;
+}
+body{
+  min-height: 100%;
+}
+
+.editor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.editorContainerPdf {
+  height: 100vh;
+  overflow: auto;
+  width: 50%;
   background: #d3d3d3;
+}
+
+.editorContainerForm {
+width: 50%;
+}
+
+.pageWrapper {
+  width: 100%;
+}
+
+.formContainer {
+  width: 100%;
+  height: 100%;
+}
+
+@media(max-width: 1024px) {
+  .editor {
+    display: block;
+  }
+  .editorContainerForm {
+    width: 100%;
+  }
+  .editorContainerPdf {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  body, html {
+    overflow: auto;
+  }
 }
