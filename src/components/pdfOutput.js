@@ -1,182 +1,83 @@
 import React from "react";
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  Link
-} from "@react-pdf/renderer";
+import { Page, Text, View, Document, Link } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
 import appState from "../appState.js";
 import UnorderedListItem from "./unorderListItem.js";
 import PhoneIcon from "../icons/phoneIcon.js";
 import MailIcon from "../icons/mailIcon.js";
 import WebpageIcon from "../icons/webpageIcon.js";
-
-const styles = StyleSheet.create({
-  page: {
-    fontFamily: "Montserrat",
-    fontSize: 14
-  },
-  headerSection: {
-    backgroundColor: "#80CBC4"
-  },
-  headerPadding: {
-    paddingLeft: 25,
-    paddingRight: 25,
-    paddingTop: 20,
-    paddingBottom: 10
-  },
-  mainSections: {
-    paddingLeft: 25,
-    paddingRight: 25,
-    paddingBottom: 25,
-    paddingTop: 10
-  },
-  section: {
-    paddingBottom: 10,
-    paddingTop: 10
-  },
-  nameInfo: {
-    flexDirection: "column",
-    width: "50%",
-    fontFamily: "BebasNeue",
-    fontSize: 50
-  },
-  contactInfo: {
-    flexDirection: "column",
-    textAlign: "left",
-    marginBottom: 3,
-    fontStyle: "bold"
-  },
-  profession: {
-    fontSize: 30,
-    marginBottom: 10
-  },
-  sectionHeader: {
-    fontSize: 20,
-    textDecoration: "underline",
-    marginBottom: 5
-  },
-  svgFlex: {
-    flexDirection: "row",
-    textAlign: "left",
-    paddingBottom: 5
-  },
-  icon: {
-    marginRight: 7
-  },
-  companyDates: {
-    textAlign: "right",
-    width: "50%",
-    fontStyle: "italic"
-  },
-  companyName: {
-    width: "50%",
-    fontStyle: "italic"
-  },
-  companyInfo: {
-    flexDirection: "row",
-    marginTop: 5,
-    marginBottom: 5
-  },
-  contactText: {
-    //this is a little anal but the svg alignment is just a hair off in the render.
-    marginTop: 1
-  },
-  slash: {
-    marginRight: 4,
-    marginLeft: 4
-  },
-  jobTitle: {
-    fontStyle: "bold"
-  },
-  skillCategory: {
-    paddingBottom: 5
-  },
-  skillCategoryTitle: {
-    fontStyle: "bold"
-  }
-});
+import LinkedInIcon from "../icons/linkedInIcon.js";
+import Summary from "./pdfCompoments/summary.js";
+import Skills from "./pdfCompoments/skills.js";
+import WorkExperience from "./pdfCompoments/workExperience.js";
 
 function PDFOutput() {
   return (
     <Document>
-      <Page size="A4" style={styles.page} wrap={false}>
-        <View style={styles.headerSection}>
-          <View style={styles.headerPadding}>
-            <View style={styles.nameInfo}>
-              <Text style={styles.header}>Cailey Miller</Text>
-              <Text style={styles.profession}>Web Developer</Text>
+      <Page size="A4" style={appState.template.page} wrap={false}>
+        <View style={appState.template.headerSection}>
+          <View style={appState.template.headerPadding}>
+            <View style={appState.template.nameInfo}>
+              <Text style={appState.template.header}>
+                {appState.pdfData.name}
+              </Text>
+              <Text style={appState.template.profession}>Web Developer</Text>
             </View>
           </View>
         </View>
 
-        <View style={styles.mainSections}>
-          <View style={styles.contactInfo}>
-            <View style={styles.svgFlex}>
-              <MailIcon style={styles.icon} fill={"#80CBC4"}></MailIcon>
-              <Text style={styles.contactText}>caileymillerdev@gmail.com</Text>
+        <View style={appState.template.mainSections}>
+          <View style={appState.template.contactInfo}>
+            <View style={appState.template.svgFlex}>
+              <MailIcon
+                style={appState.template.icon}
+                fill={"#80CBC4"}
+              ></MailIcon>
+              <Text style={appState.template.contactText}>
+                {appState.pdfData.email}
+              </Text>
             </View>
-            <View style={styles.svgFlex}>
-              <PhoneIcon style={styles.icon} fill={"#80CBC4"}></PhoneIcon>
-              <Text style={styles.contactText}>(864)-553-5912</Text>
+            <View style={appState.template.svgFlex}>
+              <PhoneIcon
+                style={appState.template.icon}
+                fill={"#80CBC4"}
+              ></PhoneIcon>
+              <Text style={appState.template.contactText}>
+                {appState.pdfData.phoneNumber}
+              </Text>
             </View>
-            <View style={styles.svgFlex}>
-              <WebpageIcon style={styles.icon} fill={"#80CBC4"}></WebpageIcon>
-              <Link style={styles.contactText} src=" https://www.cailey.dev/">
-                https://www.cailey.dev/
+            <View style={appState.template.svgFlex}>
+              <LinkedInIcon
+                style={appState.template.icon}
+                fill={"#80CBC4"}
+              ></LinkedInIcon>
+              <Link
+                //link src requires a leading space to parse correctly in react-pdf 2.0
+                src={" " + appState.pdfData.linkedIn}
+                style={appState.template.contactText}
+              >
+                {appState.pdfData.linkedIn}
+              </Link>
+            </View>
+            <View style={appState.template.svgFlex}>
+              <WebpageIcon
+                style={appState.template.icon}
+                fill={"#80CBC4"}
+              ></WebpageIcon>
+              <Link
+                style={appState.template.contactText}
+                src={" " + appState.pdfData.website}
+              >
+                {appState.pdfData.website}
               </Link>
             </View>
           </View>
-
-          <View style={styles.section}>
-            <Text style={styles.sectionHeader}>Summary</Text>
-            <Text>
-              Creative Web Developer with proven experience developing and
-              maintaining complex web applications. I learn quickly, love a
-              challenge, and am open to using new technologies and languages.
-            </Text>
+          <Summary></Summary>
+          <Skills></Skills>
+          <View style={appState.template.section}>
+            <WorkExperience></WorkExperience>
           </View>
-          <View style={styles.section}>
-            <Text style={styles.sectionHeader}>Skills</Text>
-
-            <Text style={styles.skillCategoryTitle}>
-              Languages and Architecture:
-            </Text>
-            <Text style={styles.skillCategory}>
-              HTML5, CSS3, SASS, Javascript, Node.js, jQuery, React, AJAX/AJAJ,
-              RESTful APIs, MVC, WCAG and Accessibility, Ruby.
-            </Text>
-            <Text style={styles.skillCategoryTitle}> Tools and Process:</Text>
-            <Text style={styles.skillCategory}>
-              Git, SVN, Charles Web Proxy, Webpack, Jira, Agile, Kanban.
-            </Text>
-          </View>
-          <View style={styles.section}>
-            <Text style={styles.sectionHeader}>Work Experience</Text>
-            <Text style={styles.jobTitle}>Front End Web Developer</Text>
-            <View style={styles.companyInfo}>
-              <Text style={styles.companyName}>BlueToad Inc.</Text>
-              <Text style={styles.companyDates}>August 2019 - July 2020</Text>
-            </View>
-            <UnorderedListItem>
-              Developed new features from mockups and working with designers to
-              find ideal solutions to technical design problems.
-            </UnorderedListItem>
-            <UnorderedListItem>
-              Refactored existing code into modern reusable components using
-              React. Engineered WCAG compliant features to ensure a fully
-              accessible experience for all users.
-            </UnorderedListItem>
-            <UnorderedListItem>
-              Conducted cross browser testing and debugging to provide a
-              harmonious user experience across browsers, operating systems, and
-              devices.
-            </UnorderedListItem>
-          </View>
-          <Text style={styles.sectionHeader}>Other Experience</Text>
+          <Text style={appState.template.sectionHeader}> Other Experience</Text>
           <UnorderedListItem>
             Illustrator and Graphic Designer
           </UnorderedListItem>

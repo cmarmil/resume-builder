@@ -5,6 +5,7 @@ import { view } from "@risingstack/react-easy-state";
 import DownloadButton from "./components/downloadButton.js";
 import DataForm from "./components/dataForm.js";
 import appState from "./appState.js";
+import BlankPdf from './components/blankPdf.js';
 import registerFonts from "./components/fontRegister";
 import "./App.css";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
