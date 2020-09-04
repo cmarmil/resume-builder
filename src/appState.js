@@ -1,10 +1,9 @@
   
 import { store } from '@risingstack/react-easy-state';
-import templates from './templates.js';
 
 const appState = store({
   pdfBlob: null,
-  template: templates.basicTemplate,
+  template: null,
   //initial values
   pdfData: {
     name: 'Amy Smith',

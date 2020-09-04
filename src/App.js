@@ -1,12 +1,11 @@
 import React from "react";
 import { pdfjs } from "react-pdf";
-import PDFDisplay from "./components/pdfDisplay.js";
+import PDFDisplay from "components/pdfDisplay.js";
 import { view } from "@risingstack/react-easy-state";
-import DownloadButton from "./components/downloadButton.js";
-import DataForm from "./components/dataForm.js";
+import FormContainer from "components/formContainer.js";
 import appState from "./appState.js";
-import registerFonts from "./components/fontRegister";
-import "./App.scss";
+import registerFonts from "components/fontRegister";
+import "App.scss";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
 class App extends React.Component {
@@ -27,7 +26,7 @@ class App extends React.Component {
         <div className="App">
           <div className="editor">
             <div className="editorContainer editorContainerForm">
-              <DataForm></DataForm>
+              <FormContainer></FormContainer>
             </div>
             <div className="editorContainer editorContainerPdf">
               <PDFDisplay></PDFDisplay>

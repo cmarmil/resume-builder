@@ -1,10 +1,7 @@
 import React from "react";
-import { Box, Input, FormLabel } from "@chakra-ui/core";
-import DownloadButton from "../components/downloadButton.js";
-import StyledInput from "../components/styledInput.js";
-import appState from "../appState.js";
+import { Box} from "@chakra-ui/core";
+import StyledInput from "./styledInput.js";
 import { view } from "@risingstack/react-easy-state";
-import { space } from "styled-system";
 
 const DataForm = props => {
   return (
@@ -57,7 +54,6 @@ const DataForm = props => {
           ></StyledInput>
         </Box>
       </form>
-      {/* <DownloadButton></DownloadButton> */}
     </Box>
   );
 };

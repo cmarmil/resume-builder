@@ -1,6 +1,6 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
-const basicTemplate = StyleSheet.create({
+const styleSheet = StyleSheet.create({
     page: {
       fontFamily: "Montserrat",
       fontSize: 14
@@ -86,10 +86,4 @@ const basicTemplate = StyleSheet.create({
     }
   });
 
-
-
-  const templates = {
-      basicTemplate: basicTemplate
-  }
-
- export default templates;
+  export default styleSheet;

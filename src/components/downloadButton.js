@@ -1,7 +1,7 @@
 import React from "react";
 import { saveAs } from "file-saver";
 import { pdf } from "@react-pdf/renderer";
-import PDFOutput from "./pdfOutput.js";
+import PDFOutput from "components/pdfOutput.js";
 import { Button } from "@chakra-ui/core";
 import { PDFDocument } from "pdf-lib";
 

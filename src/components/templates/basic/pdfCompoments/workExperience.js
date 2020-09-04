@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, View } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
-import appState from "../../appState.js";
-import UnorderedListItem from "../unorderListItem.js";
+import appState from "appState.js";
+import UnorderedListItem from "components/genericPdfComponents/unorderListItem.js";
+import styleSheet from 'components/templates/basic/styleSheet.js';
 
 function renderBullets(description) {
   return description.map((bullet, index) => (
@@ -11,16 +12,16 @@ function renderBullets(description) {
 }
 function WorkExperience() {
   return (
-    <View style={appState.template.section}>
-      <Text style={appState.template.sectionHeader}>Work Experience</Text>
+    <View style={styleSheet.section}>
+      <Text style={styleSheet.sectionHeader}>Work Experience</Text>
       {appState.pdfData.workExperience.map((workExp, index) => (
         <React.Fragment key={index}>
-          <Text style={appState.template.jobTitle}>{workExp.jobTitle}</Text>
-          <View style={appState.template.companyInfo}>
-            <Text style={appState.template.companyName}>
+          <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>
+          <View style={styleSheet.companyInfo}>
+            <Text style={styleSheet.companyName}>
               {workExp.companyName}
             </Text>
-            <Text style={appState.template.companyDates}>{workExp.dates}</Text>
+            <Text style={styleSheet.companyDates}>{workExp.dates}</Text>
           </View>
           {renderBullets(workExp.description)}
         </React.Fragment>

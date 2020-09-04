@@ -1,9 +1,9 @@
 import React from "react";
 import { BlobProvider } from "@react-pdf/renderer";
 import { Document, Page } from "react-pdf";
-import PDFOutput from "../components/pdfOutput.js";
+import BasicTemplate from "components/templates/basic/basicTemplate.js";
 import { view } from "@risingstack/react-easy-state";
-import LoadingSpinner from "../icons/loadingSpinner.js";
+import LoadingSpinner from "components/icons/loadingSpinner.js";
 
 class PDFDisplay extends React.Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class PDFDisplay extends React.Component {
           <LoadingSpinner></LoadingSpinner>
         </div>
         <div className="mainPdf" ref={this.mainPdf}>
-          <BlobProvider document={<PDFOutput></PDFOutput>}>
+          <BlobProvider document={<BasicTemplate></BasicTemplate>}>
             {({ blob }) =>
               blob ? (
                 <Document file={blob} loading={null}>
