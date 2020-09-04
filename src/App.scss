@@ -3,20 +3,26 @@
 }
 
 .react-pdf__Page__canvas {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  display: inline-block !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
   margin: 20px;
+  display: inline-block !important;
 }
 
-html, body{
+.react-pdf__Page__textContent {
+  display: none;
+}
+
+html,
+body {
   padding: 0;
   margin: 0;
   overflow: hidden;
 }
-html{
+html {
   height: 100%;
 }
-body{
+body {
   min-height: 100%;
 }
 
@@ -34,8 +40,7 @@ body{
 }
 
 .editorContainerForm {
-width: 50%;
-background: #212121;
+  width: 50%;
 }
 
 .pageWrapper {
@@ -47,7 +52,7 @@ background: #212121;
   height: 100%;
 }
 
-@media(max-width: 1024px) {
+@media (max-width: 768px) {
   .editor {
     display: block;
   }
@@ -59,7 +64,8 @@ background: #212121;
     height: 100%;
     overflow: hidden;
   }
-  body, html {
+  body,
+  html {
     overflow: auto;
   }
 }
