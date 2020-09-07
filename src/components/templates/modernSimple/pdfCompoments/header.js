@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, View } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
-import appState from "../../../../appState";
-import styleSheet from '../styleSheet.js';
+import appState from "appState";
+import styleSheet from 'components/templates/modernSimple/styleSheet.js';
 
 function Header() {
   return (

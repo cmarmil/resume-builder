@@ -1,89 +1,87 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
 const styleSheet = StyleSheet.create({
-    page: {
-      fontFamily: "Montserrat",
-      fontSize: 14
-    },
-    headerSection: {
-      backgroundColor: "#80CBC4"
-    },
-    headerPadding: {
-      paddingLeft: 25,
-      paddingRight: 25,
-      paddingTop: 20,
-      paddingBottom: 10
-    },
-    mainSections: {
-      paddingLeft: 25,
-      paddingRight: 25,
-      paddingBottom: 20,
-      paddingTop: 10
-    },
-    section: {
-      paddingBottom: 5,
-      paddingTop: 6
-    },
-    nameInfo: {
-      flexDirection: "column",
-      width: "50%",
-      fontFamily: "BebasNeue",
-      fontSize: 50
-    },
-    contactInfo: {
-      flexDirection: "column",
-      textAlign: "left",
-      marginBottom: 3,
-      fontStyle: "bold"
-    },
-    profession: {
-      fontSize: 30,
-      marginBottom: 10
-    },
-    sectionHeader: {
-      fontSize: 20,
-      textDecoration: "underline",
-      marginBottom: 5
-    },
-    svgFlex: {
-      flexDirection: "row",
-      textAlign: "left",
-      paddingBottom: 5
-    },
-    icon: {
-      marginRight: 7
-    },
-    companyDates: {
-      textAlign: "right",
-      width: "50%",
-      fontStyle: "italic"
-    },
-    companyName: {
-      width: "50%",
-      fontStyle: "italic"
-    },
-    companyInfo: {
-      flexDirection: "row",
-      marginTop: 5,
-      marginBottom: 5
-    },
-    contactText: {
-      //this is a little anal but the svg alignment is just a hair off in the render.
-      marginTop: 2
-    },
-    slash: {
-      marginRight: 4,
-      marginLeft: 4
-    },
-    jobTitle: {
-      fontStyle: "bold"
-    },
-    skillCategory: {
-      paddingBottom: 5
-    },
-    skillCategoryTitle: {
-      fontStyle: "bold"
-    }
-  });
+  page: {
+    fontFamily: "Montserrat",
+    fontSize: 13,
+    color: "#424242"
+  },
+  colContainer: {
+    flexDirection: "row"
+  },
+  sideCol: {
+    width: "35%",
+    backgroundColor: "#deecff",
+    height: "100vh",
+    padding: 15,
+    paddingTop: 25,
+    flexShrink: 1
+  },
+  mainCol: {
+    width: "65%",
+    padding: 10
+  },
+  headerContainer: {
+    textAlign: "center"
+  },
+  header: {
+    fontFamily: "PlayfairDisplay",
+    fontSize: 40,
+    fontStyle: "bold"
+  },
+  profession: {
+    fontSize: 25
+  },
+  contactHeader: {
+    textDecoration: "underline",
+    fontStyle: "bold",
+    fontFamily: "PlayfairDisplay",
+    fontSize: 20
+  },
+  contactInfo: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 13,
+    textAlign: "center"
+  },
+  sectionHeader: {
+    fontSize: 16,
+    fontFamily: "PlayfairDisplay",
+    textTransform: 'uppercase',
+    textDecoration: 'underline',
+    fontStyle: 'bold'
+  },
+  mainSectionHeader: {
+    fontSize: 16,
+    fontStyle: "bold",
+    fontFamily: "PlayfairDisplay",
+    backgroundColor: "#deecff",
+    textTransform: 'uppercase',
+    padding: 5,
+    borderTopRightRadius: 40,
+    borderBottomRightRadius: 40,
+    marginTop: 5,
+    marginBottom: 5
+  },
+  mainSection: {
+    marginTop: 10,
+    marginBottom: 10
+  },
+  jobTitle: {
+    fontStyle: "bold",
+  },
+  companyInfo: {
+    flexDirection: 'row',
+    padding: 5
+  },
+  companyName: {
+    fontStyle: 'italic',
+    width: '50%'
+  },
+  companyDates: {
+    width: '50%',
+    textAlign: 'right'
+  }
+});
 
-  export default styleSheet;
+export default styleSheet;

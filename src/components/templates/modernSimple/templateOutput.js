@@ -3,14 +3,14 @@ import { Page, Text, View, Document } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
 import UnorderedListItem from "components/genericPdfComponents/unorderListItem.js";
 
-import Summary from "components/templates/basic/pdfCompoments/summary.js";
-import Skills from "components/templates/basic/pdfCompoments/skills.js";
-import Header from "components/templates/basic/pdfCompoments/header.js";
-import WorkExperience from "components/templates/basic/pdfCompoments/workExperience.js";
-import ContactInfoIcons from "components/templates/basic/pdfCompoments/contactInfoIcons.js";
-import styleSheet from 'components/templates/basic/styleSheet.js';
+import Summary from "components/templates/modernSimple/pdfCompoments/summary.js";
+import Skills from "components/templates/modernSimple/pdfCompoments/skills.js";
+import Header from "components/templates/modernSimple/pdfCompoments/header.js";
+import WorkExperience from "components/templates/modernSimple/pdfCompoments/workExperience.js";
+import ContactInfoIcons from "components/templates/modernSimple/pdfCompoments/contactInfoIcons.js";
+import styleSheet from 'components/templates/modernSimple/styleSheet.js';
 
-function PDFOutput() {
+function TemplateOutput() {
   return (
     <Document>
       <Page size="A4" style={styleSheet.page} wrap={false}>
@@ -35,4 +35,4 @@ function PDFOutput() {
   );
 }
 
-export default view(PDFOutput);
+export default view(TemplateOutput);

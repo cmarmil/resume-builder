@@ -12,10 +12,8 @@ class StyledInput extends React.Component {
   }
 
   renderActiveForm() {
-    switch (this.state.activeForm) {
-      case 0:
-        return <PersonalForm></PersonalForm>;
-        break;
+    if (this.state.activeForm === 0) {
+      return <PersonalForm></PersonalForm>
     }
   }
 

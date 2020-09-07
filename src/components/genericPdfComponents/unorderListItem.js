@@ -8,10 +8,12 @@ import {
 const styles = StyleSheet.create({
     listItem: {
       marginBottom: 4,
+      paddingRight: 15
     },
     listItemText: {
       flexDirection: 'row',
       lineHeight: 1.45,
+      
     },
   });
 

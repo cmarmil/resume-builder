@@ -6,7 +6,7 @@ import PhoneIcon from "components/icons/phoneIcon.js";
 import MailIcon from "components/icons/mailIcon.js";
 import WebpageIcon from "components/icons/webpageIcon.js";
 import LinkedInIcon from "components/icons/linkedInIcon.js";
-import styleSheet from 'components/templates/basic/styleSheet.js';
+import styleSheet from 'components/templates/modernSimple/styleSheet.js';
 
 function ContactInfoIcons() {
   return (

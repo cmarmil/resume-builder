@@ -9,9 +9,6 @@ import "App.scss";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   async componentDidMount() {
     registerFonts();
