@@ -12,16 +12,17 @@ const styles = StyleSheet.create({
     },
     listItemText: {
       flexDirection: 'row',
-      lineHeight: 1.45,
-      
     },
+    bullet: {
+      fontStyle: 'bold'
+    }
   });
 
-  const UnorderedListItem = ({ children }) => {
+  const UnorderedListItem = (props) => {
     return (
       <View style={styles.listItem}>
         <View style={styles.listItemText}>
-        <Text style={styles.bullet}>• &nbsp;</Text><Text>{children}</Text>
+        <Text style={styles.bullet}>• &nbsp;</Text><Text style={props.style}>{props.children}</Text>
         </View>
       </View>
     );

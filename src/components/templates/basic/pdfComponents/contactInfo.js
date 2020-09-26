@@ -10,6 +10,7 @@ function ContactInfo() {
       <Text>{appState.pdfData.email}</Text>
       <Text>{appState.pdfData.phoneNumber}</Text>
       <Text>{appState.pdfData.website}</Text>
+      <Text>{`${appState.pdfData.city}, ${appState.pdfData.state}`}</Text>
     </View>
   );
 }

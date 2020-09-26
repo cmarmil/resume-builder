@@ -44,12 +44,16 @@ const styleSheet = StyleSheet.create({
     fontSize: 13,
     textAlign: "center"
   },
+  sideContainer: {
+    marginBottom: 15
+  },
   sectionHeader: {
     fontSize: 16,
     fontFamily: "PlayfairDisplay",
     textTransform: 'uppercase',
     textDecoration: 'underline',
-    fontStyle: 'bold'
+    fontStyle: 'bold',
+    marginBottom: 5
   },
   mainSectionHeader: {
     fontSize: 16,
@@ -76,11 +80,27 @@ const styleSheet = StyleSheet.create({
   },
   companyName: {
     fontStyle: 'italic',
-    width: '50%'
+    width: '50%',
+    marginLeft: -5,
+    fontSize: 11
   },
   companyDates: {
     width: '50%',
-    textAlign: 'right'
+    textAlign: 'right',
+    fontSize: 11
+  },
+  italicFont: {
+    fontStyle: 'italic'
+  },
+  boldFont: {
+    fontStyle: 'bold'
+  },
+  certContainer: {
+    marginTop: 5,
+    marginBottom: 5
+  },
+  skill: {
+    fontStyle: 'italic'
   }
 });
 

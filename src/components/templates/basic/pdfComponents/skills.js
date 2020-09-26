@@ -3,15 +3,16 @@ import { Text, View } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
 import styleSheet from "components/templates/basic/styleSheet.js";
+import UnorderedListItem from "components/genericPdfComponents/unorderListItem.js";
 
 function Skills() {
   return (
-    <View style={styleSheet.skillsContainer}>
+    <View style={styleSheet.sideContainer}>
       <Text style={styleSheet.sectionHeader}>Skills</Text>
       <View>
-      {appState.pdfData.skills.map((skillObj, index) => (
+      {appState.pdfData.skills.map((skill, index) => (
         <React.Fragment key={index}>
-          <Text key={'skillArray' + skillObj.skillCategory + index} style={styleSheet.skillCategory}>{skillObj.skills}</Text>
+          <UnorderedListItem key={'skillArray' + skill+ index} style={styleSheet.skill}>{skill}</UnorderedListItem>
         </React.Fragment> ))}
         </View>
     </View>

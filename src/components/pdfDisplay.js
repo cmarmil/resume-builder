@@ -8,8 +8,7 @@ import LoadingSpinner from "components/icons/loadingSpinner.js";
 class PDFDisplay extends React.Component {
   constructor(props) {
     super(props);
-
-    this.throttle = this.throttle.bind(this);
+  
     this.updateDimension = this.updateDimension.bind(this);
     this.onDocLoadSuccess = this.onDocLoadSuccess.bind(this);
     this.docLoading = this.docLoading.bind(this);
@@ -25,35 +24,25 @@ class PDFDisplay extends React.Component {
     this.pdfWrapper = React.createRef();
   }
 
-  throttle(callback, limit) {
-    var waiting = false;
-    return function() {
-      if (!waiting) {
-        callback.apply(this, arguments);
-        waiting = true;
-        setTimeout(function() {
-          waiting = false;
-        }, limit);
-      }
-    };
-  }
-
   updateDimension() {
     let percentage = 90 / 100;
-    this.setState({
-      width: this.pdfWrapper.current.getBoundingClientRect().width * percentage
-    });
+    setTimeout(() => {
+      this.setState({
+        width: this.pdfWrapper.current.getBoundingClientRect().width * percentage
+      });
+    }, 500);
+    
   }
 
   componentDidMount() {
     this.updateDimension();
-    window.addEventListener("resize", this.throttle(this.updateDimension, 300));
+    window.addEventListener("resize", this.updateDimension);
   }
 
   componentWillUnmount() {
     window.removeEventListener(
       "resize",
-      this.throttle(this.updateDimension, 300)
+      this.updateDimension
     );
   }
 

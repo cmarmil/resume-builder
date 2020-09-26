@@ -6,16 +6,20 @@ const appState = store({
   activeTemplate: 'basic',
   //initial values
   pdfData: {
-    name: 'Jessica Williams',
+    fName: 'Jessica',
+    lName: 'Williams',
     profession: 'Web Developer',
-    location: 'Madison, WI',
+    city: 'Madison',
+    state: "WI",
     phoneNumber: '(123)-456-789',
     email: 'yourEmail@gmail.com',
     linkedIn: 'https://linkedIn.com/yourLinkedInProfile',
     website: 'YourWebsite.com',
     summary: "Creative Software Engineer with 4 years of experience in computer science, programming, and UX design. Enthusiastic team player and avid learner.",
-    skills: [{skillCategory: 'Languages and Architecture', skills: 'HTML5, CSS3, SASS, Javascript, Node.js, jQuery, React, AJAX/AJAJ, RESTful APIs, MVC, WCAG and Accessibility, Ruby.'}, {skillCategory: 'Tools and Process', skills: 'Git, SVN, CLI, Webpack, Babel, Jira, Agile, SCRUM.'}],
-    workExperience: [{jobTitle: 'Front End Web Developer', companyName: 'CoolCompany Inc.', dates: 'August 2018 - July 2020', description: ['Used React to develop beautiful UX experiences to over 50,000 users.', 'Practiced agile development methodology SCRUM to deliver continuous results to clients.', 'Engineered WCAG compliant features to ensure a fully accessible experience for all users.', 'Conducted cross browser testing and debugging to provide a harmonious user experience across browsers, operating systems, and devices.']}],
+    skills: ['HTML5', 'CSS3', 'SASS', 'Javascript', 'Node.js', 'jQuery', 'React', 'AJAX/AJAJ', 'RESTful APIs', 'MVC', 'WCAG and Accessibility', 'Ruby','Git', 'SVN', 'CLI', 'Webpack', 'Babel', 'Jira', 'Agile', 'SCRUM'],
+    workExperience: [{jobTitle: 'Front End Web Developer', companyName: 'Company Inc.', dates: 'August 2018 - July 2020', description: ['Used React to develop beautiful UX experiences to over 50,000 users.', 'Practiced agile development methodology SCRUM to deliver continuous results to clients.', 'Engineered WCAG compliant features to ensure a fully accessible experience for all users.', 'Conducted cross browser testing and debugging to provide a harmonious user experience across browsers, operating systems, and devices.']}, {jobTitle: 'UI developer and designer', companyName: 'Company Inc.', dates: 'February 2015 - June 2018', description: ['Conducted UX research studies across a pool of 100,000 active users.', 'Developed UI mockups using Sketch and Webflow.', 'Designed and Developed a custom UI library using React styled components.']}, {jobTitle: 'Wordpress Developer', companyName: 'Company Inc.', dates: 'December 2012 - January 2015', description: ['Used PHP to developed custom wordpress themes according to client\'s needs.', 'Integrated plugins and troubleshooted third party code.']}],
+    education: [{schoolName: 'Colorado State University', degree: 'Bachelor of Science', areaOfStudy: 'Computer Science', dates: '2009 - 2012'}],
+    certsAndLiscences: [{name: 'Google Ads Certified', date: '2016'}, {name: 'Adobe Certified Expert', date: '2013'}, {name: 'Certified Scrum Developer', date: '2016'}],
     customDataSections: []
   }
 });
