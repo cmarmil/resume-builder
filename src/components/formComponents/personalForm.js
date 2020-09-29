@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
 import { view } from "@risingstack/react-easy-state";
+import appState from "appState";
 
 class DataForm extends React.Component {
   constructor(props) {

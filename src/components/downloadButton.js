@@ -24,7 +24,8 @@ export const DownloadButton = () => (
       const asPdf = pdf({}); //important, throws without an argument
       asPdf.updateContainer(doc);
       let blob = await asPdf.toBlob();
-      //convert to buffer to delete possible overflow pages. 
+      //convert to buffer to delete possible overflow pages.
+      //only necessary if strictly one page resume.
       let buffer = await getArrayBuffer(blob);
       const pdfDoc = await PDFDocument.load(buffer);
       const pageCount = await pdfDoc.getPageCount();

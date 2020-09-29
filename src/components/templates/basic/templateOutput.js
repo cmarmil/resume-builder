@@ -1,5 +1,5 @@
 import React from "react";
-import { Page, Text, View, Document } from "@react-pdf/renderer";
+import { Page, View, Document } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
 import styleSheet from "components/templates/basic/styleSheet.js";
 import Header from "components/templates/basic/pdfComponents/header.js";
