@@ -3,6 +3,7 @@ import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
+import commonFunctions from 'commonFunctions.js';
 
 class DataForm extends React.Component {
   constructor(props) {
@@ -18,31 +19,36 @@ class DataForm extends React.Component {
               mr={"10px"}
               id={"fname"}
               label={"First Name"}
-              placeholder={"Amy"}
+              placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'fName')}
+              defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'fName')}
             ></StyledInput>
             <StyledInput
               id={"lname"}
               label={"Last Name"}
-              placeholder={"Smith"}
+              placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'lName')}
+              defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'lName')}
             ></StyledInput>
           </Box>
           <StyledInput
             mb={"20px"}
             id={"profession"}
             label={"Profession Title"}
-            placeholder={"Web Developer"}
+            placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'profession')}
+            defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'profession')}
           ></StyledInput>
           <Box mb={"20px"} d={"flex"}>
             <StyledInput
               mr={"10px"}
               id={"city"}
               label={"City"}
-              placeholder={"Madison"}
+              placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'city')}
+              defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'city')}
             ></StyledInput>
             <StyledInput
               id={"state"}
               label={"State/Province"}
-              placeholder={"Wisconsin"}
+              placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'state')}
+              defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'state')}
             ></StyledInput>
           </Box>
 
@@ -51,18 +57,21 @@ class DataForm extends React.Component {
               mr={"10px"}
               id={"phoneNum"}
               label={"Phone Number"}
-              placeholder={"(123)-456-789"}
+              placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'phoneNumber')}
+              defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'phoneNumber')}
             ></StyledInput>
             <StyledInput
               mr={"10px"}
               id={"email"}
               label={"Email"}
-              placeholder={"youremail@email.com"}
+              placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'email')}
+              defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'email')}
             ></StyledInput>
             <StyledInput
               id={"website"}
               label={"Website"}
-              placeholder={"yourwebsite.com"}
+              placeholder={commonFunctions.setDefaultFormValue(appState.pdfData, 'website')}
+              defaultValue={commonFunctions.setDefaultFormValue(appState.pdfData, 'website')}
             ></StyledInput>
           </Box>
         </form>

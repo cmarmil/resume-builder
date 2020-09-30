@@ -1,24 +1,15 @@
-import appState from "appState";
-
-let commonFunctions = {
-  resetPdfData: function() {
-    appState.pdfData = {
-        fName: '',
-        lName: '',
-        profession: '',
-        city: '',
-        state: "",
-        phoneNumber: '',
-        email: '',
-        linkedIn: '',
-        website: '',
-        summary: "",
-        skills: [],
-        workExperience: [],
-        certsAndLiscences: [],
-        customDataSections: []
+const commonFunctions = {
+   setDefaultFormValue: function(formData, property) {
+    if (formData) {
+      if (property === "description") {
+        return formData[property].join(", ");
+      } else {
+        return formData[property];
       }
+    } else {
+      return "";
     }
+  }
 };
 
 export default commonFunctions;

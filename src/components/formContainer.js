@@ -32,7 +32,8 @@ class FormContainer extends React.Component {
   }
 
   handleSubmit() {
-   /*  let form = this.ref.current.formRef.current;
+    if (this.ref.current.formRef.current) {
+    let form = this.ref.current.formRef.current;
     let formElements = form.elements;
     let newData = {};
     if (this.state.activeForm === 0) {
@@ -72,11 +73,14 @@ class FormContainer extends React.Component {
         newData.summary = form.elements[0].value;
       }
     }
-    appState.pdfData = {
-      ...appState.pdfData,
-      ...newData
-    }; */
-
+    if (newData) {
+      appState.pdfData = {
+        ...appState.pdfData,
+        ...newData
+      };
+    }
+  }
+  
     //proceed to next form section
     if (this.state.activeForm < 2) {
       let currentForm = this.state.activeForm;
