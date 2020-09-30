@@ -1,7 +1,7 @@
 import React from "react";
 import PersonalForm from "components/formComponents/personalForm";
 import SummaryForm from "components/formComponents/summaryForm";
-import ExperienceForm from "components/formComponents/experienceForm.js";
+import WorkExpContainer from "components/workExpContainer.js";
 import { Button, Progress, Box } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
 import DownloadButton from "components/downloadButton.js";
@@ -14,7 +14,7 @@ class FormContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.backBtnClick = this.backBtnClick.bind(this);
     this.state = {
-      activeForm: 2,
+      activeForm: 0,
       progress: 0
     };
     this.ref = React.createRef();
@@ -27,7 +27,7 @@ class FormContainer extends React.Component {
       case 1:
         return <SummaryForm ref={this.ref}></SummaryForm>;
       case 2:
-        return <ExperienceForm ref={this.ref}></ExperienceForm>;
+        return <WorkExpContainer ref={this.ref}></WorkExpContainer>;
     }
   }
 
@@ -105,9 +105,6 @@ class FormContainer extends React.Component {
     }
   }
 
-  componentDidMount() {
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -115,11 +112,11 @@ class FormContainer extends React.Component {
         {this.renderActiveForm()}
         <Box mb={"100px"} className="nextPrevButtons">
           <Button onClick={this.backBtnClick}>Back</Button>
-          <Button onClick={this.handleSubmit} background="#80CBC4">
+          <Button onClick={this.handleSubmit} variantColor="blue">
             Next
           </Button>
-          <DownloadButton />
         </Box>
+        <DownloadButton />
       </React.Fragment>
     );
   }

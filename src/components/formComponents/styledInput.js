@@ -1,5 +1,6 @@
 import React from "react";
 import { Input, FormLabel, Box } from "@chakra-ui/core";
+import { view } from "@risingstack/react-easy-state";
 
 const style = {
   div: {
@@ -18,9 +19,9 @@ const StyledInput = props => {
       <FormLabel style={style.label} htmlFor={props.id}>
         {props.label}
       </FormLabel>
-      <Input id={props.id} placeholder={props.placeholder} />
+      <Input id={props.id} placeholder={props.placeholder} defaultValue={props.defaultValue}/>
     </Box>
   );
 };
 
-export default StyledInput;
+export default view(StyledInput);

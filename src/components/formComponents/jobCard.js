@@ -1,23 +1,32 @@
 import React from "react";
-import { Box, Button, Tag, TagCloseButton, TagLabel } from "@chakra-ui/core";
+import { Box, IconButton } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
-import appState from "appState.js";
 
 function JobCard(props) {
-  function deleteJob(index) {
-    appState.pdfData.workExperience.splice(index, 1);
-  }
   return (
-    <Box className="job-card" w="100%" mt="1em" rounded="md" overflow="hidden">
-      {appState.pdfData.workExperience.map((expObj, index) => (
-        <Tag key={'jobTag '+ index}  onClick={() => props.onClick(index)} variant="solid" backgroundColor="#0984e3" mb="5px">
-          <TagLabel>
-            {expObj.jobTitle} at {expObj.companyName}
-          </TagLabel>
-          <TagCloseButton onClick={() => deleteJob(index)}/>
-        </Tag>
-      ))}
-    </Box>
+    <Box
+      className="jobCard"
+      d='flex'
+      w="95%"
+      p="10px"
+      mt="1em"
+      rounded="md"
+      overflow="hidden"
+      backgroundColor="#EDF2F7"
+      onClick={() => props.setActiveJob(props.index)}
+    >
+        <Box className="jobCardInfo">
+          {props.expObj.jobTitle} at {props.expObj.companyName}
+        </Box>
+        <Box className="jobCardBtns">
+          <IconButton
+            aria-label="Edit Job"
+            icon="edit"
+            onClick={() => props.setActiveJob(props.index)}
+          />
+          <IconButton aria-label="Edit Job" icon="delete" />
+        </Box>
+      </Box>
   );
 }
 
