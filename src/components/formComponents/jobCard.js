@@ -6,7 +6,7 @@ function JobCard(props) {
   return (
     <Box
       className="jobCard"
-      d='flex'
+      d="flex"
       w="95%"
       p="10px"
       mt="1em"
@@ -15,18 +15,19 @@ function JobCard(props) {
       backgroundColor="#EDF2F7"
       onClick={() => props.setActiveJob(props.index)}
     >
-        <Box className="jobCardInfo">
-          {props.expObj.jobTitle} at {props.expObj.companyName}
-        </Box>
-        <Box className="jobCardBtns">
-          <IconButton
-            aria-label="Edit Job"
-            icon="edit"
-            onClick={() => props.setActiveJob(props.index)}
-          />
-          <IconButton aria-label="Edit Job" icon="delete" />
-        </Box>
+      <Box className="jobCardInfo">
+        {props.expObj.jobTitle} at {props.expObj.companyName}
       </Box>
+      <Box className="jobCardBtns">
+        <IconButton
+          mr="7px"
+          aria-label="Edit Job"
+          icon="edit"
+          onClick={() => props.setActiveJob(props.index)}
+        />
+        <IconButton  onClick={(e) => props.deleteJob(e, props.index)}aria-label="Delete Job" icon="delete" />
+      </Box>
+    </Box>
   );
 }
 

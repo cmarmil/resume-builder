@@ -32,7 +32,7 @@ class FormContainer extends React.Component {
   }
 
   handleSubmit() {
-    let form = this.ref.current.formRef.current;
+   /*  let form = this.ref.current.formRef.current;
     let formElements = form.elements;
     let newData = {};
     if (this.state.activeForm === 0) {
@@ -71,13 +71,11 @@ class FormContainer extends React.Component {
       if (form.elements[0].value) {
         newData.summary = form.elements[0].value;
       }
-    } else if (this.state.activeForm === 2) {
-      //handled in experienceForm.js
     }
     appState.pdfData = {
       ...appState.pdfData,
       ...newData
-    };
+    }; */
 
     //proceed to next form section
     if (this.state.activeForm < 2) {
@@ -110,13 +108,13 @@ class FormContainer extends React.Component {
       <React.Fragment>
         <Progress color="blue" size="lg" value={this.state.progress} />
         {this.renderActiveForm()}
-        <Box mb={"100px"} className="nextPrevButtons">
+        <Box className="nextPrevButtons">
           <Button onClick={this.backBtnClick}>Back</Button>
           <Button onClick={this.handleSubmit} variantColor="blue">
             Next
           </Button>
         </Box>
-        <DownloadButton />
+       {/*  <DownloadButton /> */}
       </React.Fragment>
     );
   }
