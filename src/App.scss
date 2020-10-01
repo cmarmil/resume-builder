@@ -70,6 +70,22 @@ body {
   flex-direction: column;
 }
 
+.jobDetailTag {
+  margin-left: 1em;
+}
+
+.jobDetailTagEditable {
+  cursor: pointer;
+}
+
+.ql-container {
+  font-size: 15px !important;
+}
+
+.ql-toolbar.ql-snow {
+  text-align: left;
+}
+
 .nextPrevButtons {
   position: absolute;
   margin-left: -50px;

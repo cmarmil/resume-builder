@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
-import StyledTextArea from "./styledTextArea.js";
+import JobDetailEditor from 'components/formComponents/jobDetailEditor.js';
 import { view } from "@risingstack/react-easy-state";
 import commonFunctions from 'commonFunctions.js';
 
@@ -38,13 +38,8 @@ class ExperienceForm extends React.Component {
               defaultValue={commonFunctions.setDefaultFormValue(this.props.formData,"dates")}
             ></StyledInput>
           </Box>
-          <p>Describe your job duties, each point seperated by a comma.</p>
           <Box mb={"20px"} d={"flex"}>
-            <StyledTextArea
-              key={commonFunctions.setDefaultFormValue(this.props.formData,"description")}
-              label={"Job Duties"}
-              value={commonFunctions.setDefaultFormValue(this.props.formData,"description")}
-            ></StyledTextArea>
+          <JobDetailEditor description={this.props.formData.description}></JobDetailEditor>
           </Box>
         </form>
       </Box>

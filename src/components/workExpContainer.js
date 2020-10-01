@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/core";
 import JobCard from "components/formComponents/jobCard.js";
+import JobDetailCard from "components/formComponents/jobDetailTag.js";
 import { view } from "@risingstack/react-easy-state";
 import ExperienceForm from "components/formComponents/experienceForm.js";
 import appState from "appState.js";
@@ -57,7 +58,7 @@ class WorkExpContainer extends React.Component {
               newData.dates = form.elements[2].value;
               break;
             case 3:
-              let skills = form.elements[3].value.split(",");
+              /* let skills = form.elements[3].value.split(",");
               //remove entries that are the result of trailing whitespace.
               skills = skills.filter(function(skill) {
                 return skill != " ";
@@ -67,7 +68,7 @@ class WorkExpContainer extends React.Component {
                 return skill.trim();
               });
               newData.description = skills;
-              break;
+              break; */
           }
         }
       }
