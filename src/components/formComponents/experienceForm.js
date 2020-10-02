@@ -6,7 +6,7 @@ import { view } from "@risingstack/react-easy-state";
 import commonFunctions from "commonFunctions.js";
 
 class ExperienceForm extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.formRef = React.createRef();
   }
@@ -56,13 +56,14 @@ class ExperienceForm extends React.Component {
               mb={"20px"}
               id={"job-duration"}
               label={"Duration"}
+              placeholder={'July 2012 - January 2015'}
               defaultValue={commonFunctions.setDefaultFormValue(
                 this.props.formData,
                 "dates"
               )}
             ></StyledInput>
           </Box>
-          <p className='jobDescLabel'>Job Description</p>
+          <p className='quillFormLabel'>Job Description</p>
           <Box mb={"20px"} d={"flex"}>
             <JobDetailEditor
               description={this.props.formData.description}

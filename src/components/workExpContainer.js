@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/core";
-import JobCard from "components/formComponents/jobCard.js";
+import FormCard from "components/formComponents/formCard.js";
 import { view } from "@risingstack/react-easy-state";
 import ExperienceForm from "components/formComponents/experienceForm.js";
 import appState from "appState.js";
@@ -56,18 +56,6 @@ class WorkExpContainer extends React.Component {
             case 2:
               newData.dates = form.elements[2].value;
               break;
-            case 3:
-              /* let skills = form.elements[3].value.split(",");
-              //remove entries that are the result of trailing whitespace.
-              skills = skills.filter(function(skill) {
-                return skill != " ";
-              });
-              //remove trailing whitespace from valid entries.
-              skills = skills.map(function(skill) {
-                return skill.trim();
-              });
-              newData.description = skills;
-              break; */
           }
         }
       }
@@ -88,7 +76,7 @@ class WorkExpContainer extends React.Component {
       jobTitle: 'Job Title',
       companyName: 'Company',
       dates: '',
-      description: []
+      description: ['Job description bullet point']
     }
     appState.pdfData.workExperience.push(newJob);
     this.setState({
@@ -99,15 +87,17 @@ class WorkExpContainer extends React.Component {
 
   render() {
     return (
-      <Box className="formContainer">
+      <Box p={"20px"} className="formContainer">
+      <p className='quillFormLabel'>Work Experience</p>
         {appState.pdfData.workExperience.map((expObj, index) => (
-          <React.Fragment key={"jobCard " + index}>
-            <JobCard
-              setActiveJob={this.setActiveJob}
-              deleteJob={this.deleteJob}
+          <React.Fragment key={"FormCard " + index}>
+            <FormCard
+              setActive={this.setActiveJob}
+              delete={this.deleteJob}
               index={index}
-              expObj={expObj}
-            ></JobCard>
+              title={expObj.jobTitle}
+              place={expObj.companyName}
+            ></FormCard>
             {this.state.activeJobIndex === index && this.state.formOpen ? (
               <ExperienceForm
                 ref={this.formRef}

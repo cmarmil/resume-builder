@@ -32,6 +32,10 @@ body {
   justify-content: center;
 }
 
+.formContainer {
+  //height: 80vh;
+}
+
 .editorContainerPdf {
   height: 100vh;
   overflow: auto;
@@ -51,16 +55,17 @@ body {
 }
 
 .formContainer {
-  min-height: 50vh;
+ // min-height: 50vh;
 }
 
 .jobCard {
   cursor: pointer;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .jobCardBtns {
   margin-left: auto;
+  display:flex;
 }
 
 .jobCardInfo {
@@ -70,7 +75,7 @@ body {
   flex-direction: column;
 }
 
-.jobDescLabel{
+.quillFormLabel{
   font-size: small;
   color: grey;
   text-align: left;
@@ -89,11 +94,8 @@ body {
   margin-right: 10px;
 }
 
-.nextPrevButtons {
-  position: absolute;
-  margin-left: -50px;
-  left: 50%;
-  bottom: 20px;
+.ql-editor ul li, .ql-editor ul{
+  padding-left: 5px !important;
 }
 
 @media (max-width: 768px) {

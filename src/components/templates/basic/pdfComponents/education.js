@@ -10,20 +10,20 @@ function Education() {
       <Text style={styleSheet.sectionHeader}>Education</Text>
       <View>
         {appState.pdfData.education.map((eduObj, index) => (
-          <React.Fragment key={index}>
-            <Text key={eduObj.degree + index} style={styleSheet.boldFont}>
+          <React.Fragment key={eduObj.schoolName + 'fragmentKey'}>
+            <Text key={eduObj.degree + 'degreeKey'} style={styleSheet.boldFont}>
               {eduObj.degree} : 
             </Text>
             <Text
-              key={eduObj.areaOfStudy + index}
+              key={eduObj.areaOfStudy + 'studyKey'}
               style={styleSheet.boldFont}
             >
               {eduObj.areaOfStudy}
             </Text>
-            <Text key={eduObj.SchoolName + index} style={styleSheet.italicFont}>
+            <Text key={eduObj.schoolName + 'schoolKey'} style={styleSheet.italicFont}>
               {eduObj.schoolName}
             </Text>
-            <Text key={eduObj.dates + index} style={styleSheet.schoolDates}>
+            <Text key={eduObj.dates + 'dateKey'} style={styleSheet.schoolDates}>
               {eduObj.dates}
             </Text>
           </React.Fragment>
