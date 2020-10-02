@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
-import JobDetailEditor from 'components/formComponents/jobDetailEditor.js';
+import JobDetailEditor from "components/formComponents/jobDetailEditor.js";
 import { view } from "@risingstack/react-easy-state";
-import commonFunctions from 'commonFunctions.js';
+import commonFunctions from "commonFunctions.js";
 
 class ExperienceForm extends React.Component {
   constructor(props) {
@@ -17,29 +17,57 @@ class ExperienceForm extends React.Component {
         <form ref={this.formRef} id="experience-info-form" className="formBox">
           <Box mb={"20px"} d={"flex"}>
             <StyledInput
-              key={commonFunctions.setDefaultFormValue(this.props.formData, "jobTitle") + "jobTitle"}
+              key={
+                commonFunctions.setDefaultFormValue(
+                  this.props.formData,
+                  "jobTitle"
+                ) + "jobTitle"
+              }
               mr={"10px"}
               id={"job-title"}
               label={"Job Title"}
-              defaultValue={commonFunctions.setDefaultFormValue(this.props.formData,"jobTitle")}
+              defaultValue={commonFunctions.setDefaultFormValue(
+                this.props.formData,
+                "jobTitle"
+              )}
             ></StyledInput>
             <StyledInput
-              key={commonFunctions.setDefaultFormValue(this.props.formData,"companyName") + "companyName"}
+              key={
+                commonFunctions.setDefaultFormValue(
+                  this.props.formData,
+                  "companyName"
+                ) + "companyName"
+              }
               mr={"10px"}
               id={"company-name"}
               label={"Company Name"}
-              defaultValue={commonFunctions.setDefaultFormValue(this.props.formData,"companyName")}
+              defaultValue={commonFunctions.setDefaultFormValue(
+                this.props.formData,
+                "companyName"
+              )}
             ></StyledInput>
             <StyledInput
-              key={commonFunctions.setDefaultFormValue(this.props.formData,"dates") + "dates"}
+              key={
+                commonFunctions.setDefaultFormValue(
+                  this.props.formData,
+                  "dates"
+                ) + "dates"
+              }
               mb={"20px"}
               id={"job-duration"}
               label={"Duration"}
-              defaultValue={commonFunctions.setDefaultFormValue(this.props.formData,"dates")}
+              defaultValue={commonFunctions.setDefaultFormValue(
+                this.props.formData,
+                "dates"
+              )}
             ></StyledInput>
           </Box>
+          <p className='jobDescLabel'>Job Description</p>
           <Box mb={"20px"} d={"flex"}>
-          <JobDetailEditor description={this.props.formData.description}></JobDetailEditor>
+            <JobDetailEditor
+              description={this.props.formData.description}
+              index={this.props.index}
+            ></JobDetailEditor>
           </Box>
         </form>
       </Box>

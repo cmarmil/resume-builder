@@ -70,20 +70,23 @@ body {
   flex-direction: column;
 }
 
-.jobDetailTag {
-  margin-left: 1em;
+.jobDescLabel{
+  font-size: small;
+  color: grey;
+  text-align: left;
 }
-
-.jobDetailTagEditable {
-  cursor: pointer;
-}
-
 .ql-container {
   font-size: 15px !important;
 }
 
 .ql-toolbar.ql-snow {
   text-align: left;
+}
+
+.ql-saveBtn {
+  text-align: right;
+  float: right !important;
+  margin-right: 10px;
 }
 
 .nextPrevButtons {

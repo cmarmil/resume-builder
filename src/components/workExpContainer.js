@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/core";
 import JobCard from "components/formComponents/jobCard.js";
-import JobDetailCard from "components/formComponents/jobDetailTag.js";
 import { view } from "@risingstack/react-easy-state";
 import ExperienceForm from "components/formComponents/experienceForm.js";
 import appState from "appState.js";
@@ -115,6 +114,7 @@ class WorkExpContainer extends React.Component {
                 formData={
                   appState.pdfData.workExperience[this.state.activeJobIndex]
                 }
+                index={this.state.activeJobIndex}
               ></ExperienceForm>
             ) : null}
           </React.Fragment>
