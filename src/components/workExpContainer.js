@@ -87,7 +87,7 @@ class WorkExpContainer extends React.Component {
 
   render() {
     return (
-      <Box p={"20px"} className="formContainer">
+      <Box p={"20px"}>
       <p className='quillFormLabel'>Work Experience</p>
         {appState.pdfData.workExperience.map((expObj, index) => (
           <React.Fragment key={"FormCard " + index}>

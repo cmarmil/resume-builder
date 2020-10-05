@@ -2,6 +2,7 @@ import React from "react";
 import ReactQuill from "react-quill";
 import { Box } from "@chakra-ui/core";
 import CustomToolbar from "components/formComponents/customToolbar.js";
+import customFunctions from 'commonFunctions.js';
 import "react-quill/dist/quill.snow.css";
 import appState from "appState.js";
 
@@ -26,7 +27,7 @@ class MyComponent extends React.Component {
     //We filter all bullet point objects out as they contain no text content.
     let deltaItems = this.editorContentRef.current.editor.editor.delta;
     let filteredItems = deltaItems.filter(function(item) {
-      return !item.hasOwnProperty("attributes");
+      return !item.hasOwnProperty("attributes") && customFunctions.isAlphaNumeric(item.insert);
     });
     let newSkillsArr = filteredItems.map(a => a.insert);
     //save items to app state

@@ -10,7 +10,7 @@ class SkillsForm extends React.Component {
   }
   render() {
     return (
-      <Box p={"20px"} backgroundColor="white" className="formContainer">
+      <Box p={"20px"}>
         <p className="quillFormLabel">Personal Skills List</p>
         <form ref={this.formRef} id="skills-form" className="formBox">
           <Box mb={"20px"} d={"flex"}>

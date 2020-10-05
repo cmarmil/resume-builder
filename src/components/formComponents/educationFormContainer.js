@@ -4,7 +4,6 @@ import FormCard from "components/formComponents/formCard.js";
 import EducationForm from "components/formComponents/educationForm.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
-import commonFunctions from "commonFunctions.js";
 
 class EducationFormContainer extends React.Component {
   constructor(props) {
@@ -87,7 +86,7 @@ class EducationFormContainer extends React.Component {
 
   render() {
     return (
-      <Box p={"20px"} backgroundColor="white" className="formContainer">
+      <Box p={"20px"}>
         <p className="quillFormLabel">Education</p>
         {appState.pdfData.education.map((obj, index) => (
           <React.Fragment key={"FormCard " + index.toString()}>

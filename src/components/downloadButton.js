@@ -2,11 +2,11 @@ import React from "react";
 import { saveAs } from "file-saver";
 import { pdf } from "@react-pdf/renderer";
 import PDFOutput from "components/pdfOutput.js";
-import { Button } from "@chakra-ui/core";
+import { Button, Icon} from "@chakra-ui/core";
 import { PDFDocument } from "pdf-lib";
 
 function getArrayBuffer (blob) {
-    //seemingly can't use native arrayBuffer() in safari, the cursed problem child of 2020. 
+    //seemingly can't use native arrayBuffer() in safari.
     return new Promise((resolve) => {
       let fr = new FileReader();
       fr.onload = () => {
@@ -37,7 +37,7 @@ export const DownloadButton = () => (
       saveAs(blob, "resume.pdf");
     }}
   >
-    Download PDF
+    Download PDF <Icon name="download" />
   </Button>
 );
 

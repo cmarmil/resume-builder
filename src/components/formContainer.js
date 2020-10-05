@@ -7,8 +7,8 @@ import SkillsForm from "components/formComponents/skillsForm.js";
 import CertsFormContainer from "components/formComponents/certsFormContainer.js";
 import { Button, Progress, Box } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
-import DownloadButton from "components/downloadButton.js";
 import appState from "appState.js";
+import { DownloadScreen } from "./downloadScreen";
 
 class FormContainer extends React.Component {
   constructor(props) {
@@ -37,11 +37,13 @@ class FormContainer extends React.Component {
         return <EducationFormContainer ref={this.ref}></EducationFormContainer>;
       case 5:
         return <CertsFormContainer ref={this.ref}></CertsFormContainer>;
+      case 6:
+        return <DownloadScreen></DownloadScreen>;
     }
   }
 
   handleSubmit() {
-    if (this.ref.current.formRef.current) {
+    if (this.ref.current && this.ref.current.formRef.current) {
       let form = this.ref.current.formRef.current;
       let formElements = form.elements;
       let newData = {};
@@ -72,7 +74,10 @@ class FormContainer extends React.Component {
                 newData.email = form.elements[6].value;
                 break;
               case 7:
-                newData.website = form.elements[7].value;
+                newData.linkedIn = form.elements[7].value;
+                break;
+              case 8:
+                newData.website = form.elements[8].value;
                 break;
             }
           }
@@ -91,7 +96,7 @@ class FormContainer extends React.Component {
     }
 
     //proceed to next form section
-    if (this.state.activeForm < 5) {
+    if (this.state.activeForm < 6) {
       let currentForm = this.state.activeForm;
       let nextForm = currentForm + 1;
       let currentProgress = this.state.progress;
@@ -119,13 +124,19 @@ class FormContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Progress color="blue" size="lg" value={this.state.progress} />
-        {this.renderActiveForm()}
+        <Progress size="lg" value={this.state.progress} />
+        <Box className="formContainer">{this.renderActiveForm()}</Box>
         <Box className="nextPrevButtons">
-          <Button onClick={this.backBtnClick}>Back</Button>
-          <Button onClick={this.handleSubmit} variantColor="blue">
-            Next
-          </Button>
+          {this.state.activeForm > 0 ? (
+            <Button mr="10px" onClick={this.backBtnClick}>
+              Back
+            </Button>
+          ) : null}
+          {this.state.activeForm < 6 ? (
+            <Button onClick={this.handleSubmit} variantColor="blue">
+              Next
+            </Button>
+          ) : null}
         </Box>
         {/*  <DownloadButton /> */}
       </React.Fragment>

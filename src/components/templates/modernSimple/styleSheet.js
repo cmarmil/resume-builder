@@ -26,8 +26,6 @@ const styleSheet = StyleSheet.create({
     },
     nameInfo: {
       flexDirection: "column",
-      width: "50%",
-      fontFamily: "BebasNeue",
       fontSize: 50
     },
     contactInfo: {
@@ -76,12 +74,6 @@ const styleSheet = StyleSheet.create({
       marginLeft: 4
     },
     jobTitle: {
-      fontStyle: "bold"
-    },
-    skillCategory: {
-      paddingBottom: 5
-    },
-    skillCategoryTitle: {
       fontStyle: "bold"
     }
   });

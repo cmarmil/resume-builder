@@ -11,7 +11,7 @@ class CertsForm extends React.Component {
   }
   render() {
     return (
-      <Box p={"20px"} className="formContainer">
+      <Box p={"20px"}>
         <form ref={this.formRef} id="certs-form" className="formBox">
           <Box mb={"20px"} d={"flex"}>
             <StyledInput

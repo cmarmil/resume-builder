@@ -24,11 +24,6 @@ function TemplateOutput() {
           <View style={styleSheet.section}>
             <WorkExperience styleSheet={styleSheet}/>
           </View>
-          <Text style={styleSheet.sectionHeader}> Other Experience</Text>
-          <UnorderedListItem>
-            Illustrator and Graphic Designer
-          </UnorderedListItem>
-          <UnorderedListItem>Customer Service (various)</UnorderedListItem>
         </View>
       </Page>
     </Document>

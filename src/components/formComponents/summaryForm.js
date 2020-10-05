@@ -11,7 +11,7 @@ class SummaryForm extends React.Component {
   }
   render() {
     return (
-      <Box p={"20px"} backgroundColor="white" className="formContainer">
+      <Box p={"20px"}>
         <form ref={this.formRef} id="summary-info-form" className="formBox">
           <Box mb={"20px"} d={"flex"}>
             <StyledTextArea

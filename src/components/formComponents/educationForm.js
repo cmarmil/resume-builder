@@ -11,7 +11,7 @@ class EducationForm extends React.Component {
   }
   render() {
     return (
-      <Box p={"20px"} backgroundColor="white" className="formContainer">
+      <Box p={"20px"} backgroundColor="white">
         <form ref={this.formRef} id="education-info-form" className="formBox">
           <Box mb={"20px"} d={"flex"}>
           <StyledInput
