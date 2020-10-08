@@ -26,7 +26,6 @@ const styleSheet = StyleSheet.create({
   },
   header: {
     fontFamily: "PlayfairDisplay",
-    fontSize: 40,
     fontStyle: "bold"
   },
   profession: {

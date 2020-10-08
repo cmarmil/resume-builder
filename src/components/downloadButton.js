@@ -18,6 +18,7 @@ function getArrayBuffer (blob) {
 
 export const DownloadButton = () => (
   <Button
+    variantColor='blue'
     onClick={async () => {
       //workaround for a toBlob bug in @react-pdf V2 beta. Awaiting a fix.
       const doc = <PDFOutput />;

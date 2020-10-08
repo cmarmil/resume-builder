@@ -20,6 +20,14 @@ import PlayfairReg from 'fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf';
 import PlayfairBold from 'fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf';
 import PlayfairItalic from 'fonts/PlayfairDisplay/PlayfairDisplay-Italic.ttf';
 
+import OpenSansReg from 'fonts/Open_Sans/OpenSans-Regular.ttf';
+import OpenSansBold from 'fonts/Open_Sans/OpenSans-Bold.ttf';
+import OpenSansItalic from 'fonts/Open_Sans/OpenSans-Italic.ttf';
+
+import RobotoMonoReg from 'fonts/Roboto_Mono/RobotoMono-Regular.ttf';
+import RobotoMonoBold from 'fonts/Roboto_Mono/RobotoMono-Bold.ttf';
+import RobotoMonoItalic from 'fonts/Roboto_Mono/RobotoMono-Italic.ttf';
+
 //this prevents words from breaking with hyphens in the pdf.
 Font.registerHyphenationCallback(word => [word]);
 
@@ -59,6 +67,24 @@ function registerFont() {
       { src: PlayfairReg },
       { src: PlayfairBold, fontStyle: "bold" },
       { src: PlayfairItalic, fontStyle: "italic" }
+    ]
+  });
+
+  Font.register({
+    family: "OpenSans",
+    fonts: [
+      { src: OpenSansReg },
+      { src: OpenSansBold, fontStyle: "bold" },
+      { src: OpenSansItalic, fontStyle: "italic" }
+    ]
+  });
+
+  Font.register({
+    family: "RobotoMono",
+    fonts: [
+      { src: RobotoMonoReg },
+      { src: RobotoMonoBold, fontStyle: "bold" },
+      { src: RobotoMonoItalic, fontStyle: "italic" }
     ]
   });
 

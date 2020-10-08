@@ -18,7 +18,7 @@ function LoadingSpinner() {
       cy={50}
       r={32}
       strokeWidth={8}
-      stroke="#5699d2"
+      stroke="#1E88E5"
       strokeDasharray="50.26548245743669 50.26548245743669"
       fill="none"
       strokeLinecap="round"

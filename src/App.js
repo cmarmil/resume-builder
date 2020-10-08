@@ -3,34 +3,15 @@ import { pdfjs } from "react-pdf";
 import PDFDisplay from "components/pdfDisplay.js";
 import { view } from "@risingstack/react-easy-state";
 import FormContainer from "components/formContainer.js";
-import appState from "./appState.js";
+import customTheme from "customTheme.js";
 import registerFonts from "components/fontRegister";
 import "App.scss";
-import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
-
-const customTheme = {
-  ...theme,
-  colors: {
-    ...theme.colors,
-    blue: {
-      50: "#e4e4ff",
-      100: "#b2b3ff",
-      200: "#8080ff",
-      300: "#4d4dff",
-      400: "#1d1bfe",
-      500: "#0501e5",
-      600: "#0000b3",
-      700: "#000081",
-      800: "#000050",
-      900: "#000020"
-    }
-  }
-};
+import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
 class App extends React.Component {
   async componentDidMount() {
     registerFonts();
-    //react-pdf needs this to work
+    //react-pdf will crash without this
     pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   }
 

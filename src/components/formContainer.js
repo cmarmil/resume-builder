@@ -8,7 +8,8 @@ import CertsFormContainer from "components/formComponents/certsFormContainer.js"
 import { Button, Progress, Box } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
-import { DownloadScreen } from "./downloadScreen";
+import DownloadScreen from "./downloadScreen";
+import DesignScreen from 'components/designScreen.js';
 
 class FormContainer extends React.Component {
   constructor(props) {
@@ -17,8 +18,8 @@ class FormContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.backBtnClick = this.backBtnClick.bind(this);
     this.state = {
-      activeForm: 0,
-      progress: 0
+      activeForm: 6,
+      progress: 15
     };
     this.ref = React.createRef();
   }
@@ -38,6 +39,8 @@ class FormContainer extends React.Component {
       case 5:
         return <CertsFormContainer ref={this.ref}></CertsFormContainer>;
       case 6:
+        return <DesignScreen></DesignScreen>;
+      case 7:
         return <DownloadScreen></DownloadScreen>;
     }
   }
@@ -96,11 +99,11 @@ class FormContainer extends React.Component {
     }
 
     //proceed to next form section
-    if (this.state.activeForm < 6) {
+    if (this.state.activeForm < 7) {
       let currentForm = this.state.activeForm;
       let nextForm = currentForm + 1;
       let currentProgress = this.state.progress;
-      let newProgress = currentProgress + 20;
+      let newProgress = currentProgress + 15;
       this.setState({
         activeForm: nextForm,
         progress: newProgress
@@ -124,15 +127,20 @@ class FormContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Progress size="lg" value={this.state.progress} />
+        <Progress
+          hasStripe
+          size="lg"
+          value={this.state.progress}
+          color="blue"
+        />
         <Box className="formContainer">{this.renderActiveForm()}</Box>
         <Box className="nextPrevButtons">
           {this.state.activeForm > 0 ? (
-            <Button mr="10px" onClick={this.backBtnClick}>
+            <Button variantColor="blue" mr="10px" onClick={this.backBtnClick}>
               Back
             </Button>
           ) : null}
-          {this.state.activeForm < 6 ? (
+          {this.state.activeForm < 7 ? (
             <Button onClick={this.handleSubmit} variantColor="blue">
               Next
             </Button>
