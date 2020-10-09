@@ -7,7 +7,7 @@ import styleSheet from 'components/templates/modernSimple/styleSheet.js';
 function Summary() {
   return (
     <View style={styleSheet.section}>
-      <Text style={styleSheet.sectionHeader}>Summary</Text>
+      <Text style={[styleSheet.sectionHeader, { fontSize: appState.templateFontSizes.sectionHeader }]}>Summary</Text>
       <Text>{appState.pdfData.summary}</Text>
     </View>
   );

@@ -9,6 +9,7 @@ const appState = store({
     basic: { pageHeader: 40, sectionHeader: 16, body: 13 },
     modernSimple: { pageHeader: 50, sectionHeader: 20, body: 14 }
   },
+  templateFontSizes: {},
   //initial values
   pdfData: {
     fName: "Jessica",

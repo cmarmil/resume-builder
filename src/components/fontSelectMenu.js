@@ -18,7 +18,6 @@ function FontMenu() {
   }
   return (
     <Box d="flex" p="20px" alignItems="center">
-      
       <Menu>
         <MenuButton mr='auto' as={Button} rightIcon="chevron-down">
           Fonts

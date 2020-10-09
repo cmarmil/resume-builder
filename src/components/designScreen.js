@@ -1,8 +1,8 @@
 import React from "react";
 import { TwitterPicker } from "react-color";
-import { Box, Text } from "@chakra-ui/core";
+import { Box, Text, Button} from "@chakra-ui/core";
 import FontMenu from "components/fontSelectMenu.js";
-import FontSizeInput from "components/fontSizeInput.js";
+import FontSizeAdjuster from "components/fontSizeAdjuster.js";
 import customTheme from "customTheme.js";
 import appState from "appState.js";
 import { view } from "@risingstack/react-easy-state";
@@ -16,8 +16,6 @@ class DesignScreen extends React.Component {
     this.setState({ background: color.hex });
     appState.templateColor = color.hex;
   };
-
-  changeFontSize = () => {};
 
   render() {
     return (
@@ -38,14 +36,13 @@ class DesignScreen extends React.Component {
               customTheme.colors.blue["100"],
               customTheme.colors.indigo["100"],
               customTheme.colors.purple["100"],
-              customTheme.colors.grey["100"],
-              "white"
+              customTheme.colors.grey["100"]
             ]}
             color={this.state.background}
             onChangeComplete={this.handleChangeComplete}
           />
           <FontMenu></FontMenu>
-          <FontSizeInput></FontSizeInput>
+          <FontSizeAdjuster></FontSizeAdjuster>
         </Box>
       </React.Fragment>
     );

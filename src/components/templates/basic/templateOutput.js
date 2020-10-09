@@ -13,7 +13,7 @@ import Certs from "components/templates/basic/pdfComponents/certs.js";
 function templateOutput() {
   return (
     <Document>
-      <Page size="A4" style={styleSheet.page} wrap={false}>
+      <Page size="A4" style={styleSheet.page}>
         <View style={styleSheet.colContainer}>
           <View style={styleSheet.sideCol}>
             <Skills />

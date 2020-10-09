@@ -4,11 +4,12 @@ import { Document, Page } from "react-pdf";
 import PdfOutput from "components/pdfOutput.js";
 import { view } from "@risingstack/react-easy-state";
 import LoadingSpinner from "components/icons/loadingSpinner.js";
+import commonFunctions from "commonFunctions.js";
 
 class PDFDisplay extends React.Component {
   constructor(props) {
     super(props);
-  
+
     this.updateDimension = this.updateDimension.bind(this);
     this.onDocLoadSuccess = this.onDocLoadSuccess.bind(this);
     this.docLoading = this.docLoading.bind(this);
@@ -16,7 +17,8 @@ class PDFDisplay extends React.Component {
     this.state = {
       width: null,
       height: null,
-      loaded: false
+      loaded: false,
+      pageCount: 1
     };
 
     this.mainPdf = React.createRef();
@@ -28,10 +30,28 @@ class PDFDisplay extends React.Component {
     let percentage = 90 / 100;
     setTimeout(() => {
       this.setState({
-        width: this.pdfWrapper.current.getBoundingClientRect().width * percentage
+        width:
+          this.pdfWrapper.current.getBoundingClientRect().width * percentage
       });
     }, 500);
-    
+  }
+
+  async onDocLoadSuccess() {
+    setTimeout(() => {
+      this.spinner.current.style.display = "none";
+      this.mainPdf.current.style.display = "block";
+    }, 200);
+    let newPageCount = await commonFunctions.getPageCount();
+    if (newPageCount != this.state.pageCount) {
+      this.setState({
+        pageCount: newPageCount
+      });
+    }
+  }
+
+  docLoading() {
+    this.spinner.current.style.display = "block";
+    this.mainPdf.current.style.display = "none";
   }
 
   componentDidMount() {
@@ -40,25 +60,24 @@ class PDFDisplay extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener(
-      "resize",
-      this.updateDimension
-    );
-  }
-
-  onDocLoadSuccess() {
-    setTimeout(() => {
-      this.spinner.current.style.display = "none";
-      this.mainPdf.current.style.display = "block";
-    }, 200);
-  }
-
-  docLoading() {
-    this.spinner.current.style.display = "block";
-    this.mainPdf.current.style.display = "none";
+    window.removeEventListener("resize", this.updateDimension);
   }
 
   render() {
+    let pages = [];
+    for (let i = 1; i <= this.state.pageCount; i++) {
+      console.log(i)
+      pages.push(
+        <Page
+          key={"page" + i}
+          width={this.state.width}
+          height={this.state.height}
+          onLoadSuccess={this.onDocLoadSuccess}
+          pageNumber={i}
+          loading={this.docLoading}
+        />
+      );
+    }
     return (
       <div className="pageWrapper" ref={this.pdfWrapper}>
         <div className="spinner" ref={this.spinner}>
@@ -69,13 +88,7 @@ class PDFDisplay extends React.Component {
             {({ blob }) =>
               blob ? (
                 <Document file={blob} loading={null}>
-                  <Page
-                    width={this.state.width}
-                    height={this.state.height}
-                    onLoadSuccess={this.onDocLoadSuccess}
-                    pageNumber={1}
-                    loading={this.docLoading}
-                  />
+                  {pages}
                 </Document>
               ) : null
             }

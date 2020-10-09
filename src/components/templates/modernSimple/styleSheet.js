@@ -1,12 +1,6 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
-const styleSheet = StyleSheet.create({
-  page: {
-    fontSize: 11
-  },
-  headerSection: {
-    //backgroundColor: '#8ED1FC'
-  },
+const styleSheet = {
   headerPadding: {
     paddingLeft: 25,
     paddingRight: 25,
@@ -35,11 +29,9 @@ const styleSheet = StyleSheet.create({
     fontStyle: "bold"
   },
   profession: {
-    fontSize: 30,
     marginBottom: 10
   },
   sectionHeader: {
-    fontSize: 20,
     textDecoration: "underline",
     marginBottom: 5
   },
@@ -79,6 +71,6 @@ const styleSheet = StyleSheet.create({
   educationTitle: {
     fontStyle: "bold"
   }
-});
+};
 
 export default styleSheet;

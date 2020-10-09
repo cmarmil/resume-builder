@@ -4,17 +4,7 @@ import { pdf } from "@react-pdf/renderer";
 import PDFOutput from "components/pdfOutput.js";
 import { Button, Icon} from "@chakra-ui/core";
 import { PDFDocument } from "pdf-lib";
-
-function getArrayBuffer (blob) {
-    //seemingly can't use native arrayBuffer() in safari.
-    return new Promise((resolve) => {
-      let fr = new FileReader();
-      fr.onload = () => {
-        resolve(fr.result);
-      };
-      fr.readAsArrayBuffer(blob);
-    })
-}
+import commonFunctions from 'commonFunctions.js';
 
 export const DownloadButton = () => (
   <Button
@@ -27,14 +17,14 @@ export const DownloadButton = () => (
       let blob = await asPdf.toBlob();
       //convert to buffer to delete possible overflow pages.
       //only necessary if strictly one page resume.
-      let buffer = await getArrayBuffer(blob);
+     /*  let buffer = await getArrayBuffer(blob);
       const pdfDoc = await PDFDocument.load(buffer);
       const pageCount = await pdfDoc.getPageCount();
       if (pageCount > 1) {
         pdfDoc.removePage(1);
         const pdfBytes = await pdfDoc.save();
         blob = new Blob([pdfBytes], { type: "application/pdf" });
-      }
+      } */
       saveAs(blob, "resume.pdf");
     }}
   >
