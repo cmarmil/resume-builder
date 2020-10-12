@@ -2,7 +2,7 @@ import React from "react";
 import { Box, IconButton, Text } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
 
-function FormCard(props) {
+const FormCard = (props) => {
   return (
     <Box
       className="jobCard"

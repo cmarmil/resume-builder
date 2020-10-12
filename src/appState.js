@@ -69,7 +69,9 @@ const appState = store({
       { name: "Google Ads Certified", date: "2016" },
       { name: "Adobe Certified Expert", date: "2013" }
     ],
-    customDataSections: []
+    customSections: [{
+      name: 'Custom Section', content: ['custom list item']
+    }]
   },
   formData: {
     fName: "Jessica",
@@ -134,8 +136,8 @@ const appState = store({
       { name: "Google Ads Certified", date: "2016" },
       { name: "Adobe Certified Expert", date: "2013" }
     ],
-    customDataSections: []
-  }
+    customSections: []
+  },
 });
 
 export default appState;

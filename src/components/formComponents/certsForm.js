@@ -9,7 +9,6 @@ const CertsForm = (props) => {
   function handleChange(e) {
     let name = e.target.id;
     let value = e.target.value;
-    console.log( appState.formData.certsAndLiscences[props.index])
     appState.formData.certsAndLiscences[props.index][name] = value;
   }
   return (

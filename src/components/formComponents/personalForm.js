@@ -5,13 +5,12 @@ import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
 import commonFunctions from "commonFunctions.js";
 
-function handleChange(e) {
-  let name = e.target.id;
-  let value = e.target.value;
-  appState.formData[name] = value;
-}
-
 const PersonalForm = () => {
+  function handleChange(e) {
+    let name = e.target.id;
+    let value = e.target.value;
+    appState.formData[name] = value;
+  }
   return (
     <Box p={"20px"}>
       <form id="personal-info-form" className="formBox">

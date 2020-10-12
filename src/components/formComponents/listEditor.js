@@ -2,12 +2,11 @@ import React from "react";
 import ReactQuill from "react-quill";
 import { Box } from "@chakra-ui/core";
 import CustomToolbar from "components/formComponents/customToolbar.js";
-import customFunctions from "commonFunctions.js";
 import "react-quill/dist/quill.snow.css";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 
-class SkillsEditor extends React.Component {
+class ListEditor extends React.Component {
   constructor(props) {
     super(props);
     this.setInitialValueString = this.setInitialValueString.bind(this);
@@ -16,7 +15,7 @@ class SkillsEditor extends React.Component {
 
   setInitialValueString() {
     let listItems = [];
-    appState.pdfData.skills.forEach(function(value) {
+    this.props.listItems.forEach(function(value) {
       listItems.push(`<li>${value}</li>`);
     });
     return `<ul>${listItems.join("")}</ul>`;
@@ -28,17 +27,16 @@ class SkillsEditor extends React.Component {
     let deltaItems = this.editorContentRef.current.editor.editor.delta;
     let filteredItems = deltaItems.filter(function(item) {
       return (
-        !item.hasOwnProperty("attributes") &&
-        customFunctions.isAlphaNumeric(item.insert)
+        !item.hasOwnProperty("attributes")
       );
     });
-    let newSkillsArr = filteredItems.map(a => a.insert);
-    return newSkillsArr;
+    let newArr = filteredItems.map(a => a.insert);
+    return newArr;
   };
 
   handleChange = () => {
-    let newSkillsArr = this.makeArrayFromDelta();
-    appState.formData.skills = newSkillsArr;
+    let value = this.makeArrayFromDelta();
+    this.props.handleChange(value);
   };
 
   saveValue = () => {
@@ -47,7 +45,7 @@ class SkillsEditor extends React.Component {
       ...appState.pdfData,
       ...appState.formData
     };
-  }
+  };
 
   modules = {
     toolbar: {
@@ -74,4 +72,4 @@ class SkillsEditor extends React.Component {
   }
 }
 
-export default view(SkillsEditor);
+export default view(ListEditor);

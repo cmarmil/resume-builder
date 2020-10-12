@@ -8,7 +8,6 @@ import appState from "appState.js";
 class CertsFormContainer extends React.Component {
   constructor() {
     super();
-    this.formRef = React.createRef();
     this.addEntry = this.addEntry.bind(this);
     this.setActive = this.setActive.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);

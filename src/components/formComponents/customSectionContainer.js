@@ -5,23 +5,23 @@ import { view } from "@risingstack/react-easy-state";
 import ExperienceForm from "components/formComponents/experienceForm.js";
 import appState from "appState.js";
 
-class WorkExpContainer extends React.Component {
+class CustomSectionsContainer extends React.Component {
   constructor(props) {
     super();
-    this.setActiveJob = this.setActiveJob.bind(this);
-    this.saveJobInfo = this.saveJobInfo.bind(this);
-    this.deleteJob = this.deleteJob.bind(this);
-    this.addJob = this.addJob.bind(this);
+    this.setActive = this.setActive.bind(this);
+    this.saveInfo = this.saveInfo.bind(this);
+    this.delete = this.delete.bind(this);
+    this.add = this.add.bind(this);
     this.state = {
       activeJobIndex: 0,
       formOpen: false
     };
   }
 
-  setActiveJob(index) {
+  setActive(index) {
     //open new form if the click index is different instead of just closing the one already active.
     //save any new info
-    if (this.state.formOpen && index !== this.state.activeJobIndex) {
+    if (this.state.formOpen && index !== this.state.activeIndex) {
       this.setState({
         activeJobIndex: index,
         formOpen: true
@@ -32,22 +32,22 @@ class WorkExpContainer extends React.Component {
         formOpen: !this.state.formOpen
       });
     }
-    this.saveJobInfo();
+    this.saveInfo();
   }
 
-  saveJobInfo() {
+  saveInfo() {
     appState.pdfData = {
       ...appState.pdfData,
       ...appState.formData
     };
   }
 
-  deleteJob(e, index) {
+  delete(e, index) {
     e.stopPropagation();
     appState.pdfData.workExperience.splice(index, 1);
   }
 
-  addJob() {
+  add() {
     let newJob = {
       jobTitle: "Job Title",
       companyName: "Company",
@@ -64,28 +64,28 @@ class WorkExpContainer extends React.Component {
   render() {
     return (
       <Box p={"20px"}>
-        <p className="quillFormLabel">Work Experience</p>
-        {appState.pdfData.workExperience.map((expObj, index) => (
+        <p className="quillFormLabel">Custom Sections</p>
+        {appState.pdfData.customSections.map((Obj, index) => (
           <React.Fragment key={"FormCard " + index}>
             <FormCard
-            key={"FormCard " + expObj.jobTitle}
-              setActive={this.setActiveJob}
-              delete={this.deleteJob}
+            key={"FormCard " + obj.jobTitle}
+              setActive={this.setActive}
+              delete={this.delete}
               index={index}
-              title={expObj.jobTitle}
-              place={expObj.companyName}
+              title={obj.title}
+              place={obj.name}
             ></FormCard>
             {this.state.activeJobIndex === index && this.state.formOpen ? (
               <ExperienceForm
                 formData={
-                  appState.pdfData.workExperience[this.state.activeJobIndex]
+                  appState.pdfData.customSections[this.state.activeJobIndex]
                 }
                 index={this.state.activeJobIndex}
               ></ExperienceForm>
             ) : null}
           </React.Fragment>
         ))}
-        <Button onClick={this.addJob} mt="20px">
+        <Button onClick={this.add} mt="20px">
           Add Job
         </Button>
       </Box>
@@ -93,4 +93,4 @@ class WorkExpContainer extends React.Component {
   }
 }
 
-export default view(WorkExpContainer);
+export default view(CustomSectionsContainer);

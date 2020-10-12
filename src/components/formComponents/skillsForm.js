@@ -1,15 +1,19 @@
 import React from "react";
 import { Box } from "@chakra-ui/core";
-import SkillsEditor from "components/formComponents/skillsEditor.js";
+import ListEditor from "components/formComponents/listEditor.js";
 import { view } from "@risingstack/react-easy-state";
+import appState from "appState.js";
 
 const SkillsForm = () => {
+  function handleChange(value) {
+   appState.formData.skills = value;
+  }
   return (
     <Box p={"20px"}>
       <p className="quillFormLabel">Personal Skills List</p>
       <form id="skills-form" className="formBox">
         <Box mb={"20px"} d={"flex"}>
-          <SkillsEditor></SkillsEditor>
+          <ListEditor listItems={appState.pdfData.skills} handleChange={handleChange}></ListEditor>
         </Box>
       </form>
     </Box>
