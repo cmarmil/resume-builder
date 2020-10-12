@@ -4,27 +4,28 @@ import StyledTextArea from "./styledTextArea.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
 
-class SummaryForm extends React.Component {
-  constructor(props) {
-    super();
-    this.formRef = React.createRef();
-  }
-  render() {
+  function handleChange(e) {
+    appState.formData.summary = e.target.value;
+  };
+
+  const SummaryForm = () => {
     return (
       <Box p={"20px"}>
-        <form ref={this.formRef} id="summary-info-form" className="formBox">
+        <form id="summary-info-form" className="formBox">
           <Box mb={"20px"} d={"flex"}>
             <StyledTextArea
+              onChange={handleChange}
               id={"summary"}
               label={"Summary"}
-              placeholder={appState.pdfData.summary}
+              placeholder={
+                "Creative Software Engineer with 4 years of experience in computer science, programming, and UX design. Enthusiastic team player and avid learner."
+              }
               value={appState.pdfData.summary}
             ></StyledTextArea>
           </Box>
         </form>
       </Box>
     );
-  }
 }
 
 export default view(SummaryForm);

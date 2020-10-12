@@ -4,76 +4,74 @@ import StyledInput from "./styledInput.js";
 import JobDetailEditor from "components/formComponents/jobDetailEditor.js";
 import { view } from "@risingstack/react-easy-state";
 import commonFunctions from "commonFunctions.js";
+import appState from "appState.js";
 
-class ExperienceForm extends React.Component {
-  constructor() {
-    super();
-    this.formRef = React.createRef();
+const ExpForm = props => {
+  function handleChange(e) {
+    let name = e.target.id;
+    let value = e.target.value;
+    appState.formData.workExperience[props.index][name] = value;
   }
-
-  render() {
-    return (
-      <Box p={"20px"}>
-        <form ref={this.formRef} id="experience-info-form" className="formBox">
-          <Box mb={"20px"} d={"flex"}>
-            <StyledInput
-              key={
-                commonFunctions.setDefaultFormValue(
-                  this.props.formData,
-                  "jobTitle"
-                ) + "jobTitle"
-              }
-              mr={"10px"}
-              id={"job-title"}
-              label={"Job Title"}
-              defaultValue={commonFunctions.setDefaultFormValue(
-                this.props.formData,
-                "jobTitle"
-              )}
-            ></StyledInput>
-            <StyledInput
-              key={
-                commonFunctions.setDefaultFormValue(
-                  this.props.formData,
-                  "companyName"
-                ) + "companyName"
-              }
-              mr={"10px"}
-              id={"company-name"}
-              label={"Company Name"}
-              defaultValue={commonFunctions.setDefaultFormValue(
-                this.props.formData,
+  return (
+    <Box p={"20px"}>
+      <form id="experience-info-form" className="formBox">
+        <Box mb={"20px"} d={"flex"}>
+          <StyledInput
+            onChange={handleChange}
+            key={
+              commonFunctions.setDefaultFormValue(props.formData, "jobTitle") +
+              "jobTitle"
+            }
+            mr={"10px"}
+            id={"jobTitle"}
+            label={"Job Title"}
+            defaultValue={commonFunctions.setDefaultFormValue(
+              props.formData,
+              "jobTitle"
+            )}
+          ></StyledInput>
+          <StyledInput
+            onChange={handleChange}
+            key={
+              commonFunctions.setDefaultFormValue(
+                props.formData,
                 "companyName"
-              )}
-            ></StyledInput>
-            <StyledInput
-              key={
-                commonFunctions.setDefaultFormValue(
-                  this.props.formData,
-                  "dates"
-                ) + "dates"
-              }
-              mb={"20px"}
-              id={"job-duration"}
-              label={"Duration"}
-              placeholder={'July 2012 - January 2015'}
-              defaultValue={commonFunctions.setDefaultFormValue(
-                this.props.formData,
-                "dates"
-              )}
-            ></StyledInput>
-          </Box>
-          <p className='quillFormLabel'>Job Description</p>
-          <Box mb={"20px"} d={"flex"}>
-            <JobDetailEditor
-              description={this.props.formData.description}
-              index={this.props.index}
-            ></JobDetailEditor>
-          </Box>
-        </form>
-      </Box>
-    );
-  }
-}
+              ) + "companyName"
+            }
+            mr={"10px"}
+            id={"companyName"}
+            label={"Company Name"}
+            defaultValue={commonFunctions.setDefaultFormValue(
+              props.formData,
+              "companyName"
+            )}
+          ></StyledInput>
+          <StyledInput
+            onChange={handleChange}
+            key={
+              commonFunctions.setDefaultFormValue(props.formData, "dates") +
+              "dates"
+            }
+            mb={"20px"}
+            id={"dates"}
+            label={"Duration"}
+            placeholder={"July 2012 - January 2015"}
+            defaultValue={commonFunctions.setDefaultFormValue(
+              props.formData,
+              "dates"
+            )}
+          ></StyledInput>
+        </Box>
+        <p className="quillFormLabel">Job Description</p>
+        <Box mb={"20px"} d={"flex"}>
+          <JobDetailEditor
+            description={props.formData.description}
+            index={props.index}
+          ></JobDetailEditor>
+        </Box>
+      </form>
+    </Box>
+  );
+};
 
-export default view(ExperienceForm);
+export default view(ExpForm);

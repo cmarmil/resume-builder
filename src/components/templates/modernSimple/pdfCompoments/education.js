@@ -7,14 +7,7 @@ import styleSheet from "components/templates/modernSimple/styleSheet.js";
 function Education() {
   return (
     <View style={styleSheet.sideContainer}>
-      <Text
-        style={[
-          styleSheet.sectionHeader,
-          { fontSize: appState.templateFontSizes.sectionHeader }
-        ]}
-      >
-        Education
-      </Text>
+      <Text style={styleSheet.sectionHeader}>Education</Text>
       <View>
         {appState.pdfData.education.map(eduObj => (
           <React.Fragment key={eduObj.schoolName + "fragmentKey"}>

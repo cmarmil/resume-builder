@@ -12,26 +12,12 @@ import ContactInfoIcons from "components/templates/modernSimple/pdfCompoments/co
 import styleSheet from "components/templates/modernSimple/styleSheet.js";
 
 function TemplateOutput() {
-  useEffect(() => {
-    //store initial font sizes so that they can be edited later by the user.
-    if (Object.keys(appState.templateFontSizes).length === 0) {
-      let fontSizes = {
-        headerName: 50,
-        headerProfession: 30,
-        sectionHeader: 20,
-        body: 14
-      };
-      appState.templateFontSizes = fontSizes;
-    }
-  }, []);
-
   return (
     <Document>
       <Page
         size="A4"
         style={{
-          fontFamily: appState.pdfFont,
-          fontSize: appState.templateFontSizes.body
+          fontFamily: appState.pdfFont
         }}
       >
         <View style={{ backgroundColor: appState.templateColor }}>

@@ -13,7 +13,7 @@ function renderBullets(description) {
 function WorkExperience() {
   return (
     <View style={styleSheet.section}>
-      <Text style={[styleSheet.sectionHeader, { fontSize: appState.templateFontSizes.sectionHeader }]}>Work Experience</Text>
+      <Text style={styleSheet.sectionHeader}>Work Experience</Text>
       {appState.pdfData.workExperience.map((workExp, index) => (
         <React.Fragment key={index}>
           <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>

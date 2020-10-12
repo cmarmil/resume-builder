@@ -5,7 +5,7 @@ import { view } from "@risingstack/react-easy-state";
 const style = {
   div: {
     textAlign: "left",
-    flex: 2,
+    flex: 2
   },
   label: {
     fontSize: "small",
@@ -15,11 +15,22 @@ const style = {
 
 const StyledInput = props => {
   return (
-    <Box style={style.div} className="inputWithLabel" mr={props.mr} ml={props.ml} mb={props.mb}>
+    <Box
+      style={style.div}
+      className="inputWithLabel"
+      mr={props.mr}
+      ml={props.ml}
+      mb={props.mb}
+    >
       <FormLabel style={style.label} htmlFor={props.id}>
         {props.label}
       </FormLabel>
-      <Input id={props.id} placeholder={props.placeholder} defaultValue={props.defaultValue}/>
+      <Input
+        onChange={props.onChange}
+        id={props.id}
+        placeholder={props.placeholder}
+        defaultValue={props.defaultValue}
+      />
     </Box>
   );
 };

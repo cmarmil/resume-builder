@@ -21,22 +21,31 @@ class MyComponent extends React.Component {
     return `<ul>${listItems.join("")}</ul>`;
   }
 
+  makeArrayFromDelta() {
+    //this grabs a delta object containing raw text values instead of an HTML string.
+    //We filter all bullet point objects out as they contain no text content.
+    let deltaItems = this.editorContentRef.current.editor.editor.delta;
+    let filteredItems = deltaItems.filter(function(item) {
+      return !item.hasOwnProperty("attributes");
+    });
+    let newDescArr = filteredItems.map(a => a.insert);
+    return newDescArr;
+  }
+
   handleSave() {
-      //this grabs a delta object containing raw text values instead of an HTML string. 
-      //We filter all bullet point objects out as they contain no text content.
-      let deltaItems = this.editorContentRef.current.editor.editor.delta;
-      let filteredItems = deltaItems.filter(function(item){
-          return !item.hasOwnProperty('attributes');
-      });
-      let newDescArr = filteredItems.map(a => a.insert);
-      //save items to app state
-     appState.pdfData.workExperience[this.props.index].description = newDescArr;
-     
+    //manual save via toolbar save button
+    let newValues = this.makeArrayFromDelta();
+    appState.pdfData.workExperience[this.props.index].description = newValues;
+  }
+
+  handleChange = () => {
+    let newValues = this.makeArrayFromDelta();
+    appState.formData.workExperience[this.props.index].description = newValues;
   }
 
   modules = {
     toolbar: {
-        container: "#toolbar"
+      container: "#toolbar"
     }
   };
 
@@ -47,6 +56,7 @@ class MyComponent extends React.Component {
       <Box w="100%" className="text-editor">
         <CustomToolbar handleSave={this.handleSave}></CustomToolbar>
         <ReactQuill
+          onChange={this.onChange}
           ref={this.editorContentRef}
           defaultValue={this.setInitialValueString()}
           theme="snow"

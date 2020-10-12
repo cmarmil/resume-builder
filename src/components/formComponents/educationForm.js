@@ -2,53 +2,69 @@ import React from "react";
 import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
 import { view } from "@risingstack/react-easy-state";
-import commonFunctions from 'commonFunctions.js';
+import commonFunctions from "commonFunctions.js";
+import appState from "appState";
 
-class EducationForm extends React.Component {
-  constructor() {
-    super();
-    this.formRef = React.createRef();
+const EducationForm = props => {
+  function handleChange(e) {
+    let name = e.target.id;
+    let value = e.target.value;
+    appState.formData.education[props.index][name] = value;
   }
-  render() {
-    return (
-      <Box p={"20px"} backgroundColor="white">
-        <form ref={this.formRef} id="education-info-form" className="formBox">
-          <Box mb={"20px"} d={"flex"}>
+  return (
+    <Box p={"20px"} backgroundColor="white">
+      <form id="education-info-form" className="formBox">
+        <Box mb={"20px"} d={"flex"}>
           <StyledInput
-              mr={"10px"}
-              id={"degreeLevel"}
-              label={"Degree Level"}
-              placeholder={'Bachelor of Arts'}
-              defaultValue={commonFunctions.setDefaultFormValue(this.props.formData, 'degree')}
-            ></StyledInput>
-            <StyledInput
-              mr={"10px"}
-              id={"areaOfStudy"}
-              label={"Area of Study"}
-              placeholder={'Mathematics'}
-              defaultValue={commonFunctions.setDefaultFormValue(this.props.formData, 'areaOfStudy')}
-            ></StyledInput>
-            <StyledInput
-              mr={"10px"}
-              id={"dates"}
-              label={"Dates Attended"}
-              placeholder={'August 2008 - May 2012'}
-              defaultValue={commonFunctions.setDefaultFormValue(this.props.formData, 'dates')}
-            ></StyledInput>
-          </Box>
-          <Box mb={"20px"} d={"flex"}>
+            onChange={handleChange}
+            mr={"10px"}
+            id={"degree"}
+            label={"Degree Level"}
+            placeholder={"Bachelor of Arts"}
+            defaultValue={commonFunctions.setDefaultFormValue(
+              props.formData,
+              "degree"
+            )}
+          ></StyledInput>
           <StyledInput
-              mr={"10px"}
-              id={"schoolName"}
-              label={"School Name"}
-              placeholder={'Florida State University'}
-              defaultValue={commonFunctions.setDefaultFormValue(this.props.formData, 'schoolName')}
-            ></StyledInput>
-          </Box>
-        </form>
-      </Box>
-    );
-  }
-}
+            onChange={handleChange}
+            mr={"10px"}
+            id={"areaOfStudy"}
+            label={"Area of Study"}
+            placeholder={"Mathematics"}
+            defaultValue={commonFunctions.setDefaultFormValue(
+              props.formData,
+              "areaOfStudy"
+            )}
+          ></StyledInput>
+          <StyledInput
+            onChange={handleChange}
+            mr={"10px"}
+            id={"dates"}
+            label={"Dates Attended"}
+            placeholder={"August 2008 - May 2012"}
+            defaultValue={commonFunctions.setDefaultFormValue(
+              props.formData,
+              "dates"
+            )}
+          ></StyledInput>
+        </Box>
+        <Box mb={"20px"} d={"flex"}>
+          <StyledInput
+            onChange={handleChange}
+            mr={"10px"}
+            id={"schoolName"}
+            label={"School Name"}
+            placeholder={"Florida State University"}
+            defaultValue={commonFunctions.setDefaultFormValue(
+              props.formData,
+              "schoolName"
+            )}
+          ></StyledInput>
+        </Box>
+      </form>
+    </Box>
+  );
+};
 
 export default view(EducationForm);

@@ -19,10 +19,10 @@ function FontMenu() {
   return (
     <Box d="flex" p="20px" alignItems="center">
       <Menu>
-        <MenuButton mr='auto' as={Button} rightIcon="chevron-down">
-          Fonts
+        <MenuButton w="100%" as={Button} rightIcon="chevron-down">
+          Font Family
         </MenuButton>
-        <MenuList>
+        <MenuList w="calc(50vw - 40px)">
           <MenuItem fontFamily="OpenSans" onClick={setFont}>
             Open Sans
           </MenuItem>

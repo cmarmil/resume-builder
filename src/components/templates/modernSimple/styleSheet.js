@@ -11,7 +11,8 @@ const styleSheet = {
     paddingLeft: 25,
     paddingRight: 25,
     paddingBottom: 20,
-    paddingTop: 10
+    paddingTop: 10,
+    fontSize: 13
   },
   section: {
     paddingBottom: 5,
@@ -19,7 +20,7 @@ const styleSheet = {
   },
   nameInfo: {
     flexDirection: "column",
-    fontSize: 50,
+    fontSize: 40,
     fontStyle: 'bold'
   },
   contactInfo: {
@@ -29,11 +30,13 @@ const styleSheet = {
     fontStyle: "bold"
   },
   profession: {
-    marginBottom: 10
+    marginBottom: 10,
+    fontSize: 30
   },
   sectionHeader: {
     textDecoration: "underline",
-    marginBottom: 5
+    marginBottom: 5,
+    fontSize: 20
   },
   svgFlex: {
     flexDirection: "row",

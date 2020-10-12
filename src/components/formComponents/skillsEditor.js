@@ -2,15 +2,15 @@ import React from "react";
 import ReactQuill from "react-quill";
 import { Box } from "@chakra-ui/core";
 import CustomToolbar from "components/formComponents/customToolbar.js";
-import customFunctions from 'commonFunctions.js';
+import customFunctions from "commonFunctions.js";
 import "react-quill/dist/quill.snow.css";
+import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 
-class MyComponent extends React.Component {
+class SkillsEditor extends React.Component {
   constructor(props) {
     super(props);
     this.setInitialValueString = this.setInitialValueString.bind(this);
-    this.handleSave = this.handleSave.bind(this);
     this.editorContentRef = React.createRef();
   }
 
@@ -22,16 +22,31 @@ class MyComponent extends React.Component {
     return `<ul>${listItems.join("")}</ul>`;
   }
 
-  handleSave() {
+  makeArrayFromDelta = () => {
     //this grabs a delta object containing raw text values instead of an HTML string.
     //We filter all bullet point objects out as they contain no text content.
     let deltaItems = this.editorContentRef.current.editor.editor.delta;
     let filteredItems = deltaItems.filter(function(item) {
-      return !item.hasOwnProperty("attributes") && customFunctions.isAlphaNumeric(item.insert);
+      return (
+        !item.hasOwnProperty("attributes") &&
+        customFunctions.isAlphaNumeric(item.insert)
+      );
     });
     let newSkillsArr = filteredItems.map(a => a.insert);
-    //save items to app state
-    appState.pdfData.skills = newSkillsArr;
+    return newSkillsArr;
+  };
+
+  handleChange = () => {
+    let newSkillsArr = this.makeArrayFromDelta();
+    appState.formData.skills = newSkillsArr;
+  };
+
+  saveValue = () => {
+    //manual save via toolbar button
+    appState.pdfData = {
+      ...appState.pdfData,
+      ...appState.formData
+    };
   }
 
   modules = {
@@ -45,8 +60,9 @@ class MyComponent extends React.Component {
   render() {
     return (
       <Box w="100%" className="text-editor">
-        <CustomToolbar handleSave={this.handleSave}></CustomToolbar>
+        <CustomToolbar handleSave={this.saveValue}></CustomToolbar>
         <ReactQuill
+          onChange={this.handleChange}
           ref={this.editorContentRef}
           defaultValue={this.setInitialValueString()}
           theme="snow"
@@ -58,4 +74,4 @@ class MyComponent extends React.Component {
   }
 }
 
-export default MyComponent;
+export default view(SkillsEditor);

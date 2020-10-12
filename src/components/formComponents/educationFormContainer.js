@@ -8,7 +8,6 @@ import appState from "appState";
 class EducationFormContainer extends React.Component {
   constructor(props) {
     super();
-    this.formRef = React.createRef();
     this.setActive = this.setActive.bind(this);
     this.saveEntry = this.saveEntry.bind(this);
     this.addEducation = this.addEducation.bind(this);
@@ -19,7 +18,7 @@ class EducationFormContainer extends React.Component {
   }
 
   setActive(index) {
-    this.saveEntry(this.state.activeIndex);
+    this.saveEntry();
     if (this.state.formOpen && index !== this.state.activeIndex) {
       this.setState({
         activeIndex: index,
@@ -33,35 +32,11 @@ class EducationFormContainer extends React.Component {
     }
   }
 
-  saveEntry(index) {
-    //grab inner form ref and save any newly entered info.
-    //look into ref forwarding?
-    if (this.formRef.current && this.formRef.current.formRef.current) {
-      let form = this.formRef.current.formRef.current;
-      let formElements = form.elements;
-      let newData = {};
-      for (let i = 0; i < formElements.length; i++) {
-        if (formElements[i]) {
-          switch (i) {
-            case 0:
-              newData.degree = form.elements[0].value;
-              break;
-            case 1:
-              newData.areaOfStudy = form.elements[1].value;
-              break;
-            case 2:
-              newData.dates = form.elements[2].value;
-              break;
-            case 3:
-              newData.schoolName = form.elements[3].value;
-          }
-        }
-      }
-      appState.pdfData.education[index] = {
-        ...appState.pdfData.education[index],
-        ...newData
-      };
-    }
+  saveEntry() {
+    appState.pdfData = {
+      ...appState.pdfData,
+      ...appState.formData
+    };
   }
 
   deleteEntry(e, index) {
@@ -77,7 +52,7 @@ class EducationFormContainer extends React.Component {
       dates: "",
       description: []
     };
-    appState.pdfData.education.push(newEDU);
+    appState.formData.education.push(newEDU);
     this.setState({
       activeIndex: appState.pdfData.education.length - 1,
       formOpen: true
@@ -100,7 +75,7 @@ class EducationFormContainer extends React.Component {
             ></FormCard>
             {this.state.activeIndex === index && this.state.formOpen ? (
               <EducationForm
-                ref={this.formRef}
+                index={this.state.activeIndex}
                 formData={appState.pdfData.education[this.state.activeIndex]}
               ></EducationForm>
             ) : null}

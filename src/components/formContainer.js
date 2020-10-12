@@ -9,7 +9,7 @@ import { Button, Progress, Box } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 import DownloadScreen from "./downloadScreen";
-import DesignScreen from 'components/designScreen.js';
+import DesignScreen from "components/designScreen.js";
 
 class FormContainer extends React.Component {
   constructor(props) {
@@ -18,26 +18,25 @@ class FormContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.backBtnClick = this.backBtnClick.bind(this);
     this.state = {
-      activeForm: 6,
+      activeForm: 0,
       progress: 15
     };
-    this.ref = React.createRef();
   }
 
   renderActiveForm() {
     switch (this.state.activeForm) {
       case 0:
-        return <PersonalForm ref={this.ref}></PersonalForm>;
+        return <PersonalForm></PersonalForm>;
       case 1:
-        return <SummaryForm ref={this.ref}></SummaryForm>;
+        return <SummaryForm></SummaryForm>;
       case 2:
-        return <SkillsForm ref={this.ref}></SkillsForm>;
+        return <SkillsForm></SkillsForm>;
       case 3:
-        return <WorkExpContainer ref={this.ref}></WorkExpContainer>;
+        return <WorkExpContainer></WorkExpContainer>;
       case 4:
-        return <EducationFormContainer ref={this.ref}></EducationFormContainer>;
+        return <EducationFormContainer></EducationFormContainer>;
       case 5:
-        return <CertsFormContainer ref={this.ref}></CertsFormContainer>;
+        return <CertsFormContainer></CertsFormContainer>;
       case 6:
         return <DesignScreen></DesignScreen>;
       case 7:
@@ -46,57 +45,11 @@ class FormContainer extends React.Component {
   }
 
   handleSubmit() {
-    if (this.ref.current && this.ref.current.formRef.current) {
-      let form = this.ref.current.formRef.current;
-      let formElements = form.elements;
-      let newData = {};
-      if (this.state.activeForm === 0) {
-        for (let i = 0; i < formElements.length; i++) {
-          let element = formElements[i];
-          if (element.value) {
-            switch (i) {
-              case 0:
-                newData.fName = form.elements[0].value;
-                break;
-              case 1:
-                newData.lName = form.elements[1].value;
-                break;
-              case 2:
-                newData.profession = form.elements[2].value;
-                break;
-              case 3:
-                newData.city = form.elements[3].value;
-                break;
-              case 4:
-                newData.state = form.elements[4].value;
-                break;
-              case 5:
-                newData.phoneNumber = form.elements[5].value;
-                break;
-              case 6:
-                newData.email = form.elements[6].value;
-                break;
-              case 7:
-                newData.linkedIn = form.elements[7].value;
-                break;
-              case 8:
-                newData.website = form.elements[8].value;
-                break;
-            }
-          }
-        }
-      } else if (this.state.activeForm === 1) {
-        if (form.elements[0].value) {
-          newData.summary = form.elements[0].value;
-        }
-      }
-      if (newData) {
-        appState.pdfData = {
-          ...appState.pdfData,
-          ...newData
-        };
-      }
-    }
+    //merge the current form data with the pdf data to re-render the pdf with new form values.
+    appState.pdfData = {
+      ...appState.pdfData,
+      ...appState.formData
+    };
 
     //proceed to next form section
     if (this.state.activeForm < 7) {
@@ -146,7 +99,6 @@ class FormContainer extends React.Component {
             </Button>
           ) : null}
         </Box>
-        {/*  <DownloadButton /> */}
       </React.Fragment>
     );
   }
