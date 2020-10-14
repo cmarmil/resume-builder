@@ -47,7 +47,7 @@ class EducationFormContainer extends React.Component {
   addEducation() {
     let newEDU = {
       degree: "Degree Level",
-      areaOfStudh: "",
+      areaOfStudy: "Computer Science",
       schoolName: "Your University",
       dates: "",
       description: []
@@ -70,8 +70,7 @@ class EducationFormContainer extends React.Component {
               delete={this.deleteEntry}
               index={index}
               activeIndex={this.state.activeImdex}
-              title={obj.degree}
-              place={obj.schoolName}
+              cardTitle={`${obj.degree} at ${obj.schoolName}`}
             ></FormCard>
             {this.state.activeIndex === index && this.state.formOpen ? (
               <EducationForm

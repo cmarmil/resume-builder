@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/core";
-import CertsCard from "components/formComponents/certsCard.js";
+import FormCard from "components/formComponents/formCard.js";
 import CertsForm from "components/formComponents/certsForm.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
@@ -63,13 +63,12 @@ class CertsFormContainer extends React.Component {
         <p className="quillFormLabel">Certifications and Licenses</p>
         {appState.pdfData.certsAndLiscences.map((obj, index) => (
           <React.Fragment key={"certCard" + index}>
-            <CertsCard
+            <FormCard
               setActive={this.setActive}
               delete={this.deleteEntry}
-              name={obj.name}
-              date={obj.date}
+              cardTitle={`${obj.name} ${obj.date}`}
               index={index}
-            ></CertsCard>
+            ></FormCard>
             {this.state.activeIndex === index && this.state.formOpen ? (
               <CertsForm
                 index={this.state.activeIndex}

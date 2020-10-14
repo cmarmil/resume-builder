@@ -15,7 +15,7 @@ function WorkExperience() {
     <View style={styleSheet.section}>
       <Text style={styleSheet.sectionHeader}>Work Experience</Text>
       {appState.pdfData.workExperience.map((workExp, index) => (
-        <React.Fragment key={index}>
+        <View key={index} wrap={false}>
           <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>
           <View style={styleSheet.companyInfo}>
             <Text style={styleSheet.companyName}>
@@ -24,7 +24,7 @@ function WorkExperience() {
             <Text style={styleSheet.companyDates}>{workExp.dates}</Text>
           </View>
           {renderBullets(workExp.description)}
-        </React.Fragment>
+        </View>
       ))}
     </View>
   );

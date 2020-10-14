@@ -3,7 +3,6 @@ import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
 import ListEditor from "components/formComponents/listEditor.js";
 import { view } from "@risingstack/react-easy-state";
-import commonFunctions from "commonFunctions.js";
 import appState from "appState.js";
 
 const ExpForm = (props) => {
@@ -23,54 +22,35 @@ const ExpForm = (props) => {
         <Box mb={"20px"} d={"flex"}>
           <StyledInput
             onChange={handleChange}
-            key={
-              commonFunctions.setDefaultFormValue(props.formData, "jobTitle") +
-              "jobTitle"
-            }
+            key={props.formData.jobTitle}
             mr={"10px"}
             id={"jobTitle"}
             label={"Job Title"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "jobTitle"
-            )}
+            defaultValue={props.formData.jobTitle}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
-            key={
-              commonFunctions.setDefaultFormValue(
-                props.formData,
-                "companyName"
-              ) + "companyName"
-            }
+            key={props.formData.companyName}
             mr={"10px"}
             id={"companyName"}
             label={"Company Name"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "companyName"
-            )}
+            defaultValue={props.formData.companyName}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
-            key={
-              commonFunctions.setDefaultFormValue(props.formData, "dates") +
-              "dates"
-            }
+            key={props.formData.dates}
             mb={"20px"}
             id={"dates"}
             label={"Duration"}
             placeholder={"July 2012 - January 2015"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "dates"
-            )}
+            defaultValue={props.formData.dates}
           ></StyledInput>
         </Box>
         <p className="quillFormLabel">Job Description</p>
         <Box mb={"20px"} d={"flex"}>
           <ListEditor
-            listItems={appState.pdfData.workExperience[props.index].description}
+            isListContent={true}
+            contentItems={appState.pdfData.workExperience[props.index].description}
             handleChange={handleEditorChange}
           ></ListEditor>
         </Box>

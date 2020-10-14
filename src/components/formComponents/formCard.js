@@ -5,7 +5,7 @@ import { view } from "@risingstack/react-easy-state";
 const FormCard = (props) => {
   return (
     <Box
-      className="jobCard"
+      className="formCard"
       d="flex"
       p="10px"
       mt="1em"
@@ -14,10 +14,10 @@ const FormCard = (props) => {
       backgroundColor="#EDF2F7"
       onClick={() => props.setActive(props.index)}
     >
-      <Text className="jobCardInfo" textAlign="left">
-        {props.title} at {props.place}
+      <Text className="formCardInfo" textAlign="left">
+        {props.cardTitle}
       </Text>
-      <Box className="jobCardBtns">
+      <Box className="formCardBtns">
         <IconButton
           mr="7px"
           aria-label="Edit"

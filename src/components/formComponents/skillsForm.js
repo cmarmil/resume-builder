@@ -13,7 +13,7 @@ const SkillsForm = () => {
       <p className="quillFormLabel">Personal Skills List</p>
       <form id="skills-form" className="formBox">
         <Box mb={"20px"} d={"flex"}>
-          <ListEditor listItems={appState.pdfData.skills} handleChange={handleChange}></ListEditor>
+          <ListEditor isListContent={true} contentItems={appState.pdfData.skills} handleChange={handleChange}></ListEditor>
         </Box>
       </form>
     </Box>

@@ -2,7 +2,6 @@ import React from "react";
 import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
 import { view } from "@risingstack/react-easy-state";
-import commonFunctions from "commonFunctions.js";
 import appState from "appState";
 
 const EducationForm = props => {
@@ -21,10 +20,7 @@ const EducationForm = props => {
             id={"degree"}
             label={"Degree Level"}
             placeholder={"Bachelor of Arts"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "degree"
-            )}
+            defaultValue={props.formData.degree}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
@@ -32,10 +28,7 @@ const EducationForm = props => {
             id={"areaOfStudy"}
             label={"Area of Study"}
             placeholder={"Mathematics"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "areaOfStudy"
-            )}
+            defaultValue={props.formData.areaOfStudy}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
@@ -43,10 +36,7 @@ const EducationForm = props => {
             id={"dates"}
             label={"Dates Attended"}
             placeholder={"August 2008 - May 2012"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "dates"
-            )}
+            defaultValue={props.formData.dates}
           ></StyledInput>
         </Box>
         <Box mb={"20px"} d={"flex"}>
@@ -56,10 +46,7 @@ const EducationForm = props => {
             id={"schoolName"}
             label={"School Name"}
             placeholder={"Florida State University"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "schoolName"
-            )}
+            defaultValue={props.formData.schoolName}
           ></StyledInput>
         </Box>
       </form>

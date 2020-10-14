@@ -72,8 +72,7 @@ class WorkExpContainer extends React.Component {
               setActive={this.setActiveJob}
               delete={this.deleteJob}
               index={index}
-              title={expObj.jobTitle}
-              place={expObj.companyName}
+              cardTitle={`${expObj.jobTitle} at ${expObj.companyName}`}
             ></FormCard>
             {this.state.activeJobIndex === index && this.state.formOpen ? (
               <ExperienceForm

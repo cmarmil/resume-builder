@@ -6,7 +6,7 @@ import "react-quill/dist/quill.snow.css";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 
-class ListEditor extends React.Component {
+class TextEditor extends React.Component {
   constructor(props) {
     super(props);
     this.createHtmlString = this.createHtmlString.bind(this);
@@ -14,11 +14,7 @@ class ListEditor extends React.Component {
   }
 
   createHtmlString() {
-      let contentItems = [];
-      this.props.contentItems.forEach(function(value) {
-        contentItems.push(`<li>${value}</li>`);
-      });
-      return `<ul>${contentItems.join("")}</ul>`;
+    return `<p>${this.props.contentItems[0]}</p>`
   }
 
   makeArrayFromDelta = () => {
@@ -53,12 +49,12 @@ class ListEditor extends React.Component {
     keyboard: { bindings: { tab: false } }
   };
 
-  formats = ["list"];
+  formats = [];
 
   render() {
     return (
       <Box w="100%" className="text-editor">
-        <CustomToolbar handleSave={this.saveValue} isList={true}></CustomToolbar>
+        <CustomToolbar handleSave={this.saveValue}></CustomToolbar>
         <ReactQuill
           onChange={this.handleChange}
           ref={this.editorContentRef}
@@ -72,4 +68,4 @@ class ListEditor extends React.Component {
   }
 }
 
-export default view(ListEditor);
+export default view(TextEditor);

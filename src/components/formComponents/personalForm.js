@@ -3,7 +3,6 @@ import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
-import commonFunctions from "commonFunctions.js";
 
 const PersonalForm = () => {
   function handleChange(e) {
@@ -21,20 +20,14 @@ const PersonalForm = () => {
             id={"fName"}
             label={"First Name"}
             placeholder={"Jessica"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "fName"
-            )}
+            defaultValue={appState.pdfData.fName}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
             id={"lName"}
             label={"Last Name"}
             placeholder={"Williams"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "lName"
-            )}
+            defaultValue={appState.pdfData.lName}
           ></StyledInput>
         </Box>
         <StyledInput
@@ -43,10 +36,7 @@ const PersonalForm = () => {
           id={"profession"}
           label={"Profession Title"}
           placeholder={"Web Developer"}
-          defaultValue={commonFunctions.setDefaultFormValue(
-            appState.pdfData,
-            "profession"
-          )}
+          defaultValue={appState.pdfData.profession}
         ></StyledInput>
         <Box mb={"20px"} d={"flex"}>
           <StyledInput
@@ -55,20 +45,14 @@ const PersonalForm = () => {
             id={"city"}
             label={"City"}
             placeholder={"Madison"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "city"
-            )}
+            defaultValue={appState.pdfData.city}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
             id={"state"}
             label={"State/Province"}
             placeholder={"WI"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "state"
-            )}
+            defaultValue={appState.pdfData.state}
           ></StyledInput>
         </Box>
 
@@ -79,10 +63,7 @@ const PersonalForm = () => {
             id={"phoneNumber"}
             label={"Phone Number"}
             placeholder={"(123)-456-789"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "phoneNumber"
-            )}
+            defaultValue={appState.pdfData.phoneNumber}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
@@ -90,10 +71,7 @@ const PersonalForm = () => {
             id={"email"}
             label={"Email"}
             placeholder={"email@email.com"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "email"
-            )}
+            defaultValue={appState.pdfData.email}
           ></StyledInput>
         </Box>
         <Box mb={"20px"} d={"flex"}>
@@ -103,20 +81,14 @@ const PersonalForm = () => {
             id={"linkedIn"}
             label={"LinkedIn profile URL (optional)"}
             placeholder={"Linkedin.com/your-profile"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "linkedIn"
-            )}
+            defaultValue={appState.pdfData.linkedIn}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
             id={"website"}
             label={"Website URL (optional)"}
             placeholder={"yourWebsite.com"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              appState.pdfData,
-              "website"
-            )}
+            defaultValue={appState.pdfData.website}
           ></StyledInput>
         </Box>
       </form>

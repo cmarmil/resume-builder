@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button } from "@chakra-ui/core";
 import FormCard from "components/formComponents/formCard.js";
 import { view } from "@risingstack/react-easy-state";
-import ExperienceForm from "components/formComponents/experienceForm.js";
+import CustomSectionForm from "components/formComponents/customSectionForm.js";
 import appState from "appState.js";
 
 class CustomSectionsContainer extends React.Component {
@@ -13,7 +13,7 @@ class CustomSectionsContainer extends React.Component {
     this.delete = this.delete.bind(this);
     this.add = this.add.bind(this);
     this.state = {
-      activeJobIndex: 0,
+      activeIndex: 0,
       formOpen: false
     };
   }
@@ -23,12 +23,12 @@ class CustomSectionsContainer extends React.Component {
     //save any new info
     if (this.state.formOpen && index !== this.state.activeIndex) {
       this.setState({
-        activeJobIndex: index,
+        activeIndex: index,
         formOpen: true
       });
     } else {
       this.setState({
-        activeJobIndex: index,
+        activeIndex: index,
         formOpen: !this.state.formOpen
       });
     }
@@ -44,19 +44,17 @@ class CustomSectionsContainer extends React.Component {
 
   delete(e, index) {
     e.stopPropagation();
-    appState.pdfData.workExperience.splice(index, 1);
+    appState.pdfData.customSections.splice(index, 1);
   }
 
   add() {
-    let newJob = {
-      jobTitle: "Job Title",
-      companyName: "Company",
-      dates: "",
-      description: ["Job description bullet point"]
+    let newSection = {
+      sectionTitle: 'Custom Section Title',
+      content: ['Custom Section Content']
     };
-    appState.formData.workExperience.push(newJob);
+    appState.pdfData.customSections.push(newSection);
     this.setState({
-      activeJobIndex: appState.pdfData.workExperience.length - 1,
+      activeIndex: appState.pdfData.workExperience.length - 1,
       formOpen: true
     });
   }
@@ -65,28 +63,27 @@ class CustomSectionsContainer extends React.Component {
     return (
       <Box p={"20px"}>
         <p className="quillFormLabel">Custom Sections</p>
-        {appState.pdfData.customSections.map((Obj, index) => (
+        {appState.pdfData.customSections.map((obj, index) => (
           <React.Fragment key={"FormCard " + index}>
             <FormCard
-            key={"FormCard " + obj.jobTitle}
+              key={"FormCard " + obj.sectionTitle}
               setActive={this.setActive}
               delete={this.delete}
               index={index}
-              title={obj.title}
-              place={obj.name}
+              cardTitle={obj.sectionTitle}
             ></FormCard>
-            {this.state.activeJobIndex === index && this.state.formOpen ? (
-              <ExperienceForm
+            {this.state.activeIndex === index && this.state.formOpen ? (
+              <CustomSectionForm
                 formData={
-                  appState.pdfData.customSections[this.state.activeJobIndex]
+                  appState.pdfData.customSections[this.state.activeIndex]
                 }
-                index={this.state.activeJobIndex}
-              ></ExperienceForm>
+                index={this.state.activeIndex}
+              ></CustomSectionForm>
             ) : null}
           </React.Fragment>
         ))}
         <Button onClick={this.add} mt="20px">
-          Add Job
+          Add Custom Section
         </Button>
       </Box>
     );

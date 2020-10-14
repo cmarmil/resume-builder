@@ -2,7 +2,6 @@ import React from "react";
 import { Box } from "@chakra-ui/core";
 import StyledInput from "./styledInput.js";
 import { view } from "@risingstack/react-easy-state";
-import commonFunctions from "commonFunctions.js";
 import appState from "appState.js";
 
 const CertsForm = (props) => {
@@ -21,10 +20,7 @@ const CertsForm = (props) => {
             id={"name"}
             label={"Certification or License Name"}
             placeholder={"Google Ads Certified"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "name"
-            )}
+            defaultValue={props.formData['name']}
           ></StyledInput>
         </Box>
         <Box mb={"20px"} d={"flex"}>
@@ -34,10 +30,7 @@ const CertsForm = (props) => {
             id={"date"}
             label={"Date Obtained"}
             placeholder={"May 2012"}
-            defaultValue={commonFunctions.setDefaultFormValue(
-              props.formData,
-              "date"
-            )}
+            defaultValue={props.formData['date']}
           ></StyledInput>
         </Box>
       </form>

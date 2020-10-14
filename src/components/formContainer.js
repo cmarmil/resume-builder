@@ -1,10 +1,11 @@
 import React from "react";
 import PersonalForm from "components/formComponents/personalForm";
 import SummaryForm from "components/formComponents/summaryForm";
-import WorkExpContainer from "components/workExpContainer.js";
+import WorkExpContainer from "components/formComponents/workExpContainer.js";
 import EducationFormContainer from "components/formComponents/educationFormContainer.js";
 import SkillsForm from "components/formComponents/skillsForm.js";
 import CertsFormContainer from "components/formComponents/certsFormContainer.js";
+import CustomSectionContainer from "components/formComponents/customSectionContainer.js";
 import { Button, Progress, Box } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
@@ -18,7 +19,7 @@ class FormContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.backBtnClick = this.backBtnClick.bind(this);
     this.state = {
-      activeForm: 0,
+      activeForm: 6,
       progress: 15
     };
   }
@@ -38,9 +39,11 @@ class FormContainer extends React.Component {
       case 5:
         return <CertsFormContainer></CertsFormContainer>;
       case 6:
-        return <DesignScreen></DesignScreen>;
+        return <CustomSectionContainer></CustomSectionContainer>;
       case 7:
-        return <DownloadScreen></DownloadScreen>;
+        return <DesignScreen></DesignScreen>;
+      case 8: 
+      return <DownloadScreen></DownloadScreen>
     }
   }
 
@@ -52,7 +55,7 @@ class FormContainer extends React.Component {
     };
 
     //proceed to next form section
-    if (this.state.activeForm < 7) {
+    if (this.state.activeForm < 8) {
       let currentForm = this.state.activeForm;
       let nextForm = currentForm + 1;
       let currentProgress = this.state.progress;
@@ -93,7 +96,7 @@ class FormContainer extends React.Component {
               Back
             </Button>
           ) : null}
-          {this.state.activeForm < 7 ? (
+          {this.state.activeForm < 8 ? (
             <Button onClick={this.handleSubmit} variantColor="blue">
               Next
             </Button>

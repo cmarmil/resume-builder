@@ -4,24 +4,6 @@ import React from "react";
 import PdfOutput from "components/pdfOutput.js";
 
 const commonFunctions = {
-  setDefaultFormValue: function(formData, property) {
-    if (formData) {
-      if (property === "description") {
-        return formData[property].join(", ");
-      } else {
-        return formData[property];
-      }
-    } else {
-      return "";
-    }
-  },
-  isAlphaNumeric: function(string) {
-    if (/[^a-zA-Z0-9]/.test(string)) {
-      return false;
-    } else {
-      return true;
-    }
-  },
   getPageCount: async function() {
     function getArrayBuffer (blob) {
       //seemingly can't use native arrayBuffer() in safari.

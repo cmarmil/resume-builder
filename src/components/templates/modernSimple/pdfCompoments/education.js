@@ -6,7 +6,7 @@ import styleSheet from "components/templates/modernSimple/styleSheet.js";
 
 function Education() {
   return (
-    <View style={styleSheet.sideContainer}>
+    <View style={styleSheet.sideContainer} wrap={false}>
       <Text style={styleSheet.sectionHeader}>Education</Text>
       <View>
         {appState.pdfData.education.map(eduObj => (

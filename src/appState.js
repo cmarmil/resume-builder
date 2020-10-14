@@ -5,7 +5,7 @@ const appState = store({
   activeTemplate: "modernSimple",
   templateColor: "#8ED1FC",
   pdfFont: "Merriweather",
-  //pdfData is what will render to the final PDF. We seperate this from formData so that we can track new form data onChange, but only re-render the pdf when we have all changed values. 
+  //pdfData is what will render to the final PDF. We seperate this from formData so that we can track new form data onChange, but only re-render the pdf when we have all changed values.
   pdfData: {
     fName: "Jessica",
     lName: "Williams",
@@ -69,9 +69,12 @@ const appState = store({
       { name: "Google Ads Certified", date: "2016" },
       { name: "Adobe Certified Expert", date: "2013" }
     ],
-    customSections: [{
-      name: 'Custom Section', content: ['custom list item']
-    }]
+    customSections: [
+      {
+        sectionTitle: "Custom Section Title",
+        content: ["Custom Section Content"]
+      }
+    ]
   },
   formData: {
     fName: "Jessica",
@@ -136,8 +139,19 @@ const appState = store({
       { name: "Google Ads Certified", date: "2016" },
       { name: "Adobe Certified Expert", date: "2013" }
     ],
-    customSections: []
-  },
+    customSections: [
+      {
+        sectionTitle: "Custom Section Title",
+        contentType: "text",
+        content: ["Custom Section Content"]
+      },
+      {
+        sectionTitle: "Custom Section Title",
+        contentType: "list",
+        content: ["List Item 1", "List Item 2"]
+      }
+    ]
+  }
 });
 
 export default appState;

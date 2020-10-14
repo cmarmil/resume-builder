@@ -10,7 +10,7 @@ const styleSheet = {
   mainSections: {
     paddingLeft: 25,
     paddingRight: 25,
-    paddingBottom: 20,
+    paddingBottom: 10,
     paddingTop: 10,
     fontSize: 13
   },
@@ -35,8 +35,8 @@ const styleSheet = {
   },
   sectionHeader: {
     textDecoration: "underline",
-    marginBottom: 5,
-    fontSize: 20
+    marginBottom: 3,
+    fontSize: 18
   },
   svgFlex: {
     flexDirection: "row",

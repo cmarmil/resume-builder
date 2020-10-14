@@ -10,6 +10,7 @@ import Education from "components/templates/modernSimple/pdfCompoments/education
 import WorkExperience from "components/templates/modernSimple/pdfCompoments/workExperience.js";
 import ContactInfoIcons from "components/templates/modernSimple/pdfCompoments/contactInfoIcons.js";
 import styleSheet from "components/templates/modernSimple/styleSheet.js";
+import Certs from "components/templates/modernSimple/pdfCompoments/certs.js";
 
 function TemplateOutput() {
   return (
@@ -19,6 +20,7 @@ function TemplateOutput() {
         style={{
           fontFamily: appState.pdfFont
         }}
+        wrap
       >
         <View style={{ backgroundColor: appState.templateColor }}>
           <Header styleSheet={styleSheet} />
@@ -31,6 +33,7 @@ function TemplateOutput() {
             <WorkExperience styleSheet={styleSheet} />
           </View>
           <Education></Education>
+          <Certs></Certs>
         </View>
       </Page>
     </Document>
