@@ -8,7 +8,7 @@ const CertsForm = (props) => {
   function handleChange(e) {
     let name = e.target.id;
     let value = e.target.value;
-    appState.formData.certsAndLiscences[props.index][name] = value;
+    appState.formData.certsAndLicenses[props.index][name] = value;
   }
   return (
     <Box p={"20px"}>

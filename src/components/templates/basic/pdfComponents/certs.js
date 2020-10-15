@@ -9,7 +9,7 @@ function Certs() {
     <View style={styleSheet.sideContainer}>
       <Text style={styleSheet.sectionHeader}>Certificates and Liscenses</Text>
       <View style={styleSheet.certContainer}>
-        {appState.pdfData.certsAndLiscences.map((certObj, index) => (
+        {appState.pdfData.certsAndLicenses.map((certObj, index) => (
           <View key={certObj + index} style={styleSheet.certContainer}>
             <Text
               key={"certs" + certObj.name + index}

@@ -5,12 +5,14 @@ import appState from "appState";
 import styleSheet from "components/templates/modernSimple/styleSheet.js";
 
 function Skills() {
-  return (
-    <View style={styleSheet.section}>
-      <Text style={styleSheet.sectionHeader}>Skills</Text>
-      <Text>{appState.pdfData.skills.join(", ")}</Text>
-    </View>
-  );
+  if (appState.pdfData.skills.length) {
+    return (
+      <View style={styleSheet.section}>
+        <Text style={styleSheet.sectionHeader}>Skills</Text>
+        <Text>{appState.pdfData.skills.join(", ")}</Text>
+      </View>
+    );
+  }
 }
 
 export default view(Skills);

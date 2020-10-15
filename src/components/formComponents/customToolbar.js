@@ -13,6 +13,7 @@ const CustomToolbar = props => (
         <button className="ql-list" value="bullet" />
       </Tooltip>
     ) : null}
+    <button class="ql-link" type="button"></button>
 
     <Button onClick={props.handleSave} className="ql-saveBtn">
       Save

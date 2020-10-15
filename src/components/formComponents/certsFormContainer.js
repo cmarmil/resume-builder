@@ -42,7 +42,7 @@ class CertsFormContainer extends React.Component {
 
   deleteEntry(e, index) {
     e.stopPropagation();
-    appState.pdfData.certsAndLiscences.splice(index, 1);
+    appState.pdfData.certsAndLicenses.splice(index, 1);
   }
 
   addEntry() {
@@ -50,9 +50,9 @@ class CertsFormContainer extends React.Component {
       name: "Certification",
       date: ""
     };
-    appState.pdfData.certsAndLiscences.push(newCert);
+    appState.pdfData.certsAndLicenses.push(newCert);
     this.setState({
-      activeIndex: appState.pdfData.certsAndLiscences.length - 1,
+      activeIndex: appState.pdfData.certsAndLicenses.length - 1,
       formOpen: true
     });
   }
@@ -61,7 +61,7 @@ class CertsFormContainer extends React.Component {
     return (
       <Box p={"20px"}>
         <p className="quillFormLabel">Certifications and Licenses</p>
-        {appState.pdfData.certsAndLiscences.map((obj, index) => (
+        {appState.pdfData.certsAndLicenses.map((obj, index) => (
           <React.Fragment key={"certCard" + index}>
             <FormCard
               setActive={this.setActive}
@@ -73,7 +73,7 @@ class CertsFormContainer extends React.Component {
               <CertsForm
                 index={this.state.activeIndex}
                 formData={
-                  appState.pdfData.certsAndLiscences[this.state.activeIndex]
+                  appState.pdfData.certsAndLicenses[this.state.activeIndex]
                 }
               ></CertsForm>
             ) : null}

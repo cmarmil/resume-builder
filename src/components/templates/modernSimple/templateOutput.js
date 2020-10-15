@@ -9,8 +9,10 @@ import Header from "components/templates/modernSimple/pdfCompoments/header.js";
 import Education from "components/templates/modernSimple/pdfCompoments/education.js";
 import WorkExperience from "components/templates/modernSimple/pdfCompoments/workExperience.js";
 import ContactInfoIcons from "components/templates/modernSimple/pdfCompoments/contactInfoIcons.js";
-import styleSheet from "components/templates/modernSimple/styleSheet.js";
 import Certs from "components/templates/modernSimple/pdfCompoments/certs.js";
+import CustomSections from 'components/templates/modernSimple/pdfCompoments/customSections.js';
+import styleSheet from "components/templates/modernSimple/styleSheet.js";
+
 
 function TemplateOutput() {
   return (
@@ -34,6 +36,7 @@ function TemplateOutput() {
           </View>
           <Education></Education>
           <Certs></Certs>
+          <CustomSections></CustomSections>
         </View>
       </Page>
     </Document>

@@ -11,16 +11,20 @@ import styleSheet from "components/templates/modernSimple/styleSheet.js";
 function ContactInfoIcons() {
   return (
     <View style={styleSheet.contactInfo}>
-      <View style={styleSheet.svgFlex}>
-        <MailIcon style={styleSheet.icon} fill={"#80CBC4"}></MailIcon>
-        <Text style={styleSheet.contactText}>{appState.pdfData.email}</Text>
-      </View>
-      <View style={styleSheet.svgFlex}>
-        <PhoneIcon style={styleSheet.icon} fill={"#80CBC4"}></PhoneIcon>
-        <Text style={styleSheet.contactText}>
-          {appState.pdfData.phoneNumber}
-        </Text>
-      </View>
+      {appState.pdfData.email ? (
+        <View style={styleSheet.svgFlex}>
+          <MailIcon style={styleSheet.icon} fill={"#80CBC4"}></MailIcon>
+          <Text style={styleSheet.contactText}>{appState.pdfData.email}</Text>
+        </View>
+      ) : null}
+      {appState.pdfData.phoneNumber ? (
+        <View style={styleSheet.svgFlex}>
+          <PhoneIcon style={styleSheet.icon} fill={"#80CBC4"}></PhoneIcon>
+          <Text style={styleSheet.contactText}>
+            {appState.pdfData.phoneNumber}
+          </Text>
+        </View>
+      ) : null}
       {appState.pdfData.linkedIn ? (
         <View style={styleSheet.svgFlex}>
           <LinkedInIcon style={styleSheet.icon} fill={"#80CBC4"}></LinkedInIcon>

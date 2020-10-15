@@ -9,29 +9,30 @@ import appState from "appState.js";
 class TextEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.createHtmlString = this.createHtmlString.bind(this);
-    this.editorContentRef = React.createRef();
   }
 
-  createHtmlString() {
-    return `<p>${this.props.contentItems[0]}</p>`
-  }
-
-  makeArrayFromDelta = () => {
-    //filter all bullet point objects out as they contain no text content.
-    let deltaItems = this.editorContentRef.current.editor.getContents();
-    let filteredItems = deltaItems.filter(function(item) {
-      return !item.hasOwnProperty("attributes");
+  makeArrayFromDelta = valueDelta => {
+    //check to see if the text item has hyperlink data so that it can be arranged into a data structure that react-pdf can consume.
+    let textItems = [];
+    valueDelta.forEach(function(item) {
+      if (item.hasOwnProperty("attributes") &&
+        item.attributes.hasOwnProperty("link")) {
+        let linkItem = {
+          link: item.attributes.link,
+          content: item.insert
+        };
+        textItems.push(linkItem);
+      } else {
+        textItems.push(item.insert);
+      }
     });
-    let newArr = filteredItems.map(a => a.insert);
-    return newArr;
+    return textItems;
   };
 
-  handleChange = () => {
-    if (this.editorContentRef.current) {
-      let value = this.makeArrayFromDelta();
-      this.props.handleChange(value);
-    }
+  handleChange = (content, delta, source, editor) => {
+    let valueDelta = editor.getContents();
+    let valueArray = this.makeArrayFromDelta(valueDelta);
+    this.props.handleChange(valueArray, content);
   };
 
   saveValue = () => {
@@ -49,19 +50,15 @@ class TextEditor extends React.Component {
     keyboard: { bindings: { tab: false } }
   };
 
-  formats = [];
-
   render() {
     return (
       <Box w="100%" className="text-editor">
         <CustomToolbar handleSave={this.saveValue}></CustomToolbar>
         <ReactQuill
           onChange={this.handleChange}
-          ref={this.editorContentRef}
-          defaultValue={this.createHtmlString()}
+          defaultValue={this.props.htmlString}
           theme="snow"
           modules={this.modules}
-          formats={this.formats}
         ></ReactQuill>
       </Box>
     );

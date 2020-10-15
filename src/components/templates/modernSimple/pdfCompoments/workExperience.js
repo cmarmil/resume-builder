@@ -11,23 +11,25 @@ function renderBullets(description) {
   ));
 }
 function WorkExperience() {
-  return (
-    <View style={styleSheet.section}>
-      <Text style={styleSheet.sectionHeader}>Work Experience</Text>
-      {appState.pdfData.workExperience.map((workExp, index) => (
-        <View key={index} wrap={false}>
-          <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>
-          <View style={styleSheet.companyInfo}>
-            <Text style={styleSheet.companyName}>
-              {workExp.companyName}
-            </Text>
-            <Text style={styleSheet.companyDates}>{workExp.dates}</Text>
+  if (appState.pdfData.workExperience.length) {
+    return (
+      <View style={styleSheet.section}>
+        <Text style={styleSheet.sectionHeader}>Work Experience</Text>
+        {appState.pdfData.workExperience.map((workExp, index) => (
+          <View key={index} wrap={false}>
+            <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>
+            <View style={styleSheet.companyInfo}>
+              <Text style={styleSheet.companyName}>
+                {workExp.companyName}
+              </Text>
+              <Text style={styleSheet.companyDates}>{workExp.dates}</Text>
+            </View>
+            {renderBullets(workExp.description)}
           </View>
-          {renderBullets(workExp.description)}
-        </View>
-      ))}
-    </View>
-  );
+        ))}
+      </View>
+    );
+  }
 }
 
 export default view(WorkExperience);

@@ -25,8 +25,9 @@ class CustomSectionForm extends React.Component {
     appState.formData.customSections[this.props.index]["sectionTitle"] = value;
   };
 
-  handleEditorChange = value => {
+  handleEditorChange = (value, htmlString) => {
     appState.formData.customSections[this.props.index].content = value;
+    appState.formData.customSections[this.props.index].htmlString = htmlString;
   };
 
   setTypeList = () => {
@@ -74,6 +75,7 @@ class CustomSectionForm extends React.Component {
                 contentItems={
                   appState.pdfData.customSections[this.props.index].content
                 }
+                htmlString={appState.pdfData.customSections[this.props.index].htmlString}
                 handleChange={this.handleEditorChange}
               ></TextEditor>
             )}

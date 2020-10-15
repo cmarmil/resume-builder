@@ -36,7 +36,11 @@ const styleSheet = {
   sectionHeader: {
     textDecoration: "underline",
     marginBottom: 3,
-    fontSize: 18
+    fontSize: 18,
+  },
+  inline: {
+    display: "flex",
+    flexDirection: "row"
   },
   svgFlex: {
     flexDirection: "row",

@@ -65,14 +65,20 @@ const appState = store({
         dates: "2009 - 2012"
       }
     ],
-    certsAndLiscences: [
+    certsAndLicenses: [
       { name: "Google Ads Certified", date: "2016" },
       { name: "Adobe Certified Expert", date: "2013" }
     ],
     customSections: [
       {
         sectionTitle: "Custom Section Title",
-        content: ["Custom Section Content"]
+        content: ["Custom Section Content"],
+        htmlString: '<p>Custom Section Content</p>'
+      },
+      {
+        sectionTitle: "Custom Section Title",
+        contentType: "list",
+        content: ["List Item 1", "List Item 2"]
       }
     ]
   },
@@ -135,7 +141,7 @@ const appState = store({
         dates: "2009 - 2012"
       }
     ],
-    certsAndLiscences: [
+    certsAndLicenses: [
       { name: "Google Ads Certified", date: "2016" },
       { name: "Adobe Certified Expert", date: "2013" }
     ],
@@ -143,7 +149,8 @@ const appState = store({
       {
         sectionTitle: "Custom Section Title",
         contentType: "text",
-        content: ["Custom Section Content"]
+        content: ["Custom Section Content"],
+        htmlString: '<p>Custom Section Content</p>'
       },
       {
         sectionTitle: "Custom Section Title",
