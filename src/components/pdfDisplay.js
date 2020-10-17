@@ -66,7 +66,6 @@ class PDFDisplay extends React.Component {
   render() {
     let pages = [];
     for (let i = 1; i <= this.state.pageCount; i++) {
-      console.log(i)
       pages.push(
         <Page
           key={"page" + i}

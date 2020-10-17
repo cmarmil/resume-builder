@@ -1,4 +1,5 @@
 import { StyleSheet } from "@react-pdf/renderer";
+import { wrap } from "module";
 
 const styleSheet = {
   headerPadding: {
@@ -40,7 +41,12 @@ const styleSheet = {
   },
   inline: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+  },
+  inlineContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row'
   },
   svgFlex: {
     flexDirection: "row",
@@ -48,7 +54,8 @@ const styleSheet = {
     paddingBottom: 5
   },
   icon: {
-    marginRight: 7
+    marginRight: 7,
+    width: '20px'
   },
   companyDates: {
     textAlign: "right",
@@ -66,7 +73,8 @@ const styleSheet = {
   },
   contactText: {
     //this is a little anal but the svg alignment is just a hair off in the render.
-    marginTop: 2
+    marginTop: 2,
+    color: 'black',
   },
   slash: {
     marginRight: 4,

@@ -1,25 +1,27 @@
 import React from "react";
-import { Text, View, Link } from "@react-pdf/renderer";
+import { Text, View, Image, Link } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
-import PhoneIcon from "components/icons/phoneIcon.js";
-import MailIcon from "components/icons/mailIcon.js";
-import WebpageIcon from "components/icons/webpageIcon.js";
-import LinkedInIcon from "components/icons/linkedInIcon.js";
+import PhoneImage from "assets/phone.png";
+import EmailImage from "assets/email.png";
+import LinkedInImage from "assets/linkedin.png";
+import LaptopImage from "assets/laptop.png";
 import styleSheet from "components/templates/modernSimple/styleSheet.js";
+
+//Icons sourced from https://materialdesignicons.com/
 
 function ContactInfoIcons() {
   return (
     <View style={styleSheet.contactInfo}>
       {appState.pdfData.email ? (
         <View style={styleSheet.svgFlex}>
-          <MailIcon style={styleSheet.icon} fill={"#80CBC4"}></MailIcon>
+          <Image style={styleSheet.icon} src={EmailImage}></Image>
           <Text style={styleSheet.contactText}>{appState.pdfData.email}</Text>
         </View>
       ) : null}
       {appState.pdfData.phoneNumber ? (
         <View style={styleSheet.svgFlex}>
-          <PhoneIcon style={styleSheet.icon} fill={"#80CBC4"}></PhoneIcon>
+          <Image style={styleSheet.icon} src={PhoneImage}></Image>
           <Text style={styleSheet.contactText}>
             {appState.pdfData.phoneNumber}
           </Text>
@@ -27,7 +29,7 @@ function ContactInfoIcons() {
       ) : null}
       {appState.pdfData.linkedIn ? (
         <View style={styleSheet.svgFlex}>
-          <LinkedInIcon style={styleSheet.icon} fill={"#80CBC4"}></LinkedInIcon>
+          <Image style={styleSheet.icon} src={LinkedInImage}></Image>
           <Link
             //link src requires a leading space to parse correctly in react-pdf 2.0
             src={" " + appState.pdfData.linkedIn}
@@ -39,7 +41,7 @@ function ContactInfoIcons() {
       ) : null}
       {appState.pdfData.website ? (
         <View style={styleSheet.svgFlex}>
-          <WebpageIcon style={styleSheet.icon} fill={"#80CBC4"}></WebpageIcon>
+          <Image style={styleSheet.icon} src={LaptopImage}></Image>
           <Link
             style={styleSheet.contactText}
             src={" " + appState.pdfData.website}

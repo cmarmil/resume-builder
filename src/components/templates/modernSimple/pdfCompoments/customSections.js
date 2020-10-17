@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Link} from "@react-pdf/renderer";
+import { Text, View, Link } from "@react-pdf/renderer";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
 import UnorderedListItem from "components/genericPdfComponents/unorderListItem.js";
@@ -15,34 +15,37 @@ function renderBullets(description) {
 
 function renderList(title, content, index) {
   return (
-    <React.Fragment>
+    <React.Fragment key={title + index.toString()}>
       <Text style={styleSheet.sectionHeader}>{title}</Text>
       {renderBullets(content, index)}
     </React.Fragment>
   );
 }
+
+/* React-pdf beta 2.0.11 (needed for svgs) does not support nexted text, links, or inline text and links. To render links without 'stacking' text chunks onto a new line, we can break up chunks into one word nodes to be placed beside each other in a flex container. This may not be performant on very large text sections but should be fine for most users, look to replace this workaroud asap. */
+
 function renderText(title, content) {
-  let formattedText = [] ;
-  content.forEach(function(item) {
-    if (typeof item === 'object') {
-      formattedText.push(<Link
-        style={styleSheet.contactText}
-        src={item.link}
-      >
-        {item.content}
-      </Link>)
+  let formattedText = [];
+  content.forEach(function(contentChunk) {
+    if (typeof contentChunk === "object") {
+      formattedText.push(
+        <Link debug style={styleSheet.inline} src={contentChunk.link}>
+          {contentChunk.content}
+        </Link>
+      );
     } else {
-      formattedText.push(item.content)
+      let words = contentChunk.split(" ");
+      let wordNodes = words.map((word,i) => <Text key={i}>{`${word} `}</Text>)
+      formattedText.push(wordNodes);
     }
   });
 
-  ///Nested Text with Links is not going to work in this versin of react-pdf. 
-  ///I need to either find the error and patch it, or forgo the use of SVG components which is why I'm using the beta and not the current stable version that broke nested text
   return (
-    <React.Fragment>
+    <View>
       <Text style={styleSheet.sectionHeader}>{title}</Text>
-      {formattedText}
-    </React.Fragment>
+      {/* <View style={styleSheet.inlineContainer}>{formattedText}</View> */}
+      <View><Text>testing text whoah<Link src="google.com">whoah here's a link</Link> whoah more text</Text></View>
+    </View>
   );
 }
 
