@@ -2,8 +2,8 @@ import { store } from "@risingstack/react-easy-state";
 
 const appState = store({
   pdfBlob: null,
-  activeTemplate: "modernSimple",
-  templateColor: "#8ED1FC",
+  activeTemplate: "twoColumn",
+  templateColor: "#c5cae9",
   pdfFont: "Merriweather",
   //pdfData is what will render to the final PDF. We seperate this from formData so that we can track new form data onChange, but only re-render the pdf when we have all changed values.
   pdfData: {
@@ -70,16 +70,6 @@ const appState = store({
       { name: "Adobe Certified Expert", date: "2013" }
     ],
     customSections: [
-      {
-        sectionTitle: "Custom Section Title",
-        content: ["Custom Section Content"],
-        htmlString: '<p>Custom Section Content</p>'
-      },
-      {
-        sectionTitle: "Custom Section Title",
-        contentType: "list",
-        content: ["List Item 1", "List Item 2"]
-      }
     ]
   },
   formData: {
@@ -146,17 +136,6 @@ const appState = store({
       { name: "Adobe Certified Expert", date: "2013" }
     ],
     customSections: [
-      {
-        sectionTitle: "Custom Section Title",
-        contentType: "text",
-        content: ["Custom Section Content"],
-        htmlString: '<p>Custom Section Content</p>'
-      },
-      {
-        sectionTitle: "Custom Section Title",
-        contentType: "list",
-        content: ["List Item 1", "List Item 2"]
-      }
     ]
   }
 });

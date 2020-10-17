@@ -2,6 +2,7 @@ import React from "react";
 import { BlockPicker } from "react-color";
 import { Box, Text } from "@chakra-ui/core";
 import FontMenu from "components/fontSelectMenu.js";
+import TemplatePicker from 'components/templatePicker.js';
 import customTheme from "customTheme.js";
 import appState from "appState.js";
 import { view } from "@risingstack/react-easy-state";
@@ -59,6 +60,9 @@ class DesignScreen extends React.Component {
           />
           <Box>
             <FontMenu></FontMenu>
+          </Box>
+          <Box>
+            <TemplatePicker></TemplatePicker>
           </Box>
         </Box>
       </React.Fragment>

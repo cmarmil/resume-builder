@@ -35,8 +35,8 @@ function FontMenu() {
           <MenuItem fontFamily="Roboto" onClick={setFont}>
             Roboto
           </MenuItem>
-          <MenuItem fontFamily="RobotoMono" onClick={setFont}>
-            Roboto Mono
+          <MenuItem fontFamily="SourceCodePro" onClick={setFont}>
+            Source Code Pro
           </MenuItem>
         </MenuList>
       </Menu>

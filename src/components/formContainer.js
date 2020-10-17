@@ -19,7 +19,7 @@ class FormContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.backBtnClick = this.backBtnClick.bind(this);
     this.state = {
-      activeForm: 6,
+      activeForm: 7,
       progress: 15
     };
   }

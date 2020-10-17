@@ -14,8 +14,6 @@ import RobotoReg from "fonts/Roboto/Roboto-Regular.ttf";
 import RobotoBold from "fonts/Roboto/Roboto-Bold.ttf";
 import RobotoItalic from "fonts/Roboto/Roboto-Italic.ttf";
 
-import AlluraReg from 'fonts/Allura-Regular.ttf';
-
 import PlayfairReg from 'fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf';
 import PlayfairBold from 'fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf';
 import PlayfairItalic from 'fonts/PlayfairDisplay/PlayfairDisplay-Italic.ttf';
@@ -24,9 +22,9 @@ import OpenSansReg from 'fonts/Open_Sans/OpenSans-Regular.ttf';
 import OpenSansBold from 'fonts/Open_Sans/OpenSans-Bold.ttf';
 import OpenSansItalic from 'fonts/Open_Sans/OpenSans-Italic.ttf';
 
-import RobotoMonoReg from 'fonts/Roboto_Mono/RobotoMono-Regular.ttf';
-import RobotoMonoBold from 'fonts/Roboto_Mono/RobotoMono-Bold.ttf';
-import RobotoMonoItalic from 'fonts/Roboto_Mono/RobotoMono-Italic.ttf';
+import SourceCodeProReg from 'fonts/Source_Code_Pro/SourceCodeProReg.ttf';
+import SourceCodeProBold from 'fonts/Source_Code_Pro/SourceCodeProBold.ttf';
+import SourceCodeProItalic from 'fonts/Source_Code_Pro/SourceCodeProItalic.ttf';
 
 //this prevents words from breaking with hyphens in the pdf.
 Font.registerHyphenationCallback(word => [word]);
@@ -80,15 +78,13 @@ function registerFont() {
   });
 
   Font.register({
-    family: "RobotoMono",
+    family: "SourceCodePro",
     fonts: [
-      { src: RobotoMonoReg },
-      { src: RobotoMonoBold, fontStyle: "bold" },
-      { src: RobotoMonoItalic, fontStyle: "italic" }
+      { src: SourceCodeProReg },
+      { src: SourceCodeProBold, fontStyle: "bold" },
+      { src: SourceCodeProItalic, fontStyle: "italic" }
     ]
   });
-
-  Font.register({ family: 'Allura', src: AlluraReg, fontStyle: 'normal', fontWeight: 'normal'});
 }
 
 export default registerFont;
