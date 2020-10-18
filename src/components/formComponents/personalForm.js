@@ -79,7 +79,7 @@ const PersonalForm = () => {
             onChange={handleChange}
             mr={"10px"}
             id={"linkedIn"}
-            label={"LinkedIn profile URL (optional)"}
+            label={"LinkedIn URL (optional)"}
             placeholder={"Linkedin.com/your-profile"}
             defaultValue={appState.pdfData.linkedIn}
           ></StyledInput>

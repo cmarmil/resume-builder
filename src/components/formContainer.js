@@ -1,11 +1,13 @@
 import React from "react";
-import PersonalForm from "components/formComponents/personalForm";
-import SummaryForm from "components/formComponents/summaryForm";
-import WorkExpContainer from "components/formComponents/workExpContainer.js";
-import EducationFormContainer from "components/formComponents/educationFormContainer.js";
-import SkillsForm from "components/formComponents/skillsForm.js";
-import CertsFormContainer from "components/formComponents/certsFormContainer.js";
-import CustomSectionContainer from "components/formComponents/customSectionContainer.js";
+import {
+  ExperienceContainer,
+  EducationFormContainer,
+  PersonalForm, 
+  SkillsForm,
+  SummaryForm,
+  CertsFormContainer,
+  CustomSectionContainer
+} from "components/formComponents/formImports.js";
 import { Button, Progress, Box } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
@@ -15,16 +17,13 @@ import DesignScreen from "components/designScreen.js";
 class FormContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.renderActiveForm = this.renderActiveForm.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.backBtnClick = this.backBtnClick.bind(this);
     this.state = {
-      activeForm: 7,
+      activeForm: 0,
       progress: 15
     };
   }
 
-  renderActiveForm() {
+  renderActiveForm = () => {
     switch (this.state.activeForm) {
       case 0:
         return <PersonalForm></PersonalForm>;
@@ -33,7 +32,7 @@ class FormContainer extends React.Component {
       case 2:
         return <SkillsForm></SkillsForm>;
       case 3:
-        return <WorkExpContainer></WorkExpContainer>;
+        return <ExperienceContainer></ExperienceContainer>;
       case 4:
         return <EducationFormContainer></EducationFormContainer>;
       case 5:
@@ -42,12 +41,12 @@ class FormContainer extends React.Component {
         return <CustomSectionContainer></CustomSectionContainer>;
       case 7:
         return <DesignScreen></DesignScreen>;
-      case 8: 
-      return <DownloadScreen></DownloadScreen>
+      case 8:
+        return <DownloadScreen></DownloadScreen>;
     }
-  }
+  };
 
-  handleSubmit() {
+  handleSubmit = () => {
     //merge the current form data with the pdf data to re-render the pdf with new form values.
     appState.pdfData = {
       ...appState.pdfData,
@@ -56,29 +55,21 @@ class FormContainer extends React.Component {
 
     //proceed to next form section
     if (this.state.activeForm < 8) {
-      let currentForm = this.state.activeForm;
-      let nextForm = currentForm + 1;
-      let currentProgress = this.state.progress;
-      let newProgress = currentProgress + 15;
       this.setState({
-        activeForm: nextForm,
-        progress: newProgress
+        activeForm: this.state.activeForm + 1,
+        progress: this.state.progress + 11
       });
     }
-  }
+  };
 
-  backBtnClick() {
+  backBtnClick = () => {
     if (this.state.activeForm >= 1) {
-      let currentForm = this.state.activeForm;
-      let previousForm = currentForm - 1;
-      let currentProgress = this.state.progress;
-      let newProgress = currentProgress - 20;
       this.setState({
-        activeForm: previousForm,
-        progress: newProgress
+        activeForm: this.state.activeForm - 1,
+        progress: this.state.progress - 11
       });
     }
-  }
+  };
 
   render() {
     return (

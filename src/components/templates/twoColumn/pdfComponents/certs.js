@@ -8,19 +8,13 @@ function Certs() {
   return (
     <View style={styleSheet.sideContainer}>
       <Text style={styleSheet.sectionHeader}>Certificates and Liscenses</Text>
-      <View style={styleSheet.certContainer}>
+      <View>
         {appState.pdfData.certsAndLicenses.map((certObj, index) => (
-          <View key={certObj + index} style={styleSheet.certContainer}>
-            <Text
-              key={"certs" + certObj.name + index}
-              style={styleSheet.boldFont}
-            >
+          <View key={certObj + index} style={styleSheet.sectionEntry}>
+            <Text key={certObj.name + index} style={styleSheet.boldFont}>
               {certObj.name}
             </Text>
-            <Text
-              key={"certs" + certObj.date + index}
-              style={styleSheet.certDate}
-            >
+            <Text key={certObj.date + index} style={styleSheet.certDate}>
               {certObj.date}
             </Text>
           </View>

@@ -1,11 +1,13 @@
 import React from "react";
 import { Box } from "@chakra-ui/core";
-import StyledInput from "./styledInput.js";
-import ListEditor from "components/formComponents/listEditor.js";
+import {
+  StyledInput,
+  ListEditor
+} from "components/formComponents/formImports.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 
-const ExpForm = (props) => {
+const ExpForm = props => {
   function handleChange(e) {
     let name = e.target.id;
     let value = e.target.value;
@@ -15,7 +17,7 @@ const ExpForm = (props) => {
   function handleEditorChange(value) {
     appState.formData.workExperience[props.index].description = value;
   }
-  
+
   return (
     <Box p={"20px"}>
       <form id="experience-info-form" className="formBox">
@@ -50,7 +52,9 @@ const ExpForm = (props) => {
         <Box mb={"20px"} d={"flex"}>
           <ListEditor
             isListContent={true}
-            contentItems={appState.pdfData.workExperience[props.index].description}
+            contentItems={
+              appState.pdfData.workExperience[props.index].description
+            }
             handleChange={handleEditorChange}
           ></ListEditor>
         </Box>

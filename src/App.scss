@@ -27,16 +27,20 @@ body {
   min-height: 100%;
 }
 
+.block-picker span div:hover {
+  border: 2px solid #1e88e5;
+}
+
+.block-picker {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+  margin: 0 auto;
+}
+
 .editor {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-
-.formContainer {
-  min-height: calc(100vh - 75px);
-}
-
 .editorContainerPdf {
   height: 100vh;
   overflow: auto;
@@ -52,8 +56,8 @@ body {
   padding-bottom: 20px;
 }
 
-.pageWrapper {
-  width: 100%;
+.formContainer {
+  min-height: calc(100vh - 75px);
 }
 
 .formCard {
@@ -71,6 +75,10 @@ body {
   justify-content: center;
   align-content: center;
   flex-direction: column;
+}
+
+.pageWrapper {
+  width: 100%;
 }
 
 .quillFormLabel {
@@ -103,17 +111,8 @@ body {
   margin: 60px auto;
 }
 
-.block-picker span div:hover {
-  border: 2px solid #1e88e5;
-}
-
-.block-picker {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
-  margin: 0 auto;
-}
-
 .templateButton {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   cursor: pointer;
   position: relative;
 }
@@ -137,5 +136,8 @@ body {
   body,
   html {
     overflow: auto;
+  }
+  .block-picker {
+    width: 100%;
   }
 }

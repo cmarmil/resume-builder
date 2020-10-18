@@ -2,7 +2,7 @@ import { store } from "@risingstack/react-easy-state";
 
 const appState = store({
   pdfBlob: null,
-  activeTemplate: "twoColumn",
+  activeTemplate: "oneColumn",
   templateColor: "#c5cae9",
   pdfFont: "Merriweather",
   //pdfData is what will render to the final PDF. We seperate this from formData so that we can track new form data onChange, but only re-render the pdf when we have all changed values.

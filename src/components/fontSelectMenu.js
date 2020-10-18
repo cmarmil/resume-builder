@@ -7,8 +7,7 @@ import {
   MenuList,
   MenuItem,
   Button,
-  Box,
-  Text
+  Box
 } from "@chakra-ui/core";
 
 function FontMenu() {

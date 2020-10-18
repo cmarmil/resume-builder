@@ -7,16 +7,14 @@ import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 
 class TextEditor extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   makeArrayFromDelta = valueDelta => {
     //check to see if the text item has hyperlink data so that it can be arranged into a data structure that react-pdf can consume.
     let textItems = [];
     valueDelta.forEach(function(item) {
-      if (item.hasOwnProperty("attributes") &&
-        item.attributes.hasOwnProperty("link")) {
+      if (
+        item.hasOwnProperty("attributes") &&
+        item.attributes.hasOwnProperty("link")
+      ) {
         let linkItem = {
           link: item.attributes.link,
           content: item.insert

@@ -12,7 +12,7 @@ function Skills() {
       <View>
       {appState.pdfData.skills.map((skill, index) => (
         <React.Fragment key={index}>
-          <UnorderedListItem key={'skillArray' + skill+ index} style={styleSheet.skill}>{skill}</UnorderedListItem>
+          <UnorderedListItem key={skill+ index} style={styleSheet.skill}>{skill}</UnorderedListItem>
         </React.Fragment> ))}
         </View>
     </View>

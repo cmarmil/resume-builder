@@ -7,7 +7,7 @@ import styleSheet from 'components/templates/oneColumn/styleSheet.js';
 
 function renderBullets(description) {
   return description.map((bullet, index) => (
-    <UnorderedListItem key={'expBullet' + index}>{bullet}</UnorderedListItem>
+    <UnorderedListItem key={'bulletPoint' + index}>{bullet}</UnorderedListItem>
   ));
 }
 function WorkExperience() {

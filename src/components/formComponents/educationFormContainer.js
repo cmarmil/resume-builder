@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Button } from "@chakra-ui/core";
-import FormCard from "components/formComponents/formCard.js";
-import EducationForm from "components/formComponents/educationForm.js";
+import { Box, Button, Text } from "@chakra-ui/core";
+import {EducationForm, FormCard} from "./formImports.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
 
@@ -62,7 +61,7 @@ class EducationFormContainer extends React.Component {
   render() {
     return (
       <Box p={"20px"}>
-        <p className="quillFormLabel">Education</p>
+        <Text className="quillFormLabel">Education</Text>
         {appState.pdfData.education.map((obj, index) => (
           <React.Fragment key={"FormCard " + index.toString()}>
             <FormCard

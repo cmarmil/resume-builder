@@ -22,6 +22,8 @@ const EducationForm = props => {
             placeholder={"Bachelor of Arts"}
             defaultValue={props.formData.degree}
           ></StyledInput>
+        </Box>
+        <Box mb={"20px"} d={"flex"}>
           <StyledInput
             onChange={handleChange}
             mr={"10px"}

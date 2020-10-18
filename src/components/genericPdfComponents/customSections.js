@@ -4,56 +4,67 @@ import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
 import UnorderedListItem from "components/genericPdfComponents/unorderListItem.js";
 
-function renderBullets(description) {
-  return description.map((bullet, index) => (
-    <UnorderedListItem key={"customListBullet" + index}>
-      {bullet}
-    </UnorderedListItem>
-  ));
-}
+class CustomListSection extends React.Component {
+  constructor() {
+    super();
+  }
 
-function renderList(title, content, index, props) {
-  return (
-    <View style={props.styleSheet.section} key={title + index.toString()}>
-      <Text style={props.styleSheet.sectionHeader}>{title}</Text>
-      {renderBullets(content, index)}
-    </View>
-  );
-}
+  renderBullets = (description) => {
+    return description.map((bullet) => (
+      <UnorderedListItem key={bullet}>
+        {bullet}
+      </UnorderedListItem>
+    ));
+  }
 
-function renderText(title, content, props) {
-  let textArray = [];
-  content.forEach(function(contentChunk) {
-    if (typeof contentChunk === "object") {
-      textArray.push(
-        <Link debug style={props.styleSheet.link} src={contentChunk.link}>
-          {contentChunk.content}
-        </Link>
-      );
-    } else {
-      textArray.push(contentChunk)
-    }
-  });
+  renderList = (title, content, index) => {
+    return (
+      <View
+        style={this.props.styleSheet.section}
+        key={'customList' + index}
+      >
+        <Text style={this.props.styleSheet.sectionHeader}>{title}</Text>
+        {this.renderBullets(content, index)}
+      </View>
+    );
+  };
 
-  return (
-    <View style={props.styleSheet.section}>
-      <Text style={props.styleSheet.sectionHeader}>{title}</Text>
-      <Text>{textArray}</Text>
-    </View>
-  );
-}
+  renderText = (title, content, index) => {
+    let textArray = [];
+    content.forEach(function(contentChunk) {
+      if (typeof contentChunk === "object") {
+        textArray.push(
+          <Link
+            debug
+            style={this.props.styleSheet.link}
+            src={contentChunk.link}
+          >
+            {contentChunk.content}
+          </Link>
+        );
+      } else {
+        textArray.push(contentChunk);
+      }
+    });
 
-function CustomListSection(props) {
-  if (appState.pdfData.customSections.length) {
+    return (
+      <View style={this.props.styleSheet.section} key={'customText' + index}>
+        <Text style={this.props.styleSheet.sectionHeader}>{title}</Text>
+        <Text>{textArray}</Text>
+      </View>
+    );
+  };
+
+  render() {
     return (
       <View wrap={false}>
-          {appState.pdfData.customSections.map((obj, index) => {
-            if (obj.contentType === "list") {
-              return renderList(obj.sectionTitle, obj.content, index, props);
-            } else {
-              return renderText(obj.sectionTitle, obj.content, props);
-            }
-          })}
+        {appState.pdfData.customSections.map((obj, index) => {
+          if (obj.contentType === "list") {
+            return this.renderList(obj.sectionTitle, obj.content, index);
+          } else {
+            return this.renderText(obj.sectionTitle, obj.content, index);
+          }
+        })}
       </View>
     );
   }

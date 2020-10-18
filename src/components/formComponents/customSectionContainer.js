@@ -1,8 +1,7 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/core";
-import FormCard from "components/formComponents/formCard.js";
 import { view } from "@risingstack/react-easy-state";
-import CustomSectionForm from "components/formComponents/customSectionForm.js";
+import { FormCard, CustomSectionForm } from "components/formComponents/formImports.js";
 import appState from "appState.js";
 
 class CustomSectionsContainer extends React.Component {

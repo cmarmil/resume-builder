@@ -3,8 +3,6 @@ import { saveAs } from "file-saver";
 import { pdf } from "@react-pdf/renderer";
 import PDFOutput from "components/pdfOutput.js";
 import { Button, Icon} from "@chakra-ui/core";
-import { PDFDocument } from "pdf-lib";
-import commonFunctions from 'commonFunctions.js';
 
 export const DownloadButton = () => (
   <Button

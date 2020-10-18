@@ -31,11 +31,7 @@ function ContactInfoIcons() {
       {appState.pdfData.linkedIn ? (
         <View style={styleSheet.svgFlex}>
           <Image style={styleSheet.icon} src={LinkedInImage}></Image>
-          <Link
-            //link src requires a leading space to parse correctly in react-pdf 2.0
-            src={appState.pdfData.linkedIn}
-            style={styleSheet.contactText}
-          >
+          <Link src={appState.pdfData.linkedIn} style={styleSheet.contactText}>
             {appState.pdfData.linkedIn}
           </Link>
         </View>
@@ -43,10 +39,7 @@ function ContactInfoIcons() {
       {appState.pdfData.website ? (
         <View style={styleSheet.svgFlex}>
           <Image style={styleSheet.icon} src={LaptopImage}></Image>
-          <Link
-            style={styleSheet.contactText}
-            src={appState.pdfData.website}
-          >
+          <Link style={styleSheet.contactText} src={appState.pdfData.website}>
             {appState.pdfData.website}
           </Link>
         </View>
@@ -54,7 +47,9 @@ function ContactInfoIcons() {
       {appState.pdfData.city && appState.pdfData.state ? (
         <View style={styleSheet.svgFlex}>
           <Image style={styleSheet.icon} src={HomeImage}></Image>
-          <Text style={styleSheet.contactText}>{`${appState.pdfData.city}, ${appState.pdfData.state}`}</Text>
+          <Text
+            style={styleSheet.contactText}
+          >{`${appState.pdfData.city}, ${appState.pdfData.state}`}</Text>
         </View>
       ) : null}
     </View>

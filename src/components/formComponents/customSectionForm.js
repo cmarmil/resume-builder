@@ -7,9 +7,11 @@ import {
   MenuButton,
   Button
 } from "@chakra-ui/core";
-import StyledInput from "./styledInput.js";
-import ListEditor from "components/formComponents/listEditor.js";
-import TextEditor from "components/formComponents/textEditor.js";
+import {
+  ListEditor,
+  TextEditor,
+  StyledInput
+} from "components/formComponents/formImports.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 
@@ -17,7 +19,7 @@ class CustomSectionForm extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      editorType: 'text'
+      editorType: "text"
     };
   }
   handleChange = e => {
@@ -31,12 +33,12 @@ class CustomSectionForm extends React.Component {
   };
 
   setTypeList = () => {
-    appState.pdfData.customSections[this.props.index].contentType = 'list';
-  }
+    appState.pdfData.customSections[this.props.index].contentType = "list";
+  };
 
   setTypeText = () => {
-    appState.pdfData.customSections[this.props.index].contentType = 'text';
-  }
+    appState.pdfData.customSections[this.props.index].contentType = "text";
+  };
 
   render() {
     return (
@@ -75,7 +77,9 @@ class CustomSectionForm extends React.Component {
                 contentItems={
                   appState.pdfData.customSections[this.props.index].content
                 }
-                htmlString={appState.pdfData.customSections[this.props.index].htmlString}
+                htmlString={
+                  appState.pdfData.customSections[this.props.index].htmlString
+                }
                 handleChange={this.handleEditorChange}
               ></TextEditor>
             )}

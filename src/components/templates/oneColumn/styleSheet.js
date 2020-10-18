@@ -1,53 +1,6 @@
 import { StyleSheet } from "@react-pdf/renderer";
-import { wrap } from "module";
 
-const styleSheet = {
-  headerPadding: {
-    paddingLeft: 25,
-    paddingRight: 25,
-    paddingTop: 20,
-    paddingBottom: 10
-  },
-  mainSections: {
-    paddingLeft: 25,
-    paddingRight: 25,
-    paddingBottom: 10,
-    paddingTop: 10,
-    fontSize: 13
-  },
-  section: {
-    paddingBottom: 5,
-    paddingTop: 6
-  },
-  nameInfo: {
-    flexDirection: "column",
-    fontSize: 40,
-    fontStyle: 'bold'
-  },
-  contactInfo: {
-    flexDirection: "column",
-    textAlign: "left",
-    marginBottom: 3,
-    fontStyle: "bold"
-  },
-  profession: {
-    marginBottom: 10,
-    fontSize: 30
-  },
-  sectionHeader: {
-    textDecoration: "underline",
-    marginBottom: 3,
-    fontSize: 18,
-  },
-  svgFlex: {
-    flexDirection: "row",
-    textAlign: "left",
-    paddingBottom: 5
-  },
-  icon: {
-    marginRight: 7,
-    width: '20px'
-  },
+const styleSheet = StyleSheet.create({
   companyDates: {
     textAlign: "right",
     width: "50%",
@@ -65,22 +18,68 @@ const styleSheet = {
   contactText: {
     //this is a little anal but the svg alignment is just a hair off in the render.
     marginTop: 2,
-    color: 'black',
+    color: "black"
   },
-  link: {
-    color: 'black',
-    textDecoration: 'none'
-  },
-  slash: {
-    marginRight: 4,
-    marginLeft: 4
-  },
-  jobTitle: {
+  contactInfo: {
+    flexDirection: "column",
+    textAlign: "left",
+    marginBottom: 3,
     fontStyle: "bold"
   },
   educationTitle: {
     fontStyle: "bold"
+  },
+  headerPadding: {
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 20,
+    paddingBottom: 10
+  },
+  icon: {
+    marginRight: 7,
+    width: "20px"
+  },
+  link: {
+    color: "black",
+    textDecoration: "none"
+  },
+  jobTitle: {
+    fontStyle: "bold"
+  },
+  mainSections: {
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: 10,
+    paddingTop: 10,
+    fontSize: 13
+  },
+  nameInfo: {
+    flexDirection: "column",
+    fontSize: 40,
+    fontStyle: "bold"
+  },
+  profession: {
+    marginBottom: 10,
+    fontSize: 30
+  },
+  section: {
+    paddingBottom: 5,
+    paddingTop: 6
+  },
+  sectionHeader: {
+    textDecoration: "underline",
+    marginBottom: 3,
+    fontSize: 18
+  },
+  svgFlex: {
+    flexDirection: "row",
+    textAlign: "left",
+    paddingBottom: 5
+  },
+  slash: {
+    marginRight: 4,
+    marginLeft: 4
   }
-};
+});
 
 export default styleSheet;

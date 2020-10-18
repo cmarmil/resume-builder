@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/core";
-import FormCard from "components/formComponents/formCard.js";
-import CertsForm from "components/formComponents/certsForm.js";
+import { FormCard, CertsForm } from "components/formComponents/formImports.js";
 import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 

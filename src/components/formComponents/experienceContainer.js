@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/core";
-import FormCard from "components/formComponents/formCard.js";
+import {
+  FormCard,
+  ExperienceForm
+} from "components/formComponents/formImports.js";
 import { view } from "@risingstack/react-easy-state";
-import ExperienceForm from "components/formComponents/experienceForm.js";
 import appState from "appState.js";
 
 class WorkExpContainer extends React.Component {
@@ -68,7 +70,7 @@ class WorkExpContainer extends React.Component {
         {appState.pdfData.workExperience.map((expObj, index) => (
           <React.Fragment key={"FormCard " + index}>
             <FormCard
-            key={"FormCard " + expObj.jobTitle}
+              key={"FormCard " + expObj.jobTitle}
               setActive={this.setActiveJob}
               delete={this.deleteJob}
               index={index}
