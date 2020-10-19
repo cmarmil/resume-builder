@@ -7,6 +7,7 @@ import customTheme from "customTheme.js";
 import registerFonts from "components/fontRegister";
 import "App.scss";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import GithubCorner from 'react-github-corner';
 
 class App extends React.Component {
   async componentDidMount() {
@@ -18,6 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <ThemeProvider theme={customTheme}>
+      <GithubCorner href="https://github.com/cmarmil/resume-builder" bannerColor="#3949AB" size="70"/>
         <CSSReset />
         <div className="App">
           <div className="editor">

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, IconButton, Text } from "@chakra-ui/core";
 import { view } from "@risingstack/react-easy-state";
 
-const FormCard = (props) => {
+const FormCard = props => {
   return (
     <Box
       className="formCard"
@@ -23,11 +23,17 @@ const FormCard = (props) => {
           aria-label="Edit"
           icon="edit"
           onClick={() => props.setActive(props.index)}
+          aria-label={`Edit ${props.cardTitle}`}
         />
-        <IconButton  onClick={(e) => props.delete(e, props.index)}aria-label="Delete" icon="delete" />
+        <IconButton
+          onClick={e => props.delete(e, props.index)}
+          aria-label="Delete"
+          icon="delete"
+          aria-label={`Delete ${props.cardTitle}`}
+        />
       </Box>
     </Box>
   );
-}
+};
 
 export default view(FormCard);

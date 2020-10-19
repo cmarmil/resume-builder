@@ -6,14 +6,17 @@ import appState from "appState.js";
 
 const SkillsForm = () => {
   function handleChange(value) {
-   appState.formData.skills = value;
+    appState.formData.skills = value;
   }
   return (
     <Box p={"20px"}>
-      <p className="quillFormLabel">Personal Skills List</p>
       <form id="skills-form" className="formBox">
         <Box mb={"20px"} d={"flex"}>
-          <ListEditor isListContent={true} contentItems={appState.pdfData.skills} handleChange={handleChange}></ListEditor>
+          <ListEditor
+            isListContent={true}
+            contentItems={appState.pdfData.skills}
+            handleChange={handleChange}
+          ></ListEditor>
         </Box>
       </form>
     </Box>

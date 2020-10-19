@@ -63,7 +63,6 @@ class CustomSectionForm extends React.Component {
               </MenuList>
             </Menu>
           </Box>
-          <p className="quillFormLabel">Custom Section Content</p>
           <Box mb={"20px"} d={"flex"}>
             {this.props.formData.contentType === "list" ? (
               <ListEditor

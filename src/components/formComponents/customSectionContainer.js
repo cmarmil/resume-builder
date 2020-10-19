@@ -61,7 +61,6 @@ class CustomSectionsContainer extends React.Component {
   render() {
     return (
       <Box p={"20px"}>
-        <p className="quillFormLabel">Custom Sections</p>
         {appState.pdfData.customSections.map((obj, index) => (
           <React.Fragment key={"FormCard " + index}>
             <FormCard

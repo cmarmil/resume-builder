@@ -14,22 +14,24 @@ function TemplatePicker() {
     <React.Fragment>
       <Text>Template Style: </Text>
       <Box d="flex" mb="1em" justifyContent="center">
-        <Image
-          tabIndex="0"
-          onClick={() => changeTemplate("oneColumn")}
-          className="templateButton"
+        <Box
+          as="button"
           w="40%"
           m="1em"
-          src={OneColImage}
-        ></Image>
-        <Image
-          tabIndex="0"
+          className="templateButton"
+          onClick={() => changeTemplate("oneColumn")}
+        >
+          <Image src={OneColImage} alt="One Column Template Image"></Image>
+        </Box>
+        <Box
+          as="button"
+          w="40%"
+          m="1em"
           onClick={() => changeTemplate("twoColumn")}
           className="templateButton"
-          w="40%"
-          m="1em"
-          src={TwoColImage}
-        ></Image>
+        >
+          <Image src={TwoColImage} alt="Two Column Template Image"></Image>
+        </Box>
       </Box>
     </React.Fragment>
   );

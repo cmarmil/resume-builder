@@ -30,6 +30,7 @@ const StyledInput = props => {
         id={props.id}
         placeholder={props.placeholder}
         defaultValue={props.defaultValue}
+        aria-label={props.label}
       />
     </Box>
   );

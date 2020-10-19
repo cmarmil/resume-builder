@@ -4,7 +4,7 @@ import { view } from "@risingstack/react-easy-state";
 import appState from "appState";
 import UnorderedListItem from "components/genericPdfComponents/unorderListItem.js";
 
-class CustomListSection extends React.Component {
+class CustomSections extends React.Component {
   constructor(props) {
     super();
   }
@@ -31,7 +31,7 @@ class CustomListSection extends React.Component {
 
   renderText = (title, content, index) => {
     let textArray = [];
-    content.forEach(function(contentChunk) {
+    content.forEach((contentChunk) => {
       if (typeof contentChunk === "object") {
         textArray.push(
           <Link
@@ -70,4 +70,4 @@ class CustomListSection extends React.Component {
   }
 }
 
-export default view(CustomListSection);
+export default view(CustomSections);

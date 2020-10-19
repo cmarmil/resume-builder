@@ -28,6 +28,7 @@ const StyledTextArea = props => {
         onChange={props.onChange}
         id={props.id}
         defaultValue={props.value}
+        aria-label={props.label}
       />
     </Box>
   );

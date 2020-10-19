@@ -9,7 +9,6 @@ function DesignScreen() {
   return (
     <React.Fragment>
       <Box>
-        <Text ml="2em" mt="2em" className="quillFormLabel">Design</Text>
         <Text m="1em">Theme Color:</Text>
         <ColorPicker></ColorPicker>
         <Box>

@@ -48,7 +48,6 @@ const ExpForm = props => {
             defaultValue={props.formData.dates}
           ></StyledInput>
         </Box>
-        <p className="quillFormLabel">Job Description</p>
         <Box mb={"20px"} d={"flex"}>
           <ListEditor
             isListContent={true}

@@ -61,7 +61,6 @@ class EducationFormContainer extends React.Component {
   render() {
     return (
       <Box p={"20px"}>
-        <Text className="quillFormLabel">Education</Text>
         {appState.pdfData.education.map((obj, index) => (
           <React.Fragment key={"FormCard " + index.toString()}>
             <FormCard

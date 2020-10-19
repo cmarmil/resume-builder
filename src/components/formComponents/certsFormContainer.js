@@ -59,7 +59,6 @@ class CertsFormContainer extends React.Component {
   render() {
     return (
       <Box p={"20px"}>
-        <p className="quillFormLabel">Certifications and Licenses</p>
         {appState.pdfData.certsAndLicenses.map((obj, index) => (
           <React.Fragment key={"certCard" + index}>
             <FormCard
