@@ -2,7 +2,7 @@ import React from "react";
 import {
   ExperienceContainer,
   EducationFormContainer,
-  PersonalForm, 
+  PersonalForm,
   SkillsForm,
   SummaryForm,
   CertsFormContainer,
@@ -13,6 +13,7 @@ import { view } from "@risingstack/react-easy-state";
 import appState from "appState.js";
 import DownloadScreen from "./downloadScreen";
 import DesignScreen from "components/designScreen.js";
+import FormTitle from "./formTitle.js";
 
 class FormContainer extends React.Component {
   constructor(props) {
@@ -74,21 +75,23 @@ class FormContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <FormTitle activeFormIndex={this.state.activeForm}></FormTitle>
         <Progress
+          flexShrink="0"
           hasStripe
           size="lg"
           value={this.state.progress}
-          color="blue"
+          color="indigo"
         />
         <Box className="formContainer">{this.renderActiveForm()}</Box>
         <Box className="nextPrevButtons">
           {this.state.activeForm > 0 ? (
-            <Button variantColor="blue" mr="10px" onClick={this.backBtnClick}>
+            <Button variantColor="indigo" mr="10px" onClick={this.backBtnClick}>
               Back
             </Button>
           ) : null}
           {this.state.activeForm < 8 ? (
-            <Button onClick={this.handleSubmit} variantColor="blue">
+            <Button onClick={this.handleSubmit} variantColor="indigo">
               Next
             </Button>
           ) : null}

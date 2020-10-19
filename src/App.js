@@ -14,7 +14,6 @@ class App extends React.Component {
     //react-pdf will crash without this
     pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   }
-  
 
   render() {
     return (

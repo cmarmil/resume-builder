@@ -5,7 +5,7 @@ import appState from "appState";
 import UnorderedListItem from "components/genericPdfComponents/unorderListItem.js";
 
 class CustomListSection extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
   }
 

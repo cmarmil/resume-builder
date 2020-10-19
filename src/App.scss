@@ -41,6 +41,7 @@ body {
   flex-direction: row;
   justify-content: center;
 }
+
 .editorContainerPdf {
   height: 100vh;
   overflow: auto;
@@ -54,10 +55,12 @@ body {
   position: relative;
   height: 100vh;
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .formContainer {
-  min-height: calc(100vh - 75px);
+  flex: 1;
 }
 
 .formCard {
@@ -119,6 +122,10 @@ body {
 
 .templateButton:hover {
   top: -10px;
+}
+
+.downloadButton:hover {
+background-image: linear-gradient(90deg, rgba(194,24,91,1) 0%, rgba(57,73,171,1) 88%)!important;
 }
 
 @media (max-width: 768px) {

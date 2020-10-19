@@ -34,7 +34,7 @@ function TemplateOutput() {
         </View>
         <Education></Education>
         <Certs></Certs>
-        <CustomSections style={styleSheet}></CustomSections>
+        <CustomSections styleSheet={styleSheet}></CustomSections>
       </View>
     </Page>
   );

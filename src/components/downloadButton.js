@@ -2,11 +2,12 @@ import React from "react";
 import { saveAs } from "file-saver";
 import { pdf } from "@react-pdf/renderer";
 import PDFOutput from "components/pdfOutput.js";
-import { Button, Icon} from "@chakra-ui/core";
+import { Button, Icon, PseudoBox} from "@chakra-ui/core";
 
 export const DownloadButton = () => (
   <Button
-    variantColor='blue'
+    className="downloadButton"
+    variantColor='indigo'
     onClick={async () => {
       //workaround for a toBlob bug in @react-pdf V2 beta. Awaiting a fix.
       const doc = <PDFOutput />;
