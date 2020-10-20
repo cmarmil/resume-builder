@@ -13,10 +13,10 @@ function renderBullets(description) {
 
 function WorkExperience() {
   return (
-    <View style={styleSheet.mainSection}>
+    <View style={styleSheet.section}>
       <Text style={[styleSheet.mainSectionHeader, {backgroundColor: appState.templateColor, fontSize: appState.fontSizes.twoColumn.sectionHeader}]}>Work Experience</Text>
       {appState.pdfData.workExperience.map((workExp, index) => (
-        <React.Fragment key={index}>
+        <View key={index} style={styleSheet.section}>
           <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>
           <View style={styleSheet.companyInfo}>
             <Text style={styleSheet.companyName}>
@@ -25,7 +25,7 @@ function WorkExperience() {
             <Text style={styleSheet.companyDates}>{workExp.dates}</Text>
           </View>
           {renderBullets(workExp.description)}
-        </React.Fragment>
+        </View>
       ))}
     </View>
   );

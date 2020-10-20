@@ -9,7 +9,7 @@ const appState = store({
     oneColumn: {
       headerName: 40,
       headerProfession: 30,
-      body: 13,
+      body: 12,
       sectionHeader: 18 
     },
     twoColumn: {

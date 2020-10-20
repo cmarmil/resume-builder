@@ -70,9 +70,9 @@ const styleSheet = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5
   },
-  mainSection: {
-    marginTop: 10,
-    marginBottom: 10
+  section: {
+    marginTop: 5,
+    marginBottom: 5
   },
   sideContainer: {
     marginBottom: 15

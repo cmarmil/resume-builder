@@ -16,7 +16,7 @@ function WorkExperience() {
       <View style={styleSheet.section}>
         <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.oneColumn.sectionHeader}]}>Work Experience</Text>
         {appState.pdfData.workExperience.map((workExp, index) => (
-          <View key={index} wrap={false}>
+          <View key={index} wrap={false} style={styleSheet.section}>
             <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>
             <View style={styleSheet.companyInfo}>
               <Text style={styleSheet.companyName}>

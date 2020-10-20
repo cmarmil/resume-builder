@@ -23,7 +23,7 @@ class CustomSections extends React.Component {
         style={this.props.styleSheet.section}
         key={'customList' + index}
       >
-        <Text style={this.props.styleSheet.sectionHeader}>{title}</Text>
+        <Text style={[this.props.styleSheet.sectionHeader, {fontSize: appState.fontSizes[appState.activeTemplate].sectionHeader}]}>{title}</Text>
         {this.renderBullets(content, index)}
       </View>
     );
@@ -49,7 +49,7 @@ class CustomSections extends React.Component {
 
     return (
       <View style={this.props.styleSheet.section} key={'customText' + index}>
-        <Text style={this.props.styleSheet.sectionHeader}>{title}</Text>
+        <Text style={[this.props.styleSheet.sectionHeader, {fontSize: appState.fontSizes[appState.activeTemplate].sectionHeader}]}>{title}</Text>
         <Text>{textArray}</Text>
       </View>
     );
