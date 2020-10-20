@@ -13,10 +13,10 @@ function renderBullets(description) {
 function WorkExperience() {
   if (appState.pdfData.workExperience.length) {
     return (
-      <View style={styleSheet.section}>
+      <View>
         <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.oneColumn.sectionHeader}]}>Work Experience</Text>
         {appState.pdfData.workExperience.map((workExp, index) => (
-          <View key={index} wrap={false} style={styleSheet.section}>
+          <View key={index} style={styleSheet.jobSection}>
             <Text style={styleSheet.jobTitle}>{workExp.jobTitle}</Text>
             <View style={styleSheet.companyInfo}>
               <Text style={styleSheet.companyName}>

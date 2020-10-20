@@ -7,7 +7,7 @@ import styleSheet from "components/templates/oneColumn/styleSheet.js";
 function Education() {
   if (appState.pdfData.education.length) {
     return (
-      <View style={styleSheet.sideContainer} wrap={false}>
+      <View style={styleSheet.section} wrap={false}>
         <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.oneColumn.sectionHeader}]}>Education</Text>
         <View>
           {appState.pdfData.education.map(eduObj => (

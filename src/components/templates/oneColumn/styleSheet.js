@@ -17,7 +17,7 @@ const styleSheet = StyleSheet.create({
   },
   contactText: {
     //this is a little anal but the svg alignment is just a hair off in the render.
-    marginTop: 2,
+    marginTop: 3,
     color: "black"
   },
   contactInfo: {
@@ -60,8 +60,10 @@ const styleSheet = StyleSheet.create({
     marginBottom: 10
   },
   section: {
-    paddingBottom: 5,
-    paddingTop: 6
+    paddingBottom: 10
+  },
+  jobSection: {
+    paddingBottom: 5
   },
   sectionHeader: {
     textDecoration: "underline",

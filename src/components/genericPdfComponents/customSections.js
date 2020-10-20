@@ -35,7 +35,7 @@ class CustomSections extends React.Component {
       if (typeof contentChunk === "object") {
         textArray.push(
           <Link
-            debug
+            key={contentChunk.link}
             style={this.props.styleSheet.link}
             src={contentChunk.link}
           >
