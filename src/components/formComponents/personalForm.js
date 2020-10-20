@@ -20,14 +20,14 @@ const PersonalForm = () => {
             id={"fName"}
             label={"First Name"}
             placeholder={"Jessica"}
-            defaultValue={appState.formData.fName}
+            defaultValue={appState.pdfData.fName}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
             id={"lName"}
             label={"Last Name"}
             placeholder={"Williams"}
-            defaultValue={appState.formData.lName}
+            defaultValue={appState.pdfData.lName}
           ></StyledInput>
         </Box>
         <StyledInput
@@ -36,7 +36,7 @@ const PersonalForm = () => {
           id={"profession"}
           label={"Profession Title"}
           placeholder={"Web Developer"}
-          defaultValue={appState.formData.profession}
+          defaultValue={appState.pdfData.profession}
         ></StyledInput>
         <Box mb={"20px"} d={"flex"}>
           <StyledInput
@@ -45,14 +45,14 @@ const PersonalForm = () => {
             id={"city"}
             label={"City"}
             placeholder={"Madison"}
-            defaultValue={appState.formData.city}
+            defaultValue={appState.pdfData.city}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
             id={"state"}
             label={"State/Province"}
             placeholder={"WI"}
-            defaultValue={appState.formData.state}
+            defaultValue={appState.pdfData.state}
           ></StyledInput>
         </Box>
 
@@ -63,7 +63,7 @@ const PersonalForm = () => {
             id={"phoneNumber"}
             label={"Phone Number"}
             placeholder={"(123)-456-789"}
-            defaultValue={appState.formData.phoneNumber}
+            defaultValue={appState.pdfData.phoneNumber}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
@@ -71,7 +71,7 @@ const PersonalForm = () => {
             id={"email"}
             label={"Email"}
             placeholder={"email@email.com"}
-            defaultValue={appState.formData.email}
+            defaultValue={appState.pdfData.email}
           ></StyledInput>
         </Box>
         <Box mb={"20px"} d={"flex"}>
@@ -81,14 +81,14 @@ const PersonalForm = () => {
             id={"linkedIn"}
             label={"LinkedIn URL (optional)"}
             placeholder={"Linkedin.com/your-profile"}
-            defaultValue={appState.formData.linkedIn}
+            defaultValue={appState.pdfData.linkedIn}
           ></StyledInput>
           <StyledInput
             onChange={handleChange}
             id={"website"}
             label={"Website URL (optional)"}
             placeholder={"yourWebsite.com"}
-            defaultValue={appState.formData.website}
+            defaultValue={appState.pdfData.website}
           ></StyledInput>
         </Box>
       </form>
