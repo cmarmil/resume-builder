@@ -19,7 +19,7 @@ class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeForm: 7,
+      activeForm: 0,
       progress: 15
     };
   }
@@ -49,10 +49,10 @@ class FormContainer extends React.Component {
 
   handleSubmit = () => {
     //merge the current form data with the pdf data to re-render the pdf with new form values.
-      appState.pdfData = {
-        ...appState.pdfData,
-        ...appState.formData
-      };
+    appState.pdfData = {
+      ...appState.pdfData,
+      ...appState.formData
+    };
 
     //proceed to next form section
     if (this.state.activeForm < 8) {
