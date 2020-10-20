@@ -84,7 +84,7 @@ class FormContainer extends React.Component {
           color="indigo"
         />
         <Box className="formContainer">{this.renderActiveForm()}</Box>
-        <Box className="nextPrevButtons">
+        <Box className="nextPrevButtons" pb="20px">
           {this.state.activeForm > 0 ? (
             <Button variantColor="indigo" mr="10px" onClick={this.backBtnClick}>
               Back
