@@ -8,7 +8,7 @@ import UnorderedListItem from "components/genericPdfComponents/unorderListItem.j
 function Skills() {
   return (
     <View style={styleSheet.sideContainer}>
-      <Text style={styleSheet.sectionHeader}>Skills</Text>
+      <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.twoColumn.sectionHeader}]}>Skills</Text>
       <View>
       {appState.pdfData.skills.map((skill, index) => (
         <React.Fragment key={index}>

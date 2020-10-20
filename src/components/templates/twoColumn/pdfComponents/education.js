@@ -8,7 +8,7 @@ function Education() {
   if (appState.pdfData.education.length) {
     return (
       <View style={styleSheet.sideContainer}>
-        <Text style={styleSheet.sectionHeader}>Education</Text>
+        <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.twoColumn.sectionHeader}]}>Education</Text>
         {appState.pdfData.education.map(eduObj => (
           <View key={eduObj.schoolName} style={styleSheet.sectionEntry}>
             <Text key={eduObj.degree} style={styleSheet.boldFont}>

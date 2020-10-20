@@ -19,7 +19,8 @@ function TemplateOutput() {
     <Page
       size="A4"
       style={{
-        fontFamily: appState.pdfFont
+        fontFamily: appState.pdfFont,
+        fontSize: appState.fontSizes.oneColumn.body
       }}
     >
       <View style={{ backgroundColor: appState.templateColor }}>

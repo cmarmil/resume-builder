@@ -8,7 +8,7 @@ function Certs() {
   if (appState.pdfData.certsAndLicenses.length) {
     return (
       <View style={styleSheet.section} wrap={false}>
-        <Text style={styleSheet.sectionHeader}>
+        <Text style={[styleSheet.sectionHeader, , {fontSize: appState.fontSizes.oneColumn.sectionHeader}]}>
           Certifications and Licenses
         </Text>
         <View>

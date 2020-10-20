@@ -50,17 +50,14 @@ const styleSheet = StyleSheet.create({
     paddingLeft: 25,
     paddingRight: 25,
     paddingBottom: 10,
-    paddingTop: 10,
-    fontSize: 13
+    paddingTop: 10
   },
   nameInfo: {
     flexDirection: "column",
-    fontSize: 40,
     fontStyle: "bold"
   },
   profession: {
-    marginBottom: 10,
-    fontSize: 30
+    marginBottom: 10
   },
   section: {
     paddingBottom: 5,
@@ -68,8 +65,7 @@ const styleSheet = StyleSheet.create({
   },
   sectionHeader: {
     textDecoration: "underline",
-    marginBottom: 3,
-    fontSize: 18
+    marginBottom: 3
   },
   svgFlex: {
     flexDirection: "row",

@@ -8,7 +8,7 @@ function Summary() {
   if (appState.pdfData.summary) {
     return (
       <View style={styleSheet.section}>
-        <Text style={styleSheet.sectionHeader}>Summary</Text>
+        <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.oneColumn.sectionHeader}]}>Summary</Text>
         <Text>{appState.pdfData.summary}</Text>
       </View>
     );

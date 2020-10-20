@@ -7,7 +7,6 @@ import {
   MenuList,
   MenuItem,
   Button,
-  Box
 } from "@chakra-ui/core";
 
 function FontMenu() {
@@ -16,7 +15,6 @@ function FontMenu() {
     appState.pdfFont = fontName;
   }
   return (
-    <Box d="flex" p="20px" alignItems="center">
       <Menu>
         <MenuButton w="100%" as={Button} rightIcon="chevron-down">
           Font Family
@@ -39,7 +37,6 @@ function FontMenu() {
           </MenuItem>
         </MenuList>
       </Menu>
-    </Box>
   );
 }
 

@@ -7,7 +7,7 @@ import styleSheet from 'components/templates/twoColumn/styleSheet.js';
 function Summary() {
   return (
     <View style={styleSheet.section}>
-      <Text style={[styleSheet.mainSectionHeader, {backgroundColor: appState.templateColor}]}>Summary</Text>
+      <Text style={[styleSheet.mainSectionHeader, {backgroundColor: appState.templateColor, fontSize: appState.fontSizes.twoColumn.sectionHeader}]}>Summary</Text>
       <Text>{appState.pdfData.summary}</Text>
     </View>
   );

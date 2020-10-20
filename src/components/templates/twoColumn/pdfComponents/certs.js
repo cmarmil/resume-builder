@@ -8,7 +8,7 @@ function Certs() {
   if (appState.pdfData.certsAndLicenses.length) {
     return (
       <View style={styleSheet.sideContainer}>
-        <Text style={styleSheet.sectionHeader}>Certificates and Liscenses</Text>
+        <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.twoColumn.sectionHeader}]}>Certificates and Liscenses</Text>
         <View>
           {appState.pdfData.certsAndLicenses.map((certObj, index) => (
             <View key={certObj + index} style={styleSheet.sectionEntry}>

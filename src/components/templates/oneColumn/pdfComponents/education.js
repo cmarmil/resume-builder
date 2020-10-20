@@ -8,7 +8,7 @@ function Education() {
   if (appState.pdfData.education.length) {
     return (
       <View style={styleSheet.sideContainer} wrap={false}>
-        <Text style={styleSheet.sectionHeader}>Education</Text>
+        <Text style={[styleSheet.sectionHeader, {fontSize: appState.fontSizes.oneColumn.sectionHeader}]}>Education</Text>
         <View>
           {appState.pdfData.education.map(eduObj => (
             <React.Fragment key={eduObj.schoolName}>

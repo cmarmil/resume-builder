@@ -5,6 +5,20 @@ const appState = store({
   activeTemplate: "oneColumn",
   templateColor: "#c5cae9",
   pdfFont: "Merriweather",
+  fontSizes: {
+    oneColumn: {
+      headerName: 40,
+      headerProfession: 30,
+      body: 13,
+      sectionHeader: 18 
+    },
+    twoColumn: {
+      headerName: 40,
+      headerProfession: 25, 
+      body: 13, 
+      sectionHeader: 16
+    }
+  },
   //pdfData is what will render to the final PDF. We seperate this from formData so that we can track new form data onChange, but only re-render the pdf when we have all changed values.
   pdfData: {
     fName: "Jessica",

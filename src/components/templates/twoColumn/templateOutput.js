@@ -18,7 +18,7 @@ function templateOutput() {
   return (
     <Page
       size="A4"
-      style={{ fontFamily: appState.pdfFont, fontSize: 13, paddingRight: 15 }}
+      style={{ fontFamily: appState.pdfFont, fontSize: appState.fontSizes.twoColumn.body, paddingRight: 15 }}
     >
       <View style={styleSheet.colContainer}>
         <View
