@@ -6,7 +6,7 @@ import PhoneImage from "assets/phone.png";
 import EmailImage from "assets/email.png";
 import LinkedInImage from "assets/linkedin.png";
 import LaptopImage from "assets/laptop.png";
-import HomeImage from "assets/home.png";
+import LocationImage from "assets/location.png";
 import styleSheet from "components/templates/oneColumn/styleSheet.js";
 
 //Icons sourced from https://materialdesignicons.com/
@@ -46,9 +46,9 @@ function ContactInfoIcons() {
       ) : null}
       {appState.pdfData.city && appState.pdfData.state ? (
         <View style={styleSheet.svgFlex}>
-          <Image style={styleSheet.icon} src={HomeImage}></Image>
+          <Image style={styleSheet.icon} src={LocationImage}></Image>
           <Text
-            style={styleSheet.contactText}
+            style={[styleSheet.contactText, {marginTop: '5px'}]}
           >{`${appState.pdfData.city}, ${appState.pdfData.state}`}</Text>
         </View>
       ) : null}
